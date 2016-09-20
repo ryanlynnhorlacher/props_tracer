@@ -11,3 +11,6 @@ class CustomersController < ApplicationController
   def update
   end
 end
+
+
+# This is comment in the NewBranch.
