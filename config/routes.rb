@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  resources :customers do 
+    resources :estimates, shallow: true
+  end
 
-	 get '*unmatched_route'
+  resources :materials do 
+    resources :heights, shallow: true
+    resources :gate_types, shallow: true
+  end
+
 end
