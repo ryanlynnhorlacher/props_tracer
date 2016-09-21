@@ -1,25 +1,41 @@
 class HeightsController < ApplicationController
+  before_action :set_heights, only: [:show, :update, :destroy]
+
   def index
-  	render json: Height_types.all.order(created_at: :desc)
+    render json: material.height
   end
 
   def show
-  	render json: @height_types.id 
+    render json: @height
   end
 
   def create
-  	height_types = Height_types.new(estimate_params)
-  	if height_types.save
-  		render json: height 
-  	else
-  		render json: {errors: height.errors}, status: 401
-  	end!
+    customer = material.height.new(height_params)
+    if height.save
+      render json: height 
+    else
+      render json: {errors: height_type.errors}, status: 401
+    end
   end
 
   def update
-  	if @height.update(height_params)
+    if @height.update(height_params)
       render json: @height
     else
       render json: {errors: @height.errors}, status: 401
   end
+
+  def destroy
+    @height.destroy
+    render json: { message: 'Height Deleted!' }
+  end
+
+  private
+    def set_height
+      @height = material.height.find(params[:id])
+    end
+
+    def height_params
+      params.require(:height).permit(:price_per_foot, :name)
+    end
 end
