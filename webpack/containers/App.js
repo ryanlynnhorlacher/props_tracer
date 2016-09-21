@@ -30,11 +30,8 @@ const mapStateToProps = (state) => {
 		return {
 			auth: state.auth.isAuthenticated
 		}
-	else 
+	else
 		return state
 }
 
 export default connect(mapStateToProps)(App);
-
- 
-
