@@ -230,7 +230,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
-  dotenv
   dotenv-rails
   factory_girl_rails
   faker
