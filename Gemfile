@@ -32,6 +32,7 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'webpack-rails-react'
 gem 'paperclip'
+gem 'dotenv'
 
 
 group :development, :test do
