@@ -34,7 +34,7 @@ gem 'webpack-rails-react'
 gem 'paperclip'
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 gem 'gmaps4rails'
-gem 'underscore-rails'
+gem 'underscore-rails' 
 
 
 group :development, :test do
