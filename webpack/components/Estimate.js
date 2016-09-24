@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FenceChoices from './FenceChoices'
 
 class Estimate extends Component {
 	constructor(props) {
@@ -6,12 +7,13 @@ class Estimate extends Component {
 		this.state = null
 	}
 
-	
+
 
 	render() {
 		return(
 			<div>
 				<h1>This is the Estimate</h1>
+				<FenceChoices />
 			</div>
 		)
 	}
