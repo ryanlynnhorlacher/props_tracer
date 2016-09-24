@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 import { handleLogout } from './auth/actions';
 import { connect } from 'react-redux';
+
+let linkClass = 'red'
 
 class Nav extends Component {
 	constructor(props) {
 		super(props);
 		this.logout = this.logout.bind(this)
 	}
+
 
 	logout(e) {
 		e.preventDefault();
@@ -18,14 +21,14 @@ class Nav extends Component {
 		if(this.props.auth) {
 			return (
 				[
-					<li key='auth-link-0'><Link to='/admin'>Admin</Link></li>,
-					<li key='auth-link-1'><Link to='/user/update'>Update</Link></li>,
+					<li key='auth-link-0'><Link to='admin' activeClassName={linkClass}>Admin</Link></li>,
+					<li key='auth-link-1'><Link to='user/update' activeClassName={linkClass}>Update</Link></li>,
 					<li key='auth-link-2'><a href='#' onClick={this.logout}>Logout</a></li>
 
 				]
 			)
 		} else {
-			return(<li><Link to='/login'>Login</Link></li>);
+			return(<li><Link to='/login' activeClassName={linkClass}>Login</Link></li>);
 		}
 	}
 
@@ -37,11 +40,11 @@ class Nav extends Component {
 						<div className='nav-wrapper'>
 							{/*<Link to='/' className='brand-logo'>Redux Rails Auth</Link>*/}
 							<ul id='nav-mobile' className='right'>
-								<li><Link to='/'>Map</Link></li>
-								<li><Link to='/estimate'>Estimate</Link></li>
-								<li><Link to='/fences'>Fences</Link></li>
-								<li><Link to='/about'>About</Link></li>
-								<li><Link to='/contact'>Contact Us</Link></li>
+								<li><IndexLink to='/' activeClassName={linkClass}>Map</IndexLink></li>
+								<li><Link to='estimate' activeClassName={linkClass}>Estimate</Link></li>
+								<li><Link to='fences' activeClassName={linkClass}>Fences</Link></li>
+								<li><Link to='about' activeClassName={linkClass}>About</Link></li>
+								<li><Link to='/contact' activeClassName={linkClass}>Contact Us</Link></li>
 								{ this.authLink() }
 							</ul>
 						</div>
@@ -52,5 +55,7 @@ class Nav extends Component {
 	}
 
 }
-export default connect()(Nav);
+export default connect(null, null, null, {
+  pure: false
+})(Nav);
 

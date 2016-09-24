@@ -5,15 +5,22 @@ class UpdateUser extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { error: false, redirectRoute: '/', user: []}
+    this.state = { error: false, redirectRoute: '/', user: {}}
   }
 
   componentWillMount() {
         $.ajax({
-          url: '/user',
+          url: '/users/edit',
           type: 'GET',
-
-        })
+          dataType: 'JSON'
+        }).done( user => {
+          console.log(user)
+          console.log('user retrieved')
+          {this.state.user = user}
+        }).fail( data => {
+          console.log('retrieval failed')
+          console.log(data)
+        });
   }
 
   handleSubmit(e) {

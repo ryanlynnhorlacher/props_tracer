@@ -32,6 +32,8 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'webpack-rails-react'
 gem 'paperclip'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 
 group :development, :test do
