@@ -34,7 +34,6 @@ export default (
 	   <Route path='/admin' component={UserIsAuthenticated(Admin)} />
 	   <Route path='/signup' component={Signup} />
 	   <Route path='/user/update' component={UpdateUser} />
-
 	   <Route path="*" status={404} component={NoMatch} />
     </Route>
   </Route>

@@ -20,3 +20,5 @@
 /public/webpack
 
 .env
+.DS_Store
+.log

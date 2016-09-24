@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, IndexLink } from 'react-router'
 import { handleLogout } from './auth/actions';
 import { connect } from 'react-redux';
+import logoImage from '../images/logo.png';
 
 let linkClass = 'red'
 
@@ -37,7 +38,8 @@ class Nav extends Component {
 			<header>
 				<div className='navbar-fixed'>
 					<nav>
-						<div className='nav-wrapper'>
+						<div className='nav-color nav-wrapper'>
+							<img src={logoImage} />
 							{/*<Link to='/' className='brand-logo'>Redux Rails Auth</Link>*/}
 							<ul id='nav-mobile' className='right'>
 								<li><IndexLink to='/' activeClassName={linkClass}>Map</IndexLink></li>

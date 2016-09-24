@@ -1,1 +1,53 @@
 @import 'materialize';
+
+html {
+	background-color: #A8C0DD;
+}
+
+body {
+	color: #525252;
+}
+
+.text-bg {
+	background-color: #EAE6DB;
+}
+
+.inline {
+	display: inline;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.card {
+	padding: 15px;
+}
+
+.profile {
+	padding-top: 15px;
+}
+
+.nav-color {
+	background-color: #848484;
+}
+
+/*
+
+Button Color: (needs to be added)
+#B2B0AA lighter
+
+Nav Color:
+#848484	darker
+
+Background Color:
+#A8C0DD	blue 
+
+Text Color:
+#525252 darkest 
+
+Div with text background color:
+#EAE6DB lightest 
+
+*/
+
