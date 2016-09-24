@@ -21,13 +21,14 @@ const UserIsAuthenticated = UserAuthWrapper({
 	wrapperDisplayName: 'UserIsAuthenticated'
 });
 
+
 export default (
   <Route>
     <Route path="/" component={App} >
 	   <IndexRoute component={Map} />
-	   <Route path='/estimate' component={Estimate} />
-	   <Route path='/fences' component={Fences} />
-	   <Route path='/about' component={About} />
+	   <Route path='estimate' component={Estimate} />
+	   <Route path='fences' component={Fences} />
+	   <Route path='about' component={About} />
 	   <Route path='/contact' component={ContactUs} />
 	   <Route path='/login' component={Login} />
 	   <Route path='/admin' component={UserIsAuthenticated(Admin)} />
@@ -38,4 +39,5 @@ export default (
     </Route>
   </Route>
 )
+
 
