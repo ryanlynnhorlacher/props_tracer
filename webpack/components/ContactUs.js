@@ -24,6 +24,7 @@ class ContactUs extends Component {
 			alert('Contact Us Sent Successfully!');
 			this.props.history.push('/');
 		}).fail(data => {
+			alert('Failed to send request!')
 			console.log(data);
 		});
 	}
