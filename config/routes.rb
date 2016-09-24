@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :gate_types, shallow: true
   end
 
+  post 'contact_us', to: 'contact#create'
+
   get '*unmatched_route', to: 'home#index'
 
 end
