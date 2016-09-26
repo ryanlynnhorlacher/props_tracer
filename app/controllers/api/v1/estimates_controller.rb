@@ -36,6 +36,6 @@ class EstimatesController < ApplicationController
 
     def estimate_params
     	params.require(:estimate).permit(:location, :distance, 
-    												:final_price, :fence_material, :fence_hight, :gate_count)
+    												:final_price, :fence_material, :fence_height, :gate_count)
     end
 end
