@@ -7,7 +7,7 @@ class UpdateUser extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = { error: false, redirectRoute: '/', user: {}}
   }
-
+ 
   componentWillMount() {
         $.ajax({
           url: '/users/edit',
@@ -45,17 +45,19 @@ class UpdateUser extends React.Component {
   render() {
     return (
       <div>
-        <h3>Update Profile</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input ref="firstName" required placeholder="First Name" />
-          <input ref="lastName" required placeholder="Last Name" />
-          <input ref="email" required placeholder="Email" />
-          <input ref="phoneNumber" placeholder="Phone Number" />
-          <input ref="role" placeholder="Role!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
-          <input ref="password" type="password" placeholder="New Password" />
-          <input ref='currentPassword' type='password' required placeholder='Current Password' />
-          <button type="submit" className="btn">Update</button>
-        </form>
+        <h3 className="center">Update Profile</h3>
+        <div className="container text-bg round center">
+          <form onSubmit={this.handleSubmit}>
+            <input ref="firstName" required placeholder="First Name" />
+            <input ref="lastName" required placeholder="Last Name" />
+            <input ref="email" required placeholder="Email" />
+            <input ref="phoneNumber" placeholder="Phone Number" />
+            <input ref="role" placeholder="Role!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+            <input ref="password" type="password" placeholder="New Password" />
+            <input ref='currentPassword' type='password' required placeholder='Current Password' />
+            <button type="submit" className="btn center">Update</button>
+          </form>
+        </div>
       </div>
     )
   }

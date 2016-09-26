@@ -8,12 +8,33 @@ body {
 	color: #525252;
 }
 
+.signup a {
+	color: #B2B0AA;
+	text-shadow: 0 0 3px black;
+}
+
 .text-bg {
+	padding: 15px;
 	background-color: #EAE6DB;
 }
 
-.inline {
-	display: inline;
+.round {	
+	border-radius: 10px;
+}
+
+.btn-center {
+	margin: 0 auto;
+}
+
+.contactbox {
+	width: 35vw;
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.block {
+	display: inline-block;
 }
 
 .underline {
@@ -24,9 +45,14 @@ body {
 	padding: 15px;
 }
 
+.top-pad {
+	margin-top: 30px;
+}
+
 .profile {
 	padding-top: 15px;
-	height: 17vh;
+	height: 20vh;
+	width: 50vh;
 }
 
 .nav-color {

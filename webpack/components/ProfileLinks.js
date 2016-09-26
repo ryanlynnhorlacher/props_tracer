@@ -21,11 +21,24 @@ class ProfileLinks extends Component {
 	}
 
 	render() {
-
-
 		return(
-			<div className="row">
-					{ people }
+			<div>
+				<div className="row">
+					<div className="col s5 profile">	
+						{ people[0] }
+					</div>
+					<div className="col s5 offset-s2 profile">	
+						{ people[1] }
+					</div>
+				</div>
+				<div className="row">
+					<div className="col s5 profile">	
+						{ people[2] }
+					</div>
+					<div className="col s5 offset-s2 profile">	
+						{ people[3] }
+					</div>
+				</div>
 			</div>
 		)
 	}

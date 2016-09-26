@@ -20,7 +20,7 @@ class About extends Component {
 			<div className="container center">
 				<h1 className="center">About This Project</h1>
 				<div className="row">
-        	<div className="card s12 text-bg">
+        	<div className="card s12 text-bg round">
 						<span className="flow-text center">
 							<h5>Prop Tracer</h5>
 							<p> Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah 

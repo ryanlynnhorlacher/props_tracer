@@ -25,13 +25,15 @@ class Login extends React.Component {
 	render() {
 		return(
 			<div>
-				<h3>Login</h3>
-				<form onSubmit={this.handleSubmit}>
-					<input ref='email' required placeholder='Email' />
-					<input ref='password' required placeholder='Password' type='password' />
-					<button className='btn' type='submit'>Login</button>
-				</form>
-				<Link to='/signup'>Sign up</Link>
+				<h3 className="center">Login</h3>
+				<div className="container text-bg round center">
+					<form onSubmit={this.handleSubmit}>
+						<input ref='email' required placeholder='Email' />
+						<input ref='password' required placeholder='Password' type='password' />
+						<button className='btn' type='submit'>Login</button>
+					</form>
+				</div>
+				<h3 className="center signup"><Link to='/signup'>Sign up</Link></h3>
 			</div>
 		)
 	}

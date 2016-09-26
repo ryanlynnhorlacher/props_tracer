@@ -44,22 +44,39 @@ class ContactUs extends Component {
 // }
   render() {
     return (
-      <form ref='contactForm' onSubmit={this.handleSubmit}>
-        
-        <label>Name</label>
-        <input type="text" ref='name' />
+    	<div>
+	    	<h1 className="center"> Contact Us</h1>
 
-        <label>Email</label>
-        <input type="text" ref='email' />
+	    	<div className="container text-bg round">
+		      <form ref='contactForm' onSubmit={this.handleSubmit}>
+		        
+		        <label>Name</label>
+		        <input type="text" ref='name' />
 
-        <label>Phone</label>
-        <input type="text" ref='phone' />
+		        <label>Email</label>
+		        <input type="text" ref='email' />
 
-        <label>Comment</label>
-        <input type='text' ref='comment' />
+		        <label>Phone</label>
+		        <input type="text" ref='phone' />
 
-        <button type='submit' className='btn'>Submit</button> 
-      </form>
+		        <label>Comment</label>
+		        <input type='text' ref='comment' />
+
+		        <button type='submit' className='btn btn-center'>Submit</button> 
+		      </form>
+	    	</div>
+				<div className="row">
+        	<div className="card contactbox s12 text-bg round">
+						<span className="flow-text center">
+							
+							<h5>PropTracer@gmail.com</h5>
+							<h5>801-810-9673</h5>
+							PO BOX #555<br />
+							Salt Lake City, UT, 84105
+						</span>
+					</div>
+				</div>
+	    </div>
     );
   }
 }
