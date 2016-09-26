@@ -1,4 +1,4 @@
-class GateTypesController < ApplicationController
+class Api::V1::GateTypesController < ApplicationController
   before_action :set_gatetype, only: [:show, :update, :destroy]
 
   def index

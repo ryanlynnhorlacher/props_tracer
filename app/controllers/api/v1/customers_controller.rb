@@ -1,8 +1,8 @@
-class CustomersController < ApplicationController
+class Api::V1::CustomersController < ApplicationController
 	before_action :set_customer, only: [:show, :update, :destroy]
 
   def index
-  	render json: current_user.customers
+  	render json: Customer.all
   end
 
   def show
@@ -23,6 +23,7 @@ class CustomersController < ApplicationController
       render json: @customer
     else
       render json: {errors: @customer.errors}, status: 401
+    end
   end
 
   def destroy
@@ -32,7 +33,7 @@ class CustomersController < ApplicationController
 
   private
     def set_customer
-      @customer = current_user.customers.find(params[:id])
+      @customer = Customer.find(params[:id])
     end
 
     def customer_params

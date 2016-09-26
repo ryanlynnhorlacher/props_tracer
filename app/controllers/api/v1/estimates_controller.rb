@@ -1,8 +1,9 @@
-class EstimatesController < ApplicationController
- before_action :set_customer, only: [:show, :update, :destroy]
+class Api::V1::EstimatesController < ApplicationController
+ before_action :set_customer, only: [:index, :create]
+ before_action :set_estimate, only: [:show, :update, :destroy]
 
   def index
-  	render json: customers.estimates
+  	render json: @customer.estimates
   end
 
   def show
@@ -10,7 +11,7 @@ class EstimatesController < ApplicationController
   end
 
   def create
-  	estimate = customer.estimate.new(estimate_params)
+  	estimate = @customer.estimates.new(estimate_params)
   	if estimate.save
   		render json: estimate 
   	else
@@ -23,15 +24,21 @@ class EstimatesController < ApplicationController
       render json: @estimate
     else
       render json: {errors: @estimate.errors}, status: 401
+    end
   end
+  
   def destroy
-  	@customer.destroy
+  	@estimate.destroy
   	render json: { message: 'Estimate Removed!' }
   end
 
   private
     def set_estimate
-      @estimate = current_customer.estimate.find(params[:id])
+      @estimate = Estimate.find(params[:id])
+    end
+
+    def set_customer
+      @customer = Customer.find(params[:customer_id])
     end
 
     def estimate_params

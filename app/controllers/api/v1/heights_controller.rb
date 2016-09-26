@@ -1,4 +1,4 @@
-class HeightsController < ApplicationController
+class Api::V1::HeightsController < ApplicationController
   before_action :set_heights, only: [:show, :update, :destroy]
 
   def index
