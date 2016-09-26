@@ -9,7 +9,8 @@ const styles = {
 let coords = []
 let x = 0
 let handler
-let polylines
+let polyline
+let polylines = []
 
 class Map extends Component {
 	constructor(props) {
@@ -17,9 +18,28 @@ class Map extends Component {
 		this.calcLength = this.calcLength.bind(this);
 		this.state = { length: 0 }
 	}
+
+	drawLines(e, handler, coords) {
+		if (polyline) {
+		polyline[0].setMap() }
+      	coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
+		polyline = handler.addPolylines(
+	    [coords], { strokeColor: '#FF0000'}
+	  	)
+	}
+
+	undoLine(handler, coords) {
+		polyline[0].setMap(null)
+		polylines.pop();
+	    coords.pop();
+		polyline = handler.addPolylines(
+	    	[coords], { strokeColor: '#FF0000'}
+	    )
+	}
+
 	componentDidMount() {
 		handler = Gmaps.build('Google');
-		handler.buildMap({
+		let map = handler.buildMap({
 		    provider: {
 		      disableDefaultUI: true,
 		      center: {lat: 40.610805, lng: -111.930653},
@@ -29,32 +49,10 @@ class Map extends Component {
 		    internal: {
 		      id: 'map'
 		    }
-		},
-		  	function(){
-		  		handler.getMap().addListener('click', function(e) {
-		    		coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
-				    polylines = handler.addPolylines(
-				        [
-				          coords
-				        ],
-				        { strokeColor: '#FF0000'}
-				    );
-	    		})		    
-		  	}
-		);
-	}
-
-	undo() {
-		console.log(coords)
-		coords.pop();
-		console.log(coords)
-		polylines = handler.addPolylines(
-		    [		          
-		    coords
-	        ],
-	        { strokeColor: '#FF0000'}
-		);
-
+		},() => { handler.getMap().addListener('click', (e) => {
+	      	this.drawLines(e, handler, coords)
+			})
+		});
 	}
 
 	distance(lat1, lon1, lat2, lon2, unit) {
@@ -85,7 +83,7 @@ class Map extends Component {
 			<div style={styles.map}>
   				<div id="map" style={styles.map}></div>
   				<button onClick={this.calcLength}>Calc</button>
-  				<button onClick={this.undo}>Undo</button>
+  				<button onClick={() => this.undoLine(handler, coords, polylines)}>Undo</button>
   				<div ref='displayLength'>{this.state.length}</div>
 			</div>
 		)
