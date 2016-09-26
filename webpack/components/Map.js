@@ -10,7 +10,7 @@ let coords = []
 let x = 0
 let handler
 let polyline
-let polylines = []
+let startPoint
 
 class Map extends Component {
 	constructor(props) {
@@ -19,22 +19,33 @@ class Map extends Component {
 		this.state = { length: 0 }
 	}
 
-	drawLines(e, handler, coords) {
-		if (polyline) {
-		polyline[0].setMap() }
+	drawLines(e) {
+
       	coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
-		polyline = handler.addPolylines(
-	    [coords], { strokeColor: '#FF0000'}
-	  	)
+		if (polyline)
+			polyline[0].setMap(null)
+		if (startPoint) {
+			polyline = handler.addPolylines(
+		    [coords], { strokeColor: '#FF0000'}
+		  	) 
+		}
+	  	else {
+	  		startPoint = handler.addMarkers([
+	  			{lat: e.latLng.lat(), lng: e.latLng.lng() }
+	  		])
+	  	}
 	}
 
-	undoLine(handler, coords) {
+	undoLine() {
 		polyline[0].setMap(null)
-		polylines.pop();
-	    coords.pop();
-		polyline = handler.addPolylines(
-	    	[coords], { strokeColor: '#FF0000'}
-	    )
+		coords.pop()
+		if (coords.length === 0 ) {
+			startPoint[0].setMap(null)
+			startPoint = null
+		} else {
+			polyline = handler.addPolylines(
+	    	[coords], { strokeColor: '#FF0000'})
+		}
 	}
 
 	componentDidMount() {
@@ -50,7 +61,7 @@ class Map extends Component {
 		      id: 'map'
 		    }
 		},() => { handler.getMap().addListener('click', (e) => {
-	      	this.drawLines(e, handler, coords)
+	      	this.drawLines(e)
 			})
 		});
 	}
@@ -83,7 +94,7 @@ class Map extends Component {
 			<div style={styles.map}>
   				<div id="map" style={styles.map}></div>
   				<button onClick={this.calcLength}>Calc</button>
-  				<button onClick={() => this.undoLine(handler, coords, polylines)}>Undo</button>
+  				<button onClick={() => this.undoLine()}>Undo</button>
   				<div ref='displayLength'>{this.state.length}</div>
 			</div>
 		)
