@@ -26,10 +26,17 @@ class ProfileLink extends Component {
 		}
 		else {
 			return(
+<<<<<<< 5219e1923e0233794804d84f002eefc5be85bbb8
 			<div className="profile block purple round card" onMouseLeave={ this.changeDisplay }>
 				<a className="top-pad" target="_blank" href={ this.state.person.linkedin }><img src={linkedInImage} /></a><br />
 				<a target="_blank" href={ this.state.person.github }><img src={githubImage} /></a><br />
 				<a href={ this.state.person.email } target="_top"><strong className="white-text">{ this.state.person.email }</strong></a>
+=======
+			<div className="profile purple card col s5 offset-s2" onMouseLeave={ this.changeDisplay }>
+				<a href={ this.state.person.linkedin }><img src={linkedInImage} /></a><br />
+				<a href={ this.state.person.github }><img src={githubImage} /></a><br />
+				<strong className="white-text">{ this.state.person.email }</strong>
+>>>>>>> profile link component finished needs styled
 			</div>
 		)
 		}
