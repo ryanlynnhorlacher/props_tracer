@@ -35,7 +35,7 @@ class SideMenu extends Component {
 	render() {
 		return (
 			<div>
-				<a href="#" data-activates="slide-out" className="hide-on-large-only button-collapse">Menu</a>
+				<a href="#" data-activates="slide-out" className="hide-on-large-only button-collapse"><i className="material-icons">menu</i></a>
 				<ul id="slide-out" className="side-nav">
 					<img src={logoImage} />
 					<li><IndexLink to='/' className='col m5' activeClassName={linkClass}>Map</IndexLink></li>

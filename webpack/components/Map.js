@@ -34,7 +34,6 @@ class Map extends Component {
 	  			{lat: e.latLng.lat(), lng: e.latLng.lng() }
 	  		])
 	  	}
-	  	debugger
 	}
 
 	undoLine() {
@@ -92,11 +91,31 @@ class Map extends Component {
 
 	render() {
 		return(
-			<div style={styles.map}>
-  				<div id="map" style={styles.map}></div>
-  				<button onClick={this.calcLength}>Calc</button>
-  				<button onClick={() => this.undoLine()}>Undo</button>
-  				<div ref='displayLength'>{this.state.length}</div>
+			<div>
+
+			<div>
+				<h2 className='center'>HOW TO USE:</h2>
+			</div>
+
+			<div className='card col s12 center text-bg round'>
+				Spicy jalapeno bacon ipsum dolor amet kevin biltong picanha shankle. 
+				Brisket ham hock shank chuck. Prosciutto salami drumstick, bresaola 
+				pork chop doner turkey pork loin pork belly brisket porchetta sausage
+				 kevin. Andouille ham hock rump boudin biltong sirloin short loin chicken
+				  turducken. Turkey ribeye beef, pork t-bone venison burgdoggen kielbasa 
+				  pastrami jerky filet mignon. Shank porchetta jowl landjaeger cow sirloin 
+				  alcatra doner bresaola ground round picanha pancetta.
+			</div>
+
+				<div className="center light-gray round map-pad">
+					<div className="map-div" style={styles.map}>
+	  					<div id="map" style={styles.map}></div>
+					</div>
+	  					<button onClick={this.calcLength}>Calc</button>
+	  					<button onClick={() => this.undoLine()}>Undo</button>
+	  					<div ref='displayLength'>{this.state.length}</div>
+				</div>
+			
 			</div>
 		)
 	}
