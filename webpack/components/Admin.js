@@ -22,7 +22,6 @@ class Admin extends Component {
 	}
 
 	displayCustomers() {
-		let 
 	}
 
 
