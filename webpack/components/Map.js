@@ -17,10 +17,10 @@ class Map extends Component {
 		super(props);
 		this.calcLength = this.calcLength.bind(this);
 		this.state = { length: 0 }
+		let fences = []
 	}
 
 	drawLines(e) {
-
       	coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
 		if (polyline)
 			polyline[0].setMap(null)
@@ -34,6 +34,7 @@ class Map extends Component {
 	  			{lat: e.latLng.lat(), lng: e.latLng.lng() }
 	  		])
 	  	}
+	  	debugger
 	}
 
 	undoLine() {

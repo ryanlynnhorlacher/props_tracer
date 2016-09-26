@@ -3,6 +3,7 @@ import { Link, IndexLink } from 'react-router'
 import { handleLogout } from './auth/actions';
 import { connect } from 'react-redux';
 import logoImage from '../images/logo.png';
+import SideMenu from './SideMenu'
 
 let linkClass = 'red'
 
@@ -11,7 +12,6 @@ class Nav extends Component {
 		super(props);
 		this.logout = this.logout.bind(this)
 	}
-
 
 	logout(e) {
 		e.preventDefault();
@@ -22,14 +22,13 @@ class Nav extends Component {
 		if(this.props.auth) {
 			return (
 				[
-					<li key='auth-link-0'><Link to='admin' activeClassName={linkClass}>Admin</Link></li>,
-					<li key='auth-link-1'><Link to='user/update' activeClassName={linkClass}>Update</Link></li>,
-					<li key='auth-link-2'><a href='#' onClick={this.logout}>Logout</a></li>
+					<li key='auth-link-0'><Link to='admin' className='hide-on-med-and-down' activeClassName={linkClass}>Admin</Link></li>,
+					<li key='auth-link-2'><a href='#' className='hide-on-med-and-down' onClick={this.logout}>Logout</a></li>
 
 				]
 			)
 		} else {
-			return(<li><Link to='/login' activeClassName={linkClass}>Login</Link></li>);
+			return(<li><Link to='/login' className='hide-on-med-and-down' activeClassName={linkClass}>Login</Link></li>);
 		}
 	}
 
@@ -40,13 +39,13 @@ class Nav extends Component {
 					<nav>
 						<div className='nav-color nav-wrapper'>
 							<img src={logoImage} />
-							{/*<Link to='/' className='brand-logo'>Redux Rails Auth</Link>*/}
 							<ul id='nav-mobile' className='right'>
-								<li><IndexLink to='/' activeClassName={linkClass}>Map</IndexLink></li>
-								<li><Link to='estimate' activeClassName={linkClass}>Estimate</Link></li>
-								<li><Link to='fences' activeClassName={linkClass}>Fences</Link></li>
-								<li><Link to='about' activeClassName={linkClass}>About</Link></li>
-								<li><Link to='/contact' activeClassName={linkClass}>Contact Us</Link></li>
+								<SideMenu logout={this.logout} auth={this.props.auth} />
+								<li><IndexLink to='/' className='hide-on-med-and-down' activeClassName={linkClass}>Map</IndexLink></li>
+								<li><Link to='estimate' className='hide-on-med-and-down' activeClassName={linkClass}>Estimate</Link></li>
+								<li><Link to='fences' className='hide-on-med-and-down' activeClassName={linkClass}>Fences</Link></li>
+								<li><Link to='about' className='hide-on-med-and-down' activeClassName={linkClass}>About</Link></li>
+								<li><Link to='/contact' className='hide-on-med-and-down' activeClassName={linkClass}>Contact Us</Link></li>
 								{ this.authLink() }
 							</ul>
 						</div>
