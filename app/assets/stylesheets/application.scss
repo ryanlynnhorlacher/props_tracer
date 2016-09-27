@@ -45,10 +45,14 @@ body {
 	padding: 15px;
 }
 
+
 .profile {
-	padding-top: 15px;
-	height: 20vh;
-	width: 50vh;
+	margin: 0 auto;
+	height: 100px;
+}
+
+.profile-content {
+	display: block;
 }
 
 .nav-color {
@@ -71,8 +75,20 @@ body {
 	background-color: #B2B0AA;
 }
 
-/*
+.top-pad {
+	padding-top: 15px;
+}
 
+.profile-name-box, h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	padding-top: 19px;
+	padding-bottom: 19px;
+}
+
+/*
 Button Color: (needs to be added)
 #B2B0AA lighter
 

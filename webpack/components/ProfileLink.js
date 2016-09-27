@@ -18,20 +18,25 @@ class ProfileLink extends Component {
 	contents() {
 		if(this.state.displayName === true) { 
 			return (
-				<div className="profile block purple valign-wrapper round card" onMouseEnter={ this.changeDisplay }>
-					<img className="left inline" height="100vh" width="100vw" />
-					<h4 className="inline valign white-text">{ this.state.person.name }</h4><br />
+				<div className="col m6 s12 profile center round" onMouseEnter={ this.changeDisplay }>
+					<div className='purple round'>
+						<h4 className="white-text profile-name-box">{ this.state.person.name }</h4>
+					</div>
 				</div>
 			)		
 		}
 		else {
 			return(
-				<div className="profile block purple round card" onMouseLeave={ this.changeDisplay }>
-					<a className="top-pad" target="_blank" href={ this.state.person.linkedin }><img src={linkedInImage} /></a><br />
-					<a target="_blank" href={ this.state.person.github }><img src={githubImage} /></a><br />
-					<a href={ this.state.person.email } target="_top"><strong className="white-text">{ this.state.person.email }</strong></a>
+			<div className="col m6 s12 profile no-marg center round" onMouseLeave={ this.changeDisplay }>
+				<div className='purple round'>	
+					<a className="" target="_blank" href={ this.state.person.linkedin }><img src={linkedInImage} /></a>
+					<br />
+					<a className="" target="_blank" href={ this.state.person.github }><img src={githubImage} /></a>
+					<br />
+					<a className="" href={ this.state.person.email } target="_top"><strong className="white-text">{ this.state.person.email }</strong></a>			
 				</div>
-		)
+			</div>
+			)
 		}
 	}
 	render() {

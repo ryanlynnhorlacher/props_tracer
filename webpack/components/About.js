@@ -17,7 +17,7 @@ class About extends Component {
 
 	render() {
 		return(
-			<div className="container center">
+			<div className="center">
 				<h1 className="center">About This Project</h1>
 				<div className="row">
         	<div className="card s12 text-bg round">
@@ -29,11 +29,11 @@ class About extends Component {
 						</span>
 					</div>
 				</div>
-				<div className="center">
+			
+				<div className="row center">
 					<h2>Our Team</h2>
+					<ProfileLinks showProfileLinks={this.showProfileLinks} links={this.state.links} />
 				</div>
-
-				<ProfileLinks showProfileLinks={this.showProfileLinks} links={this.state.links} />
 
 		  	<div className="card-small center">
 					<a href="http://www.devpointlabs.com"><img src={devPointLabsImage} /></a>  
@@ -42,6 +42,6 @@ class About extends Component {
 		 </div>
 		)
 	}
-
+ 
 }
 export default About;
