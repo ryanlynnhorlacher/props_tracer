@@ -16,7 +16,6 @@ class Admin extends Component {
 			dataType: 'JSON'
 		}).done( customers => {
 			this.setState({ customers: [...customers] });
-			console.log('success!')
 		}).fail( data => {
 			console.log('failed')
 			console.log(data)

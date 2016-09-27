@@ -13,10 +13,8 @@ class Customer extends Component {
 	 	type: 'GET',
 	 	dataType: 'JSON'
 	 }).done( customer => {
-	 	console.log(customer)
 	 	this.setState({customer: { estimates: customer.customer.estimates, id: customer.customer.id, 
 	 		name: customer.customer.name, email: customer.customer.email}})
-	 	console.log(this.state)
 	 }).fail(data => {
 	 	console.log(data)
 	 })
@@ -27,7 +25,7 @@ class Customer extends Component {
 			return(
 				<div key={`${estimate.id}`}>
 					<li>Location: {estimate.location}</li>
-					<li>Estimated Price: {estimate.finalPrice}</li>
+					<li>Estimated Price: ${estimate.finalPrice}</li>
 					<li>Gate Count: {estimate.gateCount}</li>
 				</div>
 			)
