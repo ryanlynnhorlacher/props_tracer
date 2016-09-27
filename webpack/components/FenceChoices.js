@@ -9,10 +9,26 @@ class FenceChoices extends React.Component {
   }
 
   replaceMaterialChoice(material){
-    this.setState({material})
+    this.setState({material}, () => {
+      this.materialCase();
+    });
+  }
+
+  materialCase(){
     switch (this.state.material) {
       case "Vinyl":
-        console.log("vinyl");
+        return(
+          <div>
+            <a className='dropdown-button btn' ref="vinylHeight" data-activates='dropdown1'>{this.state.vinylHeight}</a>
+            <ul id='dropdown1' ref="vinylHeights" className='dropdown-content' >
+              <li><a ref='vinyl4ft' onClick={() => {this.replaceHeight(this.refs.vinyl4ft.text)}}>4 Ft</a></li>
+              <li className="divider"></li>
+              <li><a ref='vinyl6ft' onClick={() => {this.replaceHeight(this.refs.vinyl6ft.text)}}>6 Ft</a></li>
+              <li className="divider"></li>
+              <li><a ref='vinyl8ft' onClick={() => {this.replaceHeight(this.refs.vinyl8ft.text)}}>8 Ft</a></li>
+            </ul>
+          </div>
+      )
         break;
       case "Wood":
         console.log("Wood");
