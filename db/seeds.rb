@@ -23,4 +23,6 @@ end
 	['4', '6', '8', '10'].each do |height|
 		fence_height = Height.create(name: height, price_per_foot: [10,20,30].sample, material_id: material.id)
 	end
+
+	gate = GateType.create(gate_price: [10.00, 20.00, 30.00].sample, width: [5, 10, 15].sample, style: ["single", "double", "fancy"].sample, material_id: material.id)
 end
