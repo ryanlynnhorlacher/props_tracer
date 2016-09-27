@@ -12,7 +12,9 @@ import { handleLogout } from './components/auth/actions';
 import ContactUs from './components/ContactUs';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import UpdateUser from './components/auth/UpdateUser'
+import UpdateUser from './components/auth/UpdateUser';
+import Customer from './components/Customer';
+
 
 const UserIsAuthenticated = UserAuthWrapper({
 	authSelector: state => state.auth,
@@ -33,6 +35,7 @@ export default (
 	   <Route path='/login' component={Login} />
 	   <Route path='/admin' component={UserIsAuthenticated(Admin)} />
 	   <Route path='/signup' component={Signup} />
+	   <Route path='/customers/:id' component={Customer} />
 	   <Route path='/user/update' component={UpdateUser} />
 	   <Route path="*" status={404} component={NoMatch} />
     </Route>

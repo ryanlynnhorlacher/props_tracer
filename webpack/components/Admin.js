@@ -4,42 +4,41 @@ import { Link } from 'react-router';
 class Admin extends Component {
 	constructor(props) {
 		super(props);
+		this.displayCustomers = this.displayCustomers.bind(this);
 
-		this.state = { customers: null }
+		this.state = { customers: [] }
 	}
 
 	componentWillMount() { 
 		$.ajax({
-			url: 'api/v1/customers',
+			url: '/api/v1/customers',
 			type: 'GET',
 			dataType: 'JSON'
 		}).done( customers => {
-			this.setState({ customers });
-
+			this.setState({ customers: [...customers] });
+			console.log('success!')
 		}).fail( data => {
+			console.log('failed')
 			console.log(data)
 		})
 	}
 
 	displayCustomers() {
+		let customers = this.state.customers.map( customer => {
+			return(
+				<li key={customer.id}><Link to={`/customers/${customer.id}`}>{customer.name}</Link></li>
+			)
+		})
+		return customers
 	}
-
-
-
-
-
-
-
-
-
 
 
 	render() {
 		return(
 			<div>
-				<h3>Admin</h3>
-				<p>You are logged in!</p>
-				<Link to='user/update'>Update Profile</Link>
+				<ul>
+					{this.displayCustomers()}
+				</ul>
 			</div>
 		)
 	}

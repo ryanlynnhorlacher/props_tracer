@@ -1,12 +1,13 @@
 class Api::V1::CustomersController < ApplicationController
 	before_action :set_customer, only: [:show, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  protect_from_forgery with: :null_session
 
   def index
   	render json: Customer.all
   end
 
   def show
-  	render json: @customer
   end
 
   def create
