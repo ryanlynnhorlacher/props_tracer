@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+10.times do 
+	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, 
+	email: Faker::Internet.email, password: 'password', 
+	phone_number: Faker::PhoneNumber.cell_phone, role: 'Salesman')
+
+	5.times do 
+		customer = Customer.create(name: Faker::Name.name, email: Faker::Internet.email, 
+		phone_number: Faker::PhoneNumber.cell_phone, user_id: user.id )
+
+		3.times do
+			Estimate.create(location: Faker::Address.street_address, 
+			distance: Faker::Number.number(3),
+			final_price: Faker::Number.number(4), 
+			fence_material: ['Vinyl', 'Wood', 'Iron', 'Chain Link'].sample,
+			fence_height: [4, 6, 8, 10].sample, gate_count: [0, 1, 2, 3].sample,
+			customer_id: customer.id)
+		end
+	end
+end
+

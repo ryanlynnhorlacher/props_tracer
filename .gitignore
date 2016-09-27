@@ -18,3 +18,8 @@
 # Added by webpack-rails
 /node_modules
 /public/webpack
+
+.env
+.DS_Store
+.log
+webpack/.DS_Store

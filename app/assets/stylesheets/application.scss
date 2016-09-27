@@ -1,1 +1,92 @@
 @import 'materialize';
+
+html {
+	background-color: #A8C0DD;
+}
+
+body {
+	color: #525252;
+}
+
+.signup a {
+	color: #B2B0AA;
+	text-shadow: 0 0 3px black;
+}
+
+.text-bg {
+	padding: 15px;
+	background-color: #EAE6DB;
+}
+
+.round {	
+	border-radius: 10px;
+}
+
+.btn-center {
+	margin: 0 auto;
+}
+
+.contactbox {
+	width: 35vw;
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.block {
+	display: inline-block;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.card {
+	padding: 15px;
+}
+
+.profile {
+	padding-top: 15px;
+	height: 20vh;
+	width: 50vh;
+}
+
+.nav-color {
+	background-color: #848484;
+}
+
+.side-nav {
+	background-color: #B2B0AA;
+}
+
+.map-div {
+	margin: 0 auto;
+}
+
+.map-pad {
+	padding-top: 43px;
+}
+
+.light-gray {
+	background-color: #B2B0AA;
+}
+
+/*
+
+Button Color: (needs to be added)
+#B2B0AA lighter
+
+Nav Color:
+#848484	darker
+
+Background Color:
+#A8C0DD	blue 
+
+Text Color:
+#525252 darkest 
+
+Div with text background color:
+#EAE6DB lightest 
+
+*/
+
