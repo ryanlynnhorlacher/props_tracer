@@ -1,8 +1,10 @@
 class Api::V1::MaterialsController < ApplicationController
 before_action :set_material, only: [:show, :update, :destroy]
+skip_before_action :verify_authenticity_token
+protect_from_forgery with: :null_session
 
   def index
-    render json: current_user.material 
+    @materials = Material.all
   end
 
   def show
@@ -12,7 +14,7 @@ before_action :set_material, only: [:show, :update, :destroy]
   def create
     customer = current_user.material.new(material_params)
     if material.save
-      render json: material 
+      render json: material
     else
       render json: {errors: material.errors}, status: 401
     end
@@ -23,6 +25,7 @@ before_action :set_material, only: [:show, :update, :destroy]
       render json: @material
     else
       render json: {errors: @material.errors}, status: 401
+    end
   end
 
   def destroy

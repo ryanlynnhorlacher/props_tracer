@@ -1,61 +1,87 @@
 import React from 'react'
+import VinylHeights from './heights/Heights'
 
+let stuff
 class FenceChoices extends React.Component {
   constructor(props){
     super(props);
+    this.materialChoices = this.materialChoices.bind(this);
     this.replaceMaterialChoice = this.replaceMaterialChoice.bind(this);
+    this.state = { materials: null}
+  }
 
-    this.state = { material: 'Choose The Material!'}
+  componentWillMount(){
+    $.ajax({
+      url: '/api/v1/materials',
+      type: 'GET',
+      dataType: 'JSON'
+    }).done(materials => {
+      this.setState({ materials: [...materials.materials] })
+    }).fail(data => {
+      console.log(data);
+    })
+  }
+
+  componentDidMount(){
+    $('.dropdown-button').dropdown({
+     inDuration: 300,
+     outDuration: 225,
+     constrain_width: false, // Does not change width of dropdown to that of the activator
+     hover: false, // Activate on hover
+     gutter: 0, // Spacing from edge
+     belowOrigin: false, // Displays dropdown below the button
+     alignment: 'left' // Displays dropdown with edge aligned to the left of button
+   });
   }
 
   replaceMaterialChoice(material){
-    this.setState({material}, () => {
-      this.materialCase();
-    });
+    this.refs.materialChoice.text = material;
+    // materialCase();
   }
 
-  materialCase(){
-    switch (this.state.material) {
-      case "Vinyl":
-        return(
-          <div>
-            <a className='dropdown-button btn' ref="vinylHeight" data-activates='dropdown1'>{this.state.vinylHeight}</a>
-            <ul id='dropdown1' ref="vinylHeights" className='dropdown-content' >
-              <li><a ref='vinyl4ft' onClick={() => {this.replaceHeight(this.refs.vinyl4ft.text)}}>4 Ft</a></li>
-              <li className="divider"></li>
-              <li><a ref='vinyl6ft' onClick={() => {this.replaceHeight(this.refs.vinyl6ft.text)}}>6 Ft</a></li>
-              <li className="divider"></li>
-              <li><a ref='vinyl8ft' onClick={() => {this.replaceHeight(this.refs.vinyl8ft.text)}}>8 Ft</a></li>
-            </ul>
-          </div>
+
+  materialChoices() {
+    let mats = this.state.materials.map( mat => {
+      return(
+        <li key={mat.material}><a ref={mat.material} onClick={() => {this.replaceMaterialChoice(mat.material)}}>{mat.material}</a></li>
       )
-        break;
-      case "Wood":
-        console.log("Wood");
-        break;
-      case "Iron":
-        console.log("Iron");
-        break;
-      default:
-        console.log("Its broken....");
-    }
-  };
+    })
+    return mats
+  }
+
+
+
+  // materialCase(){
+  //   this.state.dropdownDisplay = this.state.material;
+  //
+  //   switch (this.state.material) {
+  //     case "Vinyl":
+  //       // <Heights />
+  //       console.log("vinyl");
+  //
+  //       break;
+  //     case "Wood":
+  //       console.log("Wood");
+  //       break;
+  //     case "Iron":
+  //       console.log("Iron");
+  //       break;
+  //     default:
+  //       console.log("Its broken....");
+  //   }
+  // };
+
 
 
   render(){
-
-    return(
-      <div>
-        <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>{this.state.material}</a>
-        <ul id='dropdown1' ref="materialList" className='dropdown-content' >
-          <li><a ref='vinyl' onClick={() => {this.replaceMaterialChoice(this.refs.vinyl.text)}}>Vinyl</a></li>
-          <li className="divider"></li>
-          <li><a ref='wood' onClick={() => {this.replaceMaterialChoice(this.refs.wood.text)}}>Wood</a></li>
-          <li className="divider"></li>
-          <li><a ref='iron' onClick={() => {this.replaceMaterialChoice(this.refs.iron.text)}}>Iron</a></li>
-        </ul>
-      </div>
-    )
+      return(
+        <div>
+          <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Choose Material</a>
+          <ul id='dropdown1' ref="materialList" className='dropdown-content' >
+            { this.state.materials ? this.materialChoices() : null }
+          </ul>
+        </div>
+      )
   }
 
 }

@@ -1,5 +1,6 @@
 class Api::V1::HeightsController < ApplicationController
-  before_action :set_heights, only: [:show, :update, :destroy]
+  before_action :set_height, only: [:show, :update, :destroy]
+  before_action :set_material, only: [:index, :create]
 
   def index
     render json: material.height
@@ -12,7 +13,7 @@ class Api::V1::HeightsController < ApplicationController
   def create
     customer = material.height.new(height_params)
     if height.save
-      render json: height 
+      render json: height
     else
       render json: {errors: height_type.errors}, status: 401
     end
@@ -32,7 +33,11 @@ class Api::V1::HeightsController < ApplicationController
 
   private
     def set_height
-      @height = material.height.find(params[:id])
+      @height = Height.find(params[:id])
+    end
+
+    def set_material
+      @material = Material.find(params[:material_id])
     end
 
     def height_params
