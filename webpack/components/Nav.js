@@ -22,8 +22,10 @@ class Nav extends Component {
 		if(this.props.auth) {
 			return (
 				[
-					<li key='auth-link-0'><Link to='admin' className='hide-on-med-and-down' activeClassName={linkClass}>Admin</Link></li>,
-					<li key='auth-link-2'><a href='#' className='hide-on-med-and-down' onClick={this.logout}>Logout</a></li>
+					<li key='auth-link-0'><Link to='admin' className='hide-on-med-and-down' 
+						activeClassName={linkClass}>Admin</Link></li>,
+					<li key='auth-link-2'><a href='#' className='hide-on-med-and-down' 
+						onClick={this.logout}>Logout</a></li>
 
 				]
 			)

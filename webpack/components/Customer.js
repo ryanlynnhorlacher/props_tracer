@@ -28,6 +28,7 @@ class Customer extends Component {
 					<li>Estimated Price: ${estimate.finalPrice}</li>
 					<li>Gate Count: {estimate.gateCount}</li>
 					<li>Date Submitted: {estimate.dateSubmitted.slice(0, 10)}</li>
+					<li>Status: {estimate.status}</li>
 				</div>
 			)
 		})
