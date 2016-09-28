@@ -11,6 +11,7 @@ json.customer do
 		json.fenceMaterial estimate.fence_material
 		json.fenceHeight estimate.fence_height
 		json.gateCount estimate.gate_count
+		json.dateSubmitted estimate.created_at
 
 	end
 end

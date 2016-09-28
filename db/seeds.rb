@@ -13,7 +13,8 @@
 			final_price: Faker::Number.number(4),
 			fence_material: ['Vinyl', 'Wood', 'Iron', 'Chain Link'].sample,
 			fence_height: [4, 6, 8, 10].sample, gate_count: [0, 1, 2, 3].sample,
-			customer_id: customer.id)
+			customer_id: customer.id, 
+			status: ['Not contacted', 'Making decision', 'Customer declined', 'Deal closed'].sample)
 		end
 	end
 end
