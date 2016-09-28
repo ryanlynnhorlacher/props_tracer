@@ -19,7 +19,7 @@ class Customer extends Component {
 	 	console.log(data)
 	 })
 	}
-	
+
 	displayEstimates() {
 		let estimates = this.state.customer.estimates.map( estimate => {
 			return(
