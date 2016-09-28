@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import Customer from './Customer';
+import SearchForm from './SearchForm'
 
 class Customers extends Component {
 	constructor(props) {
@@ -21,7 +22,25 @@ class Customers extends Component {
 			console.log(data)
 		})
 	}
+<<<<<<< d54345e35848352d3ac0a9e8138af548b5b3aa0c
  
+=======
+
+	newSearch(order, searchTerm, category) {
+		$.ajax({
+			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&category=${category}`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done(customers => {
+			this.setState({ customers: [...customers] });
+		}).fail( data => {
+			console.log('failed');
+			console.log(data);
+		})
+
+	}
+
+>>>>>>> search functionality
 	displayCustomers() {
 		let customers = this.state.customers.map( customer => {
 			return(
@@ -31,9 +50,13 @@ class Customers extends Component {
 		return customers
 	}
 
+
+
 	render() {
 		return(
 			<div>
+				<SearchForm newSearch={this.newSearch} />
+				<hr />
 				{ this.displayCustomers() }
 			</div>
 		)

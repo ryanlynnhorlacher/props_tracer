@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  
+  get '/api/v1/customers/search', to: 'customers#search'
 
   post 'contact_us', to: 'contact#create'
 

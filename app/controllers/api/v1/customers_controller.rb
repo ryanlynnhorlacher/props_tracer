@@ -4,11 +4,10 @@ class Api::V1::CustomersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-  	render json: Customer.all
+  	render json: Customer.return_customers(params[:order], params[:searchTerm], params[:category])
   end
-
-  def show
-  end
+  # Parameters {"order"=>"order", "searchTerm"=>"term", 
+  #   "category"=>"cat", "controller"=>"api/v1/customers", "action"=>"index"}
 
   def create
   	customer = current_user.customers.new(customer_params)

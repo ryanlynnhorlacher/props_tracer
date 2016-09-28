@@ -20,6 +20,7 @@ class Customer extends Component {
 	 })
 	}
 
+
 	displayEstimates() {
 		let estimates = this.state.customer.estimates.map( estimate => {
 			return(
