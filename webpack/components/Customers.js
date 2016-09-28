@@ -21,7 +21,7 @@ class Customers extends Component {
 			console.log(data)
 		})
 	}
-
+ 
 	displayCustomers() {
 		let customers = this.state.customers.map( customer => {
 			return(

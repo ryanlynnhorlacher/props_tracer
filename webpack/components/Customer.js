@@ -19,7 +19,7 @@ class Customer extends Component {
 	 	console.log(data)
 	 })
 	}
-
+	
 	displayEstimates() {
 		let estimates = this.state.customer.estimates.map( estimate => {
 			return(
@@ -29,6 +29,7 @@ class Customer extends Component {
 					<li>Gate Count: {estimate.gateCount}</li>
 					<li>Date Submitted: {estimate.dateSubmitted.slice(0, 10)}</li>
 					<li>Status: {estimate.status}</li>
+					<br />
 				</div>
 			)
 		})
