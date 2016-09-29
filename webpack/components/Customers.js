@@ -7,6 +7,7 @@ class Customers extends Component {
 	constructor(props) {
 		super(props);
 		this.displayCustomers = this.displayCustomers.bind(this);
+		this.newSearch = this.newSearch.bind(this);
 		this.state = this.state = { customers: [] }
 	}
 
@@ -24,12 +25,15 @@ class Customers extends Component {
 	}
 
 	newSearch(order, searchTerm, category) {
+		console.log('searched!')
 		$.ajax({
 			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&category=${category}`,
 			type: 'GET',
 			dataType: 'JSON'
 		}).done(customers => {
 			this.setState({ customers: [...customers] });
+			console.log('success!')
+			console.log(customers)
 		}).fail( data => {
 			console.log('failed');
 			console.log(data);
@@ -38,9 +42,10 @@ class Customers extends Component {
 	}
 
 	displayCustomers() {
+		let x = 0
 		let customers = this.state.customers.map( customer => {
 			return(
-				<li key={customer.id}><Link to={`/customers/${customer.id}`}>{customer.name}</Link></li>
+				<li key={x += 1}><Link to={`/customers/${customer.id}`}>{customer.name}</Link></li>
 			)
 		})
 		return customers

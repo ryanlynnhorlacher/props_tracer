@@ -5,14 +5,17 @@ class Customer < ApplicationRecord
 
 
 	def self.return_customers(order, term, category)
-		terms = Customer.term_category(term, category).order(order)
+		if Customer.term_category(term, category).count > 0 
+			Customer.term_category(term, category).order_by(order)
+		else
+			Customer.term_category(term, category).count
+		end
 	end
 
 	def self.term_category(term, category)
-		if term.blank? == false && category.blank? == false
-			category = category.downcase.underscore
-			term = "%#{term}%"
-			return where("#{category} LIKE ?", term)
+		if term.blank? == false
+			term = "%#{term.downcase.strip}%"
+			return Customer.set_category(category, term)
 		else
 			return all 
 		end
@@ -20,8 +23,21 @@ class Customer < ApplicationRecord
 
 	# Client.where("orders_count = ?", params[:orders])
 
+	def self.set_category(category, term)
+		case category
+		when 'Name', 'Choose Category'
+			where("name LIKE ?", term)
+		when 'Fence material'
+			joins(:estimates).where("lower(fence_material) LIKE ?", term)
+		when 'Address'
+			joins(:estimates).where("lower(location) LIKE ?", term)
+		else
+			all 
+		end
+	end
 
-	def self.order(order)
+
+	def self.order_by(order)
 		case order
 		when 'Newest to Oldest'
 			order(created_at: :desc)

@@ -47,7 +47,7 @@ class SearchForm extends Component {
 				
 				<div>
     			<a className='dropdown-button btn' ref="categoryChoice" 
-    				data-activates='dropdown2'>Choose Material</a>
+    				data-activates='dropdown2'>Choose Category</a>
       		<ul id='dropdown2' ref="categoryList" className='dropdown-content' >
        			<li ref='name' 
        				onClick={() => this.replaceCategoryChoice(this.refs.name.textContent)}>Name</li>
@@ -58,7 +58,7 @@ class SearchForm extends Component {
       		</ul>
         </div>
 				<input ref='searchTerm' placeholder='Search term' />
-				<button onClick={ () => this.props.newSearch(this.refs.order.value, 
+				<button onClick={ () => this.props.newSearch(this.refs.orderChoice.textContent, 
 					this.refs.searchTerm.value, this.refs.categoryChoice.textContent)}
 					className='btn'>Search</button>
 			</div>
