@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
+import AddHeight from './AddHeight.js';
+import AddGate from './AddGate.js';
 
 class FenceEditor extends Component {
 	constructor(props){
 	super(props);
 	this.displayMaterials = this.displayMaterials.bind(this);
 	this.displayHeights = this.displayHeights.bind(this);
+	this.displayGates = this.displayGates.bind(this);
+	this.updateHeightList = this.updateHeightList.bind(this);
+	this.updateGateList = this.updateGateList.bind(this);
 	this.state = { materials: null }
 	}
 
@@ -20,17 +25,46 @@ class FenceEditor extends Component {
 		}).fail(data => {
 			console.log(data)
 		})
-		console.log(this.state)
 	}
+
+	updateHeightList(matId, name, price_per_foot) {
+		$.ajax({
+			url: '/api/v1/materials/`${matId}`/heights',
+			type: 'POST',
+			dataType: 'JSON',
+			data: { height: { name, price_per_foot } }
+		}).done(materials => {
+			this.setState({ materials: [...materials.materials]})
+		}).fail(data =>{
+			console.log(data)
+		})
+	}	
+
+	updateGateList(matId, gate_price, width, style) {
+		$.ajax({
+			url: '/api/v1/materials/`${matId}`/gateTypes',
+			type: 'POST',
+			dataType: 'JSON',
+			data: { gate_types: { gate_price, width, style } }
+		}).done(materials => {
+			this.setState({ materials: [...materials.materials]})
+		}).fail(data =>{
+			console.log(data)
+		})
+	}
+
 
 	displayMaterials() {
 		let mats = this.state.materials.map( mat => {
 			return (
-				<div key={mat.material} className='card'>
+				<div key={mat.material} className='col s12 m4 card'>
 					<h4>{mat.material}</h4>
 					<ul>
 						{this.displayHeights(mat)}
+						{this.displayGates(mat)}
 					</ul>
+					<AddHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
+					<AddGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
 				</div>
 			)
 		})
@@ -38,28 +72,28 @@ class FenceEditor extends Component {
 	}
 
 	displayHeights(material) {
-		console.log(material)
 		let heights = material.heights.map( height => {
 			return(
-				<li key={height.id}>{height.name}<Link className='btn'/></li>
+				<li key={height.id}>
+					{height.name}ft - ${height.pricePerFoot} 
+				</li>
 			)
 		})
 		return heights
 	}
-			// return(
-			// 		<div className="block text-bg contactbox" key={mat.material}>
-			// 		<ul>
-			// 			<li>Material Name: {mat.material} </li>
-			// 			<li>Material Heights: </li>
-			// 				<li>Size: {mat.heights[0].name}ft - Price/Foot: ${mat.heights[0].pricePerFoot}</li>
-			// 				<li>Size: {mat.heights[1].name}ft - Price/Foot: ${mat.heights[1].pricePerFoot}</li>
-			// 				<li>Size: {mat.heights[2].name}ft - Price/Foot: ${mat.heights[2].pricePerFoot}</li>
-			// 				<li>Size: {mat.heights[3].name}ft - Price/Foot: ${mat.heights[3].pricePerFoot}</li>
-			// 			<br />
-			// 		</ul>
-			// 		</div>
-			// )
 
+	displayGates(material) {
+		let gates = material.gateTypes.map( gate => {
+			return(
+				<ul key={gate.id}>
+					<li>Gate Price: {gate.price}</li>
+					<li>Gate Width: {gate.width}</li>
+					<li>Gate Style: {gate.style}</li>
+				</ul>
+			)
+		})
+		return gates
+	}
 
 	render() {
 		return(
