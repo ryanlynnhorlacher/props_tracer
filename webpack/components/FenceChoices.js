@@ -1,5 +1,5 @@
 import React from 'react'
-import VinylHeights from './heights/Heights'
+import Heights from './heights/Heights'
 
 let stuff
 class FenceChoices extends React.Component {
@@ -7,6 +7,7 @@ class FenceChoices extends React.Component {
     super(props);
     this.materialChoices = this.materialChoices.bind(this);
     this.replaceMaterialChoice = this.replaceMaterialChoice.bind(this);
+    // this.heightList = this.heightList.bind(this);
     this.state = { materials: null}
   }
 
@@ -36,6 +37,7 @@ class FenceChoices extends React.Component {
 
   replaceMaterialChoice(material){
     this.refs.materialChoice.text = material;
+    // this.heightList()
     // materialCase();
   }
 
@@ -50,40 +52,82 @@ class FenceChoices extends React.Component {
   }
 
 
-
-  // materialCase(){
-  //   this.state.dropdownDisplay = this.state.material;
-  //
-  //   switch (this.state.material) {
-  //     case "Vinyl":
-  //       // <Heights />
-  //       console.log("vinyl");
-  //
-  //       break;
-  //     case "Wood":
-  //       console.log("Wood");
-  //       break;
-  //     case "Iron":
-  //       console.log("Iron");
-  //       break;
-  //     default:
-  //       console.log("Its broken....");
-  //   }
-  // };
-
-
-
   render(){
       return(
-        <div>
-          <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Choose Material</a>
-          <ul id='dropdown1' ref="materialList" className='dropdown-content' >
-            { this.state.materials ? this.materialChoices() : null }
-          </ul>
+        <div className="row">
+          <div className="col s4">
+            <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Choose Material</a>
+            <ul id='dropdown1' ref="materialList" className='dropdown-content' >
+              { this.state.materials ? this.materialChoices() : null }
+            </ul>
+          </div>
+
+          <div className="col s4">
+            <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>Choose A Height</a>
+            <ul id='dropdown2' ref="heightList" className='dropdown-content' >
+              { this.state.materials ? this.heightChoices() : null }
+            </ul>
+          </div>
         </div>
       )
   }
 
+
+
+
+  replaceHeightChoice(height){
+    this.refs.heightChoice.text = height;
+  }
+
+  heightChoices() {
+    if (this.state.materials) {
+      debugger
+      let heights = this.state.materials.map( map => {
+        return(
+          <li key={map.material}><a onClick={() => {this.replaceHeightChoice(map.height)}}>something!</a></li>
+        )
+      })
+      return heights
+    }
+  }
+
+
+  // heightList(){
+  //   debugger
+  //   return(
+  //     <div>
+  //       <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>{ this.state.materials.material.height ? "Choose a Height" : null }</a>
+  //       <ul id='dropdown2' ref="heightList" className='dropdown-content' >
+  //         { this.state.materials.heights ? this.heightChoices() : null }
+  //       </ul>
+  //     </div>
+  //   )
+  // }
+
+
 }
 
 export default FenceChoices;
+
+
+
+
+// materialCase(){
+//   this.state.dropdownDisplay = this.state.material;
+//
+//   switch (this.state.material) {
+//     case "Vinyl":
+//       // <Heights />
+//       console.log("vinyl");
+//
+//       break;
+//     case "Wood":
+//       console.log("Wood");
+//       break;
+//     case "Iron":
+//       console.log("Iron");
+//       break;
+//     default:
+//       console.log("Its broken....");
+//   }
+// };
