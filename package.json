@@ -26,6 +26,7 @@
     "webpack-dev-middleware": "1.7.0"
   },
   "devDependencies": {
+    "image-webpack-loader": "^2.0.0",
     "webpack-dev-server": "^1.9.0"
   }
 }
