@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
+
+let timeoutID
+
 class SearchForm extends Component {
 	constructor(props) {
 		super(props);
 		this.replaceCategoryChoice = this.replaceCategoryChoice.bind(this);
 		this.replaceOrderChoice = this.replaceOrderChoice.bind(this);
-		this.state = this.state = { customers: [] }
+    this.search = this.search.bind(this);
+    this.searchTimer = this.searchTimer.bind(this);
 	}
 
 	replaceCategoryChoice(category){
@@ -26,6 +30,19 @@ class SearchForm extends Component {
      belowOrigin: true, // Displays dropdown below the button
      alignment: 'left' // Displays dropdown with edge aligned to the left of button
    });
+  }
+
+  searchTimer() {
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(this.search, 500);
+
+    
+  }
+
+  search() {
+    console.log('search called')
+    this.props.newSearch(this.refs.orderChoice.textContent, 
+    this.refs.searchTerm.value, this.refs.categoryChoice.textContent)
   }
 
 	render() {
@@ -50,17 +67,15 @@ class SearchForm extends Component {
     				data-activates='dropdown2'>Choose Category</a>
       		<ul id='dropdown2' ref="categoryList" className='dropdown-content' >
        			<li ref='name' 
-       				onClick={() => this.replaceCategoryChoice(this.refs.name.textContent)}>Name</li>
+       				onClick={() => this.replaceCategoryChoice(this.refs.name.textContent, () => {this.searchTimer})}>Name</li>
        			<li ref='material' 
        				onClick={() => this.replaceCategoryChoice(this.refs.material.textContent)}>Fence material</li>
        			<li ref='address' 
        				onClick={() => this.replaceCategoryChoice(this.refs.address.textContent)}>Address</li>
       		</ul>
         </div>
-				<input ref='searchTerm' placeholder='Search term' />
-				<button onClick={ () => this.props.newSearch(this.refs.orderChoice.textContent, 
-					this.refs.searchTerm.value, this.refs.categoryChoice.textContent)}
-					className='btn'>Search</button>
+				<input onChange={ this.searchTimer }
+          ref='searchTerm' placeholder='Search term' />
 			</div>
 		)
 	}

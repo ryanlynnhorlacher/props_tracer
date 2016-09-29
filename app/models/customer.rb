@@ -8,7 +8,7 @@ class Customer < ApplicationRecord
 		if Customer.term_category(term, category).count > 0 
 			Customer.term_category(term, category).order_by(order)
 		else
-			Customer.term_category(term, category).count
+			Customer.term_category(term, category)
 		end
 	end
 
@@ -17,22 +17,20 @@ class Customer < ApplicationRecord
 			term = "%#{term.downcase.strip}%"
 			return Customer.set_category(category, term)
 		else
-			return all 
+			return all.limit(20) 
 		end
 	end
-
-	# Client.where("orders_count = ?", params[:orders])
 
 	def self.set_category(category, term)
 		case category
 		when 'Name', 'Choose Category'
-			where("name LIKE ?", term)
+			where("lower(name) LIKE ?", term).limit(20)
 		when 'Fence material'
-			joins(:estimates).where("lower(fence_material) LIKE ?", term)
+			joins(:estimates).where("lower(fence_material) LIKE ?", term).limit(20)
 		when 'Address'
-			joins(:estimates).where("lower(location) LIKE ?", term)
+			joins(:estimates).where("lower(location) LIKE ?", term).limit(20)
 		else
-			all 
+			all.limit(20)
 		end
 	end
 
@@ -46,7 +44,7 @@ class Customer < ApplicationRecord
 		when 'A-Z'
 			order(:name)
 		else 
-			all
+			all.limit(20)
 		end
 	end
 
