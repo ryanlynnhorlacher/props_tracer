@@ -23,6 +23,7 @@ class Api::V1::GateTypesController < ApplicationController
       render json: @gate_type
     else
       render json: {errors: @gate_type.errors}, status: 401
+    end
   end
 
   def destroy

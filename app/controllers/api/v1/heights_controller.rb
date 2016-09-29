@@ -24,6 +24,7 @@ class Api::V1::HeightsController < ApplicationController
       render json: @height
     else
       render json: {errors: @height.errors}, status: 401
+    end
   end
 
   def destroy
