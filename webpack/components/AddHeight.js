@@ -15,7 +15,7 @@ class AddHeight extends Component {
   contents() {
     if(this.state.displayForm === true) {
       return (
-        <div>
+        <div className="block">
           <button type="button" onClick={ this.changeDisplay }>
             Add Height
           </button>

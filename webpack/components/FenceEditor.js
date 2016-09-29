@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import AddHeight from './AddHeight.js';
+import EditHeight from './EditHeight.js';
 import AddGate from './AddGate.js';
+import EditGate from './EditGate.js';
+import AddMaterial from './AddMaterial.js';
 
 class FenceEditor extends Component {
 	constructor(props){
@@ -11,6 +14,7 @@ class FenceEditor extends Component {
 	this.displayGates = this.displayGates.bind(this);
 	this.updateHeightList = this.updateHeightList.bind(this);
 	this.updateGateList = this.updateGateList.bind(this);
+	this.updateMaterialList = this.updateGateList.bind(this);
 	this.state = { materials: null }
 	}
 
@@ -26,6 +30,21 @@ class FenceEditor extends Component {
 			console.log(data)
 		})
 	}
+
+	updateHeightList(name) {
+		$.ajax({
+			url: '/api/v1/materials/',
+			type: 'POST',
+			dataType: 'JSON',
+			data: { material: { name } }
+		}).done(materials => {
+			this.setState({ materials: [...materials.materials]})
+			console.log(this.state.materials)
+		}).fail(data =>{
+			console.log(data)
+		})
+	}	
+
 
 	updateHeightList(matId, name, price_per_foot) {
 		$.ajax({
@@ -57,14 +76,18 @@ class FenceEditor extends Component {
 	displayMaterials() {
 		let mats = this.state.materials.map( mat => {
 			return (
-				<div key={mat.material} className='col s12 m4 card'>
+				<div key={mat.material} className='col s12 m5 card block text-bg material-editor'>
 					<h4>{mat.material}</h4>
 					<ul>
 						{this.displayHeights(mat)}
 						{this.displayGates(mat)}
 					</ul>
-					<AddHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
-					<AddGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
+					<div>
+						<AddHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
+						<EditHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
+						<AddGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
+						<EditGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
+					</div>
 				</div>
 			)
 		})
@@ -86,6 +109,7 @@ class FenceEditor extends Component {
 		let gates = material.gateTypes.map( gate => {
 			return(
 				<ul key={gate.id}>
+					<hr />
 					<li>Gate Price: {gate.price}</li>
 					<li>Gate Width: {gate.width}</li>
 					<li>Gate Style: {gate.style}</li>
@@ -99,7 +123,10 @@ class FenceEditor extends Component {
 		return(
 			<div className="center">
 				<h3>Materials</h3>
-				{ this.state.materials ? this.displayMaterials() : null}
+				<AddMaterial className='btn' updateMaterialList={this.updateMaterialList} />
+				<div className="col s12">
+					{ this.state.materials ? this.displayMaterials() : null}
+				</div>
 			</div>
 		)
 	}

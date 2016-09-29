@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
- 
-class AddGate extends Component {
+
+class EditGate extends Component {
   constructor(props) {
     super(props)
     this.state = { ...this.props, displayForm: true }
@@ -17,16 +17,16 @@ class AddGate extends Component {
       return (
         <div className="block">
           <button type="button" onClick={ this.changeDisplay }>
-            Add Gate
+            Edit Gate
           </button>
         </div>
       )
     }
     else {
       return (
-        <div id={ "newGateForm-"+this.props.matId } className="center">
+        <div id={ "EditGateForm-"+this.props.matId } className="center">
           <form onSubmit={ this.props.updateGateList(this.props.matId) }>
-            <label>Add Gate </label>
+            <label>Edit Gate </label>
             <input ref="gate-style" placeholder="Gate Style"/>
             <input ref="gate-price" placeholder="Gate Price"/>
             <input ref="gate-width" placeholder="Gate Width"/>
@@ -47,4 +47,4 @@ class AddGate extends Component {
   }
 }
 
-export default AddGate;
+export default EditGate;

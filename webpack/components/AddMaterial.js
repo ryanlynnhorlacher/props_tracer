@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
- 
-class AddGate extends Component {
+
+class AddMaterial extends Component {
   constructor(props) {
     super(props)
     this.state = { ...this.props, displayForm: true }
@@ -17,19 +17,17 @@ class AddGate extends Component {
       return (
         <div className="block">
           <button type="button" onClick={ this.changeDisplay }>
-            Add Gate
+            Add Material
           </button>
         </div>
       )
     }
     else {
       return (
-        <div id={ "newGateForm-"+this.props.matId } className="center">
-          <form onSubmit={ this.props.updateGateList(this.props.matId) }>
-            <label>Add Gate </label>
-            <input ref="gate-style" placeholder="Gate Style"/>
-            <input ref="gate-price" placeholder="Gate Price"/>
-            <input ref="gate-width" placeholder="Gate Width"/>
+        <div className="center">
+          <form onSubmit={ this.props.updateMaterialList(name) }>
+            <label>Add Material </label>
+            <input ref="material" name="name" placeholder="Material Name"/>
             <input type="submit" />
           </form>
           <button type="button" onClick={ this.changeDisplay }>
@@ -43,8 +41,9 @@ class AddGate extends Component {
   render() {
     return (
       this.contents()
+
     )
   }
 }
 
-export default AddGate;
+export default AddMaterial;

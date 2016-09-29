@@ -16,7 +16,10 @@ import UpdateUser from './components/auth/UpdateUser';
 import Customer from './components/Customer';
 import FenceEditor from './components/FenceEditor';
 import AddHeight from './components/AddHeight';
+import EditHeight from './components/EditHeight';
 import AddGate from './components/AddGate';
+import EditGate from './components/EditGate';
+import AddMaterial from './components/AddMaterial';
 
 const UserIsAuthenticated = UserAuthWrapper({
 	authSelector: state => state.auth,
@@ -38,7 +41,10 @@ export default (
 	   <Route path='/admin' component={UserIsAuthenticated(Admin)} />
 	   <Route path='/fenceeditor' component={UserIsAuthenticated(FenceEditor)} />
 	   <Route path='/addheight' component={UserIsAuthenticated(AddHeight)} />
+	   <Route path='/editheight' component={UserIsAuthenticated(EditHeight)} />
 	   <Route path='/addgate' component={UserIsAuthenticated(AddGate)} />
+	   <Route path='/editgate' component={UserIsAuthenticated(EditGate)} />
+	   <Route path='/addmaterial' component={UserIsAuthenticated(AddMaterial)} />
 	   <Route path='/signup' component={Signup} />
 	   <Route path='/customers/:id' component={Customer} />
 	   <Route path='/user/update' component={UpdateUser} />

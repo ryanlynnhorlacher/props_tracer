@@ -22,9 +22,6 @@ class Customers extends Component {
 			console.log(data)
 		})
 	}
-<<<<<<< d54345e35848352d3ac0a9e8138af548b5b3aa0c
- 
-=======
 
 	newSearch(order, searchTerm, category) {
 		$.ajax({
@@ -40,7 +37,6 @@ class Customers extends Component {
 
 	}
 
->>>>>>> search functionality
 	displayCustomers() {
 		let customers = this.state.customers.map( customer => {
 			return(
