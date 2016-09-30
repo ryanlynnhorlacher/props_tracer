@@ -8,7 +8,9 @@ class Customers extends Component {
 		super(props);
 		this.displayCustomers = this.displayCustomers.bind(this);
 		this.newSearch = this.newSearch.bind(this);
-		this.state = this.state = { customers: [] }
+		this.showCustomersButton = this.showCustomersButton.bind(this);
+		this.showCustomers = this.showCustomers.bind(this)
+		this.state = { customers: [], showCustomers: false };
 	}
 
 	componentWillMount() { 
@@ -41,13 +43,35 @@ class Customers extends Component {
 	}
 
 	displayCustomers() {
-		let x = 0
-		let customers = this.state.customers.map( customer => {
-			return(
-				<li key={x += 1}><Link to={`/customers/${customer.id}`}>{customer.name}</Link></li>
-			)
+		if (this.state.showCustomers === true) {
+			let x = 0
+			let customers = this.state.customers.map( customer => {
+				return(
+					<li className='valign-wrapper card col s12' style={styles.customerNames} key={x += 1}>
+						<Link to={`/customers/${customer.id}`} className='valign'>{customer.name}</Link>
+					</li>
+				)
+			})
+			return customers
+		}
+	}
+
+	showCustomers() {
+		this.setState({
+			showCustomers: !this.state.showCustomers
 		})
-		return customers
+	}
+
+	showCustomersButton() {
+		if (this.state.showCustomers === false) {
+			return(
+				<button className='btn' onClick={ this.showCustomers }>Show Search Results</button>
+			)
+		} else {
+			return(
+				<button className='btn' onClick={ this.showCustomers }>Hide Search Results</button>
+			)
+		}
 	}
 
 
@@ -56,10 +80,16 @@ class Customers extends Component {
 		return(
 			<div>
 				<SearchForm newSearch={this.newSearch} />
+				{ this.showCustomersButton() }
 				<hr />
 				{ this.displayCustomers() }
 			</div>
 		)
 	}
 }
+
+const styles = {
+	customerNames: { height: '25px', listStyle: 'none', margin: '3px'}
+}
 	export default Customers;
+

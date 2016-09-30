@@ -33,6 +33,7 @@ class SearchForm extends Component {
   }
 
   searchTimer() {
+    console.log('search timer set')
     clearTimeout(timeoutID);
     timeoutID = setTimeout(this.search, 500);
 
@@ -54,35 +55,32 @@ class SearchForm extends Component {
 			<div className='row'>
 
       <div className="input-field col s12 m4">
-        <select ref='status' onChange={ this.searchTimer }>
-          <option value="" disabled>Select estimate status</option>
+        <select className='browser-default' ref='status' onChange={ this.searchTimer }>
+          <option value="" disabled>Estimate status</option>
           <option value="All">All</option>
           <option value="Not contacted">Not contacted</option>
           <option value="Making decision">Making decision</option>
           <option value="Customer declined">Customer declined</option>
           <option value="Deal closed">Deal closed</option>
         </select>
-        <label>Choose Status</label>
       </div>
 
         <div className="input-field col s12 m4">
-          <select ref='order' onChange={ this.searchTimer }>
-            <option value="" disabled>Select order of results</option>
+          <select className='browser-default' ref='order' onChange={ this.searchTimer }>
+            <option value="" disabled>Results order</option>
             <option value="Newest to Oldest">Newest to Oldest</option>
             <option value="Oldest to Newest">Oldest to Newest</option>
             <option value="A-Z">A-Z</option>
           </select>
-          <label>Choose Order</label>
         </div>
 
         <div className="input-field col s12 m4">
-          <select ref='category' onChange={ this.searchTimer }>
-            <option value="" disabled>Choose search category</option>
+          <select className='browser-default' ref='category' onChange={ this.searchTimer }>
+            <option value="" disabled>Search category</option>
             <option value="name">Name</option>
             <option value="fence_material">Fence material</option>
             <option value="location">Address</option>
           </select>
-          <label>Choose Search Category</label>
         </div>
 
 				<input className="input-field col s12" onChange={ this.searchTimer }

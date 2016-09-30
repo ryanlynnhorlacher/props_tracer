@@ -48,7 +48,7 @@ class Customer < ApplicationRecord
 		if status == 'All' || status == nil
 			all 
 		else
-			joins(:estimates).where(status: status)
+			joins(:estimates).where("status = ?", status)
 		end
 	end
 
