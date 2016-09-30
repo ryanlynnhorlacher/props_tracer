@@ -24,10 +24,9 @@ class Customers extends Component {
 		})
 	}
 
-	newSearch(order, searchTerm, category) {
-		console.log('search Ajax hit!')
+	newSearch(order, searchTerm, category, status) {
 		$.ajax({
-			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&category=${category}`,
+			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&category=${category}&status=${status}`,
 			type: 'GET',
 			dataType: 'JSON'
 		}).done(customers => {

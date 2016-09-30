@@ -4,7 +4,7 @@ class Api::V1::CustomersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-  	render json: Customer.return_customers(params[:order], params[:searchTerm], params[:category])
+  	render json: Customer.return_customers(params[:order], params[:searchTerm], params[:category], params[:status])
   end
   # Parameters {"order"=>"order", "searchTerm"=>"term", 
   #   "category"=>"cat", "controller"=>"api/v1/customers", "action"=>"index"}

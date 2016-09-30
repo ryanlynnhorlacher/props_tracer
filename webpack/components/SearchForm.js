@@ -41,41 +41,52 @@ class SearchForm extends Component {
 
   search() {
     console.log('search called')
-    this.props.newSearch(this.refs.orderChoice.textContent, 
-    this.refs.searchTerm.value, this.refs.categoryChoice.textContent)
+    this.props.newSearch(this.refs.order.value, 
+    this.refs.searchTerm.value, this.refs.category.value, this.refs.status.value)
+  }
+
+  componentDidMount() {
+   $('select').material_select();     
   }
 
 	render() {
 		return(
-			<div>
+			<div className='row'>
 
-				<div>
-    			<a className='dropdown-button btn' ref="orderChoice" 
-    				data-activates='dropdown1'>Choose Order</a>
-      		<ul id='dropdown1' ref="orderList" className='dropdown-content' >
-       			<li ref='newestOldest' 
-       				onClick={() => this.replaceOrderChoice(this.refs.newestOldest.textContent)}>Newest to Oldest</li>
-       			<li ref='oldestNewest' 
-       				onClick={() => this.replaceOrderChoice(this.refs.oldestNewest.textContent)}>Oldest to Newest</li>
-       			<li ref='AtoZ' 
-       				onClick={() => this.replaceOrderChoice(this.refs.AtoZ.textContent)}>A-Z</li>
-      		</ul>
+      <div className="input-field col s12 m4">
+        <select ref='status' onChange={ this.searchTimer }>
+          <option value="" disabled>Select estimate status</option>
+          <option value="All">All</option>
+          <option value="Not contacted">Not contacted</option>
+          <option value="Making decision">Making decision</option>
+          <option value="Customer declined">Customer declined</option>
+          <option value="Deal closed">Deal closed</option>
+        </select>
+        <label>Choose Status</label>
+      </div>
+
+        <div className="input-field col s12 m4">
+          <select ref='order' onChange={ this.searchTimer }>
+            <option value="" disabled>Select order of results</option>
+            <option value="Newest to Oldest">Newest to Oldest</option>
+            <option value="Oldest to Newest">Oldest to Newest</option>
+            <option value="A-Z">A-Z</option>
+          </select>
+          <label>Choose Order</label>
         </div>
-				
-				<div>
-    			<a className='dropdown-button btn' ref="categoryChoice" 
-    				data-activates='dropdown2'>Choose Category</a>
-      		<ul id='dropdown2' ref="categoryList" className='dropdown-content' >
-       			<li ref='name' 
-       				onClick={() => this.replaceCategoryChoice(this.refs.name.textContent, () => {this.searchTimer})}>Name</li>
-       			<li ref='material' 
-       				onClick={() => this.replaceCategoryChoice(this.refs.material.textContent)}>Fence material</li>
-       			<li ref='address' 
-       				onClick={() => this.replaceCategoryChoice(this.refs.address.textContent)}>Address</li>
-      		</ul>
+
+        <div className="input-field col s12 m4">
+          <select ref='category' onChange={ this.searchTimer }>
+            <option value="" disabled>Choose search category</option>
+            <option value="name">Name</option>
+            <option value="fence_material">Fence material</option>
+            <option value="location">Address</option>
+          </select>
+          <label>Choose Search Category</label>
         </div>
-				<input onChange={ this.searchTimer }
-          ref='searchTerm' placeholder='Search term' />
+
+				<input className="input-field col s12" onChange={ this.searchTimer }
+          ref='searchTerm' placeholder='Enter search here' />
 			</div>
 		)
 	}

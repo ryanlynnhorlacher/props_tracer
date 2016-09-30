@@ -4,38 +4,21 @@ class Customer < ApplicationRecord
 	validates_presence_of :name, :email, :phone_number
 
 
-	def self.return_customers(order, term, category)
-		if Customer.term_category(term, category).count > 0 
-			Customer.term_category(term, category).order_by(order)
+
+	def self.return_customers(order, term, category, status)
+		if term.blank?
+			all.set_status(status).set_limit
 		else
-			Customer.term_category(term, category)
+		Customer.inner_join(category, status, term).set_order(order).set_limit
 		end
 	end
 
-	def self.term_category(term, category)
-		if term.blank? == false
-			term = "%#{term.downcase.strip}%"
-			return Customer.set_category(category, term)
-		else
-			return all.limit(20) 
-		end
-	end
-
-	def self.set_category(category, term)
-		case category
-		when 'Name', 'Choose Category'
-			where("lower(name) LIKE ?", term).limit(20)
-		when 'Fence material'
-			joins(:estimates).where("lower(fence_material) LIKE ?", term).limit(20)
-		when 'Address'
-			joins(:estimates).where("lower(location) LIKE ?", term).limit(20)
-		else
-			all.limit(20)
-		end
+	def self.set_limit
+		limit(50)
 	end
 
 
-	def self.order_by(order)
+	def self.set_order(order)
 		case order
 		when 'Newest to Oldest'
 			order(created_at: :desc)
@@ -44,9 +27,29 @@ class Customer < ApplicationRecord
 		when 'A-Z'
 			order(:name)
 		else 
-			all.limit(20)
+			all
 		end
 	end
 
+	def self.inner_join(category, status, term)
+		term = "%#{term.downcase.strip}%"
+		if category != 'name' && status != 'All'
+			joins(:estimates).where("lower(#{category}) LIKE ? AND status = ?", term, status) 
+		elsif category == 'name' && status != 'All'
+			joins(:estimates).where("status = ?", status).where("lower(#{category}) LIKE ?", term)
+		elsif category != 'name' && status == 'All' 
+			joins(:estimates).where("lower(#{category}) LIKE ?", term)
+		elsif category == 'name' && status == 'All'
+			where("lower(#{category}) LIKE ?", term)
+		end
+	end
+
+	def self.set_status(status = 'All')
+		if status == 'All' || status == nil
+			all 
+		else
+			joins(:estimates).where(status: status)
+		end
+	end
 
 end
