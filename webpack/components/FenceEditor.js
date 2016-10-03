@@ -24,8 +24,9 @@ class FenceEditor extends Component {
 			type: 'GET',
 			dataType: 'JSON'
 		}).done(materials => {
-			this.setState({ materials: [...materials.materials]})
-			console.log(this.state)
+			this.setState({ materials: [...materials.materials],
+											})
+			console.log(this.state.materials)
 		}).fail(data => {
 			console.log(data)
 		})
@@ -39,12 +40,23 @@ class FenceEditor extends Component {
 			data: { material: { name } }
 		}).done(materials => {
 			this.setState({ materials: [...materials.materials]})
-			console.log(this.state.materials)
 		}).fail(data =>{
 			console.log(data)
 		})
 	}	
 
+	updateHeight(key, updatedHeight) {
+		const height = {...this.height};
+		console.log(height)
+		console.log(key)
+		debugger
+		// heights[key] = updatedFish;
+		// this.setState({ materials.heights });
+	}
+
+	// updateHeight(heightId, updatedHeight) {
+	// 	const heights
+	// }
 
 	updateHeightList(matId, name, price_per_foot) {
 		$.ajax({
@@ -84,7 +96,6 @@ class FenceEditor extends Component {
 					</ul>
 					<div>
 						<AddHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
-						<EditHeight className='btn' matId={mat.id} updateHeightList={this.updateHeightList} />
 						<AddGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
 						<EditGate className='btn' matId={mat.id} updateGateList={this.updateGateList} />
 					</div>
@@ -98,7 +109,8 @@ class FenceEditor extends Component {
 		let heights = material.heights.map( height => {
 			return(
 				<li key={height.id}>
-					{height.name}ft - ${height.pricePerFoot} 
+					{height.name}ft - ${height.pricePerFoot
+					}<EditHeight className='btn' height={height} matId={material.id} updateHeight={this.updateHeight} /> 
 				</li>
 			)
 		})
