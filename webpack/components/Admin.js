@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Customers from './Customers';
+import UpdateUser from './auth/UpdateUser';
 
 class Admin extends Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ class Admin extends Component {
 		return(
 			<div>
 				<Customers />
+				<UpdateUser />
 			</div>
 		)
 	}

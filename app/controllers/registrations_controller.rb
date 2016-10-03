@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 	skip_before_action :verify_authenticity_token
 
 	def get_user_info
-		render json: current_user
+		render json: User.find(current_user.id)
 	end
 
 	private
@@ -11,7 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :phone_number, :role)
 		end
 
-		def update_params
-			params.require(:user).permit(:first_name, :last_name, :email, :current_password, :password, :phone_number, :role)
-		end
+		def account_update_params
+   			params.require(:user).permit(:first_name, :last_name, :email, :password, 
+   			:password_confirmation, :current_password)
+ 		end
 end

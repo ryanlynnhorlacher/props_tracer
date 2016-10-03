@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
 
 	def self.return_customers(order, term, category, status)
 		if term.blank?
-			all.set_status(status).set_limit
+			all.set_order(order).set_status(status).set_limit
 		else
 		Customer.inner_join(category, status, term).set_order(order).set_limit
 		end

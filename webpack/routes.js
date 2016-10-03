@@ -47,7 +47,7 @@ export default (
 	   <Route path='/addmaterial' component={UserIsAuthenticated(AddMaterial)} />
 	   <Route path='/signup' component={Signup} />
 	   <Route path='/customers/:id' component={Customer} />
-	   <Route path='/user/update' component={UpdateUser} />
+	   <Route path='/user/update' component={UserIsAuthenticated(UpdateUser)} />
 	   <Route path="*" status={404} component={NoMatch} />
     </Route>
   </Route>

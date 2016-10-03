@@ -40,6 +40,3 @@ class Api::V1::CustomersController < ApplicationController
     	params.require(:customer).permit(:name, :email, :phone)
     end
 end
-
-
-# This is comment in the NewBranch.

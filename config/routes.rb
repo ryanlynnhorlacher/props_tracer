@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :users
       resources :customers do 
       resources :estimates, shallow: true
     end
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
         resources :gate_types, shallow: true
       end
     end
+  end
+  devise_scope :user do
+    get '/users/current', to: 'registrations#get_user_info'
   end
   
   get '/api/v1/customers/search', to: 'customers#search'

@@ -72,19 +72,3 @@ export const handleLogout = (history) => {
 		});
 	}
 }
-
-export const handleUpdate = (history) => {
-	return(dispatch) => {
-		$.ajax({
-			url: 'users/edit',
-			type: 'PUT',
-			dataType: 'JSON',
-			data: { user: {first_name: firstName, last_name: lastName, 
-					phone_number: phoneNumber, role, email, password,}}
-		}).done(user => {
-			console.log(user)
-		}).fail(data => {
-			console.log('update failed')
-		})
-	}
-}
