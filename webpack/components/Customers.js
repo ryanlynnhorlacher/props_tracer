@@ -78,10 +78,9 @@ class Customers extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className=''>
 				<SearchForm newSearch={this.newSearch} />
 				{ this.showCustomersButton() }
-				<hr />
 				{ this.displayCustomers() }
 			</div>
 		)

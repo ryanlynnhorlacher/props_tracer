@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get '/customers/dashboard', to: 'customers#dashboard'
       resources :users
       resources :customers do 
       resources :estimates, shallow: true
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
     get '/users/current', to: 'registrations#get_user_info'
   end
   
-  get '/api/v1/customers/search', to: 'customers#search'
 
   post 'contact_us', to: 'contact#create'
 

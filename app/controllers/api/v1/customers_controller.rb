@@ -8,6 +8,9 @@ class Api::V1::CustomersController < ApplicationController
   end
   # Parameters {"order"=>"order", "searchTerm"=>"term", 
   #   "category"=>"cat", "controller"=>"api/v1/customers", "action"=>"index"}
+  def dashboard
+    render json: Customer.dashboard_stats(params[:time])
+  end
 
   def create
   	customer = current_user.customers.new(customer_params)

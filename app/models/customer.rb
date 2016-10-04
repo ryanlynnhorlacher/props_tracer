@@ -3,6 +3,15 @@ class Customer < ApplicationRecord
 	has_many :estimates
 	validates_presence_of :name, :email, :phone_number
 
+	def self.dashboard_stats(time)
+		date = Time.now - time.to_i * 86400
+		stats = []
+		['Not contacted', 'Making decision', 'Customer declined', 'Deal closed'].each do |s|
+			stats << Customer.joins('INNER JOIN estimates e ON e.customer_id = customers.id')
+			.where('e.status = ? AND e.updated_at > ?', s, date).count('customers.name')
+		end
+		stats
+	end
 
 
 	def self.return_customers(order, term, category, status)
