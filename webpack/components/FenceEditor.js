@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import AddHeight from './AddHeight.js';
-import EditHeight from './EditHeight.js';
-import AddGate from './AddGate.js';
-import EditGate from './EditGate.js';
-import AddMaterial from './AddMaterial.js';
+
 import EditMaterial from './EditMaterial.js';
- 
+import EditHeight from './EditHeight.js';
+import EditGate from './EditGate.js';
+
+import AddMaterial from './AddMaterial.js';
+import AddHeight from './AddHeight.js';
+import AddGate from './AddGate.js';
+
+import DeleteMaterial from './DeleteMaterial.js'
+import DeleteHeight from './DeleteHeight.js'
+import DeleteGate from './DeleteGate.js'
+
 class FenceEditor extends Component {
 	constructor(props){
 	super(props);
 	this.displayMaterials = this.displayMaterials.bind(this);
 	this.displayHeights = this.displayHeights.bind(this);
 	this.displayGates = this.displayGates.bind(this);
+
+	this.updateMaterialList = this.updateMaterialList.bind(this);
 	this.updateHeightList = this.updateHeightList.bind(this);
 	this.updateGateList = this.updateGateList.bind(this);
-	this.updateMaterialList = this.updateMaterialList.bind(this);
+
 	this.addMaterial = this.addMaterial.bind(this);
 	this.addHeight = this.addHeight.bind(this);
 	this.addGate = this.addGate.bind(this);
+
+	this.deleteMaterial = this.deleteMaterial.bind(this);
+	this.deleteHeight = this.deleteHeight.bind(this);
+	this.deleteGate = this.deleteGate.bind(this)
 
 	this.state = { materials: null }
 	}
@@ -59,9 +71,6 @@ class FenceEditor extends Component {
 			let material = this.state.materials.find(m => m.id === matId)
 			material.heights.push(height);
 			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
-			console.log(this.state.materials)
-			console.log("/\-state \/-material.heights")
-			console.log(material.heights)
 			this.setState({materials: [ ...otherMaterials, material ] })
 		}).fail(data =>{
 			console.log('FAIL')
@@ -69,15 +78,17 @@ class FenceEditor extends Component {
 		})
 	}
 
- 	addGate(gate_price, width, style, matId) {
+ 	addGate(price, width, style, matId) {
 		$.ajax({
-			url: '/api/v1//materials/${matId}/gates/',
+			url: `/api/v1//materials/${matId}/gate_types/`,
 			type: 'POST',
 			dataType: 'JSON',
-			data: { gate: { price, width, style }}
+			data: { gate_type: { gate_price: price, width, style }}
 		}).done(gate => {
-			console.log(gate)
-			//this.setState({ })
+			let material = this.state.materials.find(m => m.id === matId)
+			material.gateTypes.push(gate);
+			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
+			this.setState({materials: [ ...otherMaterials, material ] })
 		}).fail(data =>{
 			console.log(data)
 		})
@@ -108,8 +119,6 @@ class FenceEditor extends Component {
 			material.heights[index] = height
 			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
 			this.setState({materials: [ ...otherMaterials, material ] })
-			// this.setState({ materials: [...this.state.materials.slice(0, index), 
-			//  	height, ...this.state.materials.slice(index + 1)] });
 		}).fail(data =>{
 			console.log(data)
 		})
@@ -122,12 +131,62 @@ class FenceEditor extends Component {
 			dataType: 'JSON',
 			data: { gate_type: {gate_price, width, style}}
 		}).done(gate => {
-			this.setState({ materials: [...this.state.materials.slice(0, index), 
-			 	gate, ...this.state.materials.slice(index + 1)] });
+			let material = this.state.materials.find(m => m.id === matId)
+			material.gateTypes[index] = gate
+			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
+			this.setState({materials: [ ...otherMaterials, material ] })
 		}).fail(data =>{
 			console.log(data)
 		})
 	}	
+
+	deleteMaterial(id, index) {
+		$.ajax({
+			url: `/api/v1/materials/${id}`,
+			type: 'DELETE',
+			dataType: 'JSON',
+		}).done( material => {
+			this.setState({ materials: [...this.state.materials.slice(0, index), ...this.state.materials.slice(index + 1)] });
+		}).fail(data => {
+			console.log(data)
+		})
+	}
+
+	deleteHeight(matId, hId) {
+		$.ajax({
+			url: `/api/v1/heights/${hId}`,
+			type: 'DELETE',
+			dataType: 'JSON',
+		}).done( height => {
+			let material = this.state.materials.find(m => m.id === matId)
+			let matIndex = this.state.materials.indexOf(material)
+			let otherHeights = material.heights.filter(h => h.id !== hId)
+			material.heights = otherHeights
+			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
+			otherMaterials.splice(matIndex, 0, material)
+			this.setState({materials: [ ...otherMaterials ] })
+		}).fail(data => {
+			console.log(data)
+		})
+	}
+
+	deleteGate(matId, gId) {
+		$.ajax({
+			url: `/api/v1/gate_types/${gId}`,
+			type: 'DELETE',
+			dataType: 'JSON',
+		}).done( gate => {
+			let material = this.state.materials.find(m => m.id === matId)
+			let matIndex = this.state.materials.indexOf(material)
+			let otherGates = material.gateTypes.filter(h => h.id !== gId)
+			material.gateTypes = otherGates
+			let otherMaterials = this.state.materials.filter(m => m.id !== matId)
+			otherMaterials.splice(matIndex, 0, material)
+			this.setState({materials: [ ...otherMaterials ] })
+		}).fail(data => {
+			console.log(data)
+		})
+	}
 
 	displayMaterials() {
 		let x = -1
@@ -144,7 +203,7 @@ class FenceEditor extends Component {
 					<div>
 						<AddHeight matId={mat.id} addHeight={this.addHeight} />
 						<AddGate matId={mat.id} addGate={this.addGate} />
-						
+						<DeleteMaterial index={x} matId={mat.id} deleteMaterial={this.deleteMaterial} />
 					</div>
 				</div>
 			)
@@ -161,6 +220,7 @@ class FenceEditor extends Component {
 					<li key={height.id}>
 						{height.name}ft - ${height.pricePerFoot}
 						<EditHeight height={height} index={x} matId={material.id} updateHeightList={this.updateHeightList} /> 
+						<DeleteHeight heightId={height.id} matId={material.id} deleteHeight={this.deleteHeight} />
 					</li>
 				)
 			})
@@ -182,6 +242,7 @@ class FenceEditor extends Component {
 						<li>Gate Width: {gate.width}</li>
 						<li>Gate Style: {gate.style}</li>
 						<EditGate gate={gate} index={x} matId={material.id} updateGateList={this.updateGateList} />
+						<DeleteGate gateId={gate.id} matId={material.id} deleteGate={this.deleteGate} />
 					</ul>
 				)
 			})	

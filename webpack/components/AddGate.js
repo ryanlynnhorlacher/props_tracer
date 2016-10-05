@@ -9,18 +9,18 @@ class AddGate extends Component {
     this.createGate = this.createGate.bind(this);
   }
 
-  changeDisplay(e) {
-    e.preventdefault
+  changeDisplay(event) {
+    event.preventDefault()
     this.setState({...this.props, displayForm: !this.state.displayForm})
   }
 
-  createGate(e) {
-    e.preventdefault
+  createGate(event) {
+    event.preventDefault()
     let price = this.refs.price.value
     let style = this.refs.style.value
     let width = this.refs.width.value
-    this.props.AddGate(price, style, width, this.props.matId)
-    this.gateForm.reset()
+    this.props.addGate(price, style, width, this.props.matId)
+    this.refs.gateForm.reset()
   }
 
   contents() {
@@ -36,7 +36,7 @@ class AddGate extends Component {
     else {
       return (
         <div className="center">
-          <form ref="gateForm" onSubmit={() => this.createGate }>
+          <form ref="gateForm" onSubmit={(event) => this.createGate(event) }>
             <label>Add Gate </label>
             <input ref="price" placeholder="Gate Price"/>
             <input ref="style" placeholder="Gate Style"/>

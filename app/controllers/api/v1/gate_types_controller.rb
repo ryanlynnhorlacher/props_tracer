@@ -7,15 +7,14 @@ class Api::V1::GateTypesController < ApplicationController
   end
 
   def show
-    render json: @gate_type
   end
  
   def create
-    gate_type = @material.gate_types.new(gate_type_params)
-    if gate_type.save
-      render json: gate_type 
+    @gate_type = @material.gate_types.new(gate_type_params)
+    if @gate_type.save
+      @gate_type 
     else
-      render json: {errors: gate_type.errors}, status: 401
+      render json: {errors: @gate_type.errors}, status: 401
     end
   end
 

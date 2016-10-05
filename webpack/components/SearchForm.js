@@ -36,8 +36,6 @@ class SearchForm extends Component {
     console.log('search timer set')
     clearTimeout(timeoutID);
     timeoutID = setTimeout(this.search, 500);
-
-    
   }
 
   search() {
