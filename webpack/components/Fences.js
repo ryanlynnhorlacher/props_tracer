@@ -89,7 +89,7 @@ class Fences extends Component {
 		    	</ul>
 	    	</div>
 			
-				<h1 className="center-align truncate grey-text text-darken-4" style={{textDecoration:'underline'}}> FENCES</h1>
+				<h1 className="center-align truncate grey-text text-darken-4" style={{textDecoration:'underline'}}>FENCES</h1>
 				
 				<ul className="collapsible" data-collapsible="accordion">
 			    <li>
@@ -203,15 +203,15 @@ class Fences extends Component {
 			      	<div className="collapsible-body">
 			      		<div className='row'>
 			      			<div className='col s12 m6'>
-				      			<img className="responsive-img" src={ ofence }  style={{border:'0px', margin:'0px', height:'255px', width:'450px'}}  /> 
+				      			<img className="responsive-img" src={ ofence }  style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
 				      		</div>
 				      		<div className='col s12 m6'>
-				      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/52b34b44e4b0c1e8721bb97d/1422710388982/DSCN0416.JPG?format=2500w" style={{border:'0px', margin:'0px', height:'autopx', width:'450px'}}  /> 
+				      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/52b34b44e4b0c1e8721bb97d/1422710388982/DSCN0416.JPG?format=2500w" style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
 				      		</div>
 					      		<p>MONUMENTAL IRON WORKS®, CLASSIC PREMIER™ IRON SERIES, MONTAGE®, ECHELON™, COLONIAL ALUMINUM®, REMINGTON RESIDENTIAL FENCE™, JERITH ALUMINUM, AND FORTRESS VERSAI CONSTITUTE THE FINEST SELECTION OF ORNAMENTAL FENCE SYSTEMS.</p>
 						      <div className='row'>
-						      	<a className="colasible-btn modal-trigger-chain-single-gate left" style={{ marginLeft: "0px" }} href="#ornamental_iron_single-gate">Single Gate</a>
-								  	<a className="colasible-btn modal-trigger-chain-single-gate right" style={{ marginRight: "0px" }} href="#ornamental_iron-double-gate">Double Gate</a>
+						      	<a className="colasible-btn modal-trigger-chain-single-gate left" style={{ marginLeft: "30px" }} href="#ornamental_iron_single-gate">Single Gate</a>
+								  	<a className="colasible-btn modal-trigger-chain-single-gate right" style={{ marginRight: "30px" }} href="#ornamental_iron-double-gate">Double Gate</a>
 					      	</div>	
 				      		<div id="ornamental_iron_single-gate" className="modal">
 								    <div className="modal-content">
