@@ -6,10 +6,19 @@ class AddMaterial extends Component {
     this.state = { ...this.props, displayForm: true }
     this.contents = this.contents.bind(this);
     this.changeDisplay = this.changeDisplay.bind(this);
+    this.createMaterial = this.createMaterial.bind(this);
   }
 
-  changeDisplay() {
-    this.setState({...this.props, displayForm: !this.state.displayForm})
+  changeDisplay(e) {
+    e.preventDefault;
+    this.setState({...this.props, displayForm: !this.state.displayForm});
+  }
+
+  createMaterial(event) {
+    event.preventDefault()
+    name = this.name.value
+    this.props.addMaterial(name);
+    this.materialForm.reset();
   }
 
   contents() {
@@ -25,9 +34,9 @@ class AddMaterial extends Component {
     else {
       return (
         <div className="center">
-          <form onSubmit={ this.props.updateMaterialList(name) }>
+          <form ref={(input) => this.materialForm = input} onSubmit={(e) => this.createMaterial(e)}>
             <label>Add Material </label>
-            <input ref="material" name="name" placeholder="Material Name"/>
+            <input ref={(input) => this.name = input} name="name" placeholder="Material Name"/>
             <input type="submit" />
           </form>
           <button type="button" onClick={ this.changeDisplay }>

@@ -7,21 +7,20 @@ class Api::V1::HeightsController < ApplicationController
   end
 
   def show
-    render json: @height
   end
 
   def create
-    customer = material.height.new(height_params)
-    if height.save
-      render json: height
+    @height = @material.heights.new(height_params)
+    if @height.save
+      @height
     else
-      render json: {errors: height_type.errors}, status: 401
+      render json: {errors: @height.errors}, status: 401
     end
   end
 
   def update
     if @height.update(height_params)
-      render json: @height
+      @material = Material.find(@height.material_id)
     else
       render json: {errors: @height.errors}, status: 401
     end

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+ 
 class EditHeight extends Component {
   constructor(props) {
     super(props)
@@ -12,14 +12,12 @@ class EditHeight extends Component {
   changeDisplay() {
     this.setState({...this.props, displayForm: !this.state.displayForm})
   }
-
-  handleChange(e, heightId) {
-    console.log(heightId)
-    const height = this.props.height
-    const updatedHeight = {
-      height.name = heightId
-    }
-    this.props.updateHeight(heightId, updatedHeight);
+ 
+  handleChange(e) {
+    e.preventDefault();
+    let name = this.refs.height.value;
+    let pricePerFoot = this.refs.pricePerFoot.value;
+    this.props.updateHeightList(this.props.matId, this.state.height.id, name, pricePerFoot, this.state.index)
   }
 
   contents() {
@@ -34,11 +32,11 @@ class EditHeight extends Component {
     }
     else {
       return (
-        <div id={ "EditFenceForm-"+this.props.heightId } className="center">
+        <div className="center">
             <label>Edit Height </label>
-            <form onSubmit={(e) => this.handleChange(e, this.props.height.id)}>
+            <form onSubmit={(e) => this.handleChange(e)}>
               <input ref="height" defaultValue={this.props.height.name} placeholder="Height"/>
-              <input ref="priceperfoot" defaultValue={this.props.height.pricePerFoot} placeholder="Price Per Foot"/>
+              <input ref="pricePerFoot" defaultValue={this.props.height.pricePerFoot} placeholder="Price Per Foot"/>
               <input type="submit"/>
             </form>
           <button type="button" onClick={ this.changeDisplay }>

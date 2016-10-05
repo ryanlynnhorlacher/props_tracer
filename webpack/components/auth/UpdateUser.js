@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+ 
 class UpdateUser extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ class UpdateUser extends React.Component {
       console.log(data)
     });
   }
-
+ 
   handleSubmit(e) {
     e.preventDefault();
     let firstName = this.refs.firstName.value;

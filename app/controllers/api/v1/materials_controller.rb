@@ -8,21 +8,19 @@ protect_from_forgery with: :null_session
   end
 
   def show
-    render json: @material
   end
 
   def create
-    customer = current_user.material.new(material_params)
-    if material.save
-      render json: material
+    @material = Material.new(material_params)
+    if @material.save
+      @material
     else
       render json: {errors: material.errors}, status: 401
     end
   end
-
+ 
   def update
     if @material.update(material_params)
-      render json: @material
     else
       render json: {errors: @material.errors}, status: 401
     end
@@ -35,10 +33,10 @@ protect_from_forgery with: :null_session
 
   private
     def set_material
-      @material = current_user.material.find(params[:id])
+      @material = Material.find(params[:id])
     end
 
     def material_params
-      params.require(:material).permit(:heights, :gates, :name)
+      params.require(:material).permit(:name)
     end
 end

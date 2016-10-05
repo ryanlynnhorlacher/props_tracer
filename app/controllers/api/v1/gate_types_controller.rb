@@ -1,16 +1,17 @@
 class Api::V1::GateTypesController < ApplicationController
-  before_action :set_gatetype, only: [:show, :update, :destroy]
+  before_action :set_gate_type, only: [:show, :update, :destroy]
+  before_action :set_material, only: [:index, :create]
 
   def index
     render json: material.gate_type
   end
 
   def show
-    render json: @gatetype
+    render json: @gate_type
   end
-
+ 
   def create
-    customer = material.gate_type.new(gate_type_params)
+    gate_type = @material.gate_types.new(gate_type_params)
     if gate_type.save
       render json: gate_type 
     else
@@ -20,7 +21,7 @@ class Api::V1::GateTypesController < ApplicationController
 
   def update
     if @gate_type.update(gate_type_params)
-      render json: @gate_type
+      @material = Material.find(@gate_type.material_id)
     else
       render json: {errors: @gate_type.errors}, status: 401
     end
@@ -33,10 +34,14 @@ class Api::V1::GateTypesController < ApplicationController
 
   private
     def set_gate_type
-      @gate_type = material.gate_type.find(params[:id])
+      @gate_type = GateType.find(params[:id])
+    end
+
+    def set_material
+      @material = Material.find(params[:material_id])
     end
 
     def gate_type_params
-      params.require(:gate_type).permit(:gate_price, :name)
+      params.require(:gate_type).permit(:gate_price, :width, :style)
     end
 end

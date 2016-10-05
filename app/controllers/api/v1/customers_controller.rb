@@ -20,7 +20,7 @@ class Api::V1::CustomersController < ApplicationController
   		render json: {errors: customer.errors}, status: 401
   	end
   end
-
+ 
   def update
   	if @customer.update(customer_params)
       render json: @customer

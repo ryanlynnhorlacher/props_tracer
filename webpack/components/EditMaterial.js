@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 
-class EditGate extends Component {
+class EditMaterial extends Component {
   constructor(props) {
     super(props)
-    this.state = { ...this.props, displayForm: true, gate: {} }
+    this.state = { ...this.props, displayForm: true }
     this.contents = this.contents.bind(this);
     this.changeDisplay = this.changeDisplay.bind(this);
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
 
   changeDisplay() {
     this.setState({...this.props, displayForm: !this.state.displayForm})
   }
- 
+
   handleChange(e) {
     e.preventDefault();
-    let price = this.refs.price.value;
-    let width = this.refs.width.value;
-    let style = this.refs.style.value;
-    this.props.updateGateList(this.props.matId, this.state.gate.id, price, width, style, this.state.index)
+    let name = this.refs.material.value;
+    this.props.updateMaterialList(this.props.matId, name, this.state.index)
   }
 
   contents() {
@@ -26,7 +24,7 @@ class EditGate extends Component {
       return (
         <div className="block">
           <button type="button" onClick={ this.changeDisplay }>
-            Edit
+            Edit Material
           </button>
         </div>
       )
@@ -34,11 +32,9 @@ class EditGate extends Component {
     else {
       return (
         <div className="center">
-            <label>Edit Gate </label>
+            <label>Edit material </label>
             <form onSubmit={(e) => this.handleChange(e)}>
-              <input ref="price" defaultValue={this.props.gate.price} placeholder="Price"/>
-              <input ref="width" defaultValue={this.props.gate.width} placeholder="Width"/>
-              <input ref="style" defaultValue={this.props.gate.style} placeholder="Style"/>
+              <input ref="material" defaultValue={this.props.mat.material} placeholder="Material Name"/>
               <input type="submit"/>
             </form>
           <button type="button" onClick={ this.changeDisplay }>
@@ -52,9 +48,8 @@ class EditGate extends Component {
   render() {
     return (
       this.contents()
-
     )
   }
 }
 
-export default EditGate;
+export default EditMaterial;

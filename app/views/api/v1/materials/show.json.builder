@@ -1,4 +1,4 @@
-json.materials @materials do |material|
+json.material @material do |material|
   json.id material.id
   json.material material.name
   json.heights material.heights do |height|
