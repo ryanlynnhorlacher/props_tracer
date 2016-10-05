@@ -48,13 +48,13 @@ class Admin extends Component {
 			return(
 				<button className='btn col s12 m4 red' 
 					onClick={ () => this.setState({showSignup: !this.state.showSignup })}>
-					Hide New User Form</button>
+					Hide New User</button>
 			)
 		else
 			return(
 				<button className='btn col s12 m4' 
 					onClick={ () => this.setState({ showSignup: !this.state.showSignup })}>
-					Show New User Form</button>
+					Show New User</button>
 			)
 	}
 
@@ -63,13 +63,13 @@ class Admin extends Component {
 			return(
 				<button className='btn col s12 m4 red' 
 					onClick={ () => this.setState({showCustomers: !this.state.showCustomers })}>
-					Hide Customer Reporting</button>
+					Hide Reporting</button>
 			)
 		else
 			return(
 				<button className='btn col s12 m4' 
 					onClick={ () => this.setState({ showCustomers: !this.state.showCustomers })}>
-					Show Customer Reporting</button>
+					Show Reporting</button>
 			)
 	}
 
@@ -78,13 +78,13 @@ class Admin extends Component {
 			return(
 				<button className='btn col s12 m4 red' 
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
-					Hide Update User Form</button>
+					Hide User Info</button>
 			)
 		else
 			return(
 				<button className='btn col s12 m4' 
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
-					Show Update User Form</button>
+					Show User Info</button>
 			)
 	}
 

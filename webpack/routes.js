@@ -41,13 +41,6 @@ export default (
 	   <Route path='/login' component={Login} />
 	   <Route path='/admin' component={UserIsAuthenticated(Admin)} />
 	   <Route path='/fenceeditor' component={UserIsAuthenticated(FenceEditor)} />
-	   <Route path='/addheight' component={UserIsAuthenticated(AddHeight)} />
-	   <Route path='/editheight' component={UserIsAuthenticated(EditHeight)} />
-	   <Route path='/addgate' component={UserIsAuthenticated(AddGate)} />
-	   <Route path='/editgate' component={UserIsAuthenticated(EditGate)} />
-	   <Route path='/addmaterial' component={UserIsAuthenticated(AddMaterial)} />
-	   <Route path='/editmaterial' component={UserIsAuthenticated(EditMaterial)} />
-	   <Route path='/signup' component={Signup} />
 	   <Route path='/customers/:id' component={Customer} />
 	   <Route path='/user/update' component={UserIsAuthenticated(UpdateUser)} />
 	   <Route path="*" status={404} component={NoMatch} />
