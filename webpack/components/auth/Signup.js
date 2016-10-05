@@ -23,7 +23,7 @@ class Signup extends React.Component {
   render() {
     return (
       <div>
-        <h3 className="center">Sign Up</h3>
+        <h3 className="center">Add New User</h3>
         <div className="container text-bg round center">
           <form onSubmit={this.handleSubmit}>
             <input ref="firstName" required placeholder="First Name" />
