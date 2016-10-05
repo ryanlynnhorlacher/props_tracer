@@ -6,7 +6,7 @@ class UpdateUser extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.updateState = this.updateState.bind(this);
-    this.state = { error: false, redirectRoute: '/admin', edit: false}
+    this.state = { error: false, redirectRoute: '/admin', id: null}
   }
  
   componentWillMount() {
@@ -55,8 +55,8 @@ class UpdateUser extends React.Component {
   // }
 
   render() {
-    if(this.state.edit === true) {
-      let user = this.state
+    let user = this.state
+    if(this.state.id) {
       return (
         <div>
           <h3 className="center">Update Profile</h3>
@@ -71,17 +71,13 @@ class UpdateUser extends React.Component {
               <label>Role</label>
               <input ref="role" defaultValue={user.role} />
               <button type="submit" className="btn center">Update</button>
-              <button className='btn'
-              onClick={() => this.setState({ edit: !this.state.edit})}>Hide edit</button>
             </form>
           </div>
+          <hr/>
         </div>
       )
-    } else 
-      return(
-        <button className='btn'
-        onClick={() => this.setState({ edit: !this.state.edit})}>Edit User profile</button>
-      )
+    } else
+      return null
   }
 }
 

@@ -21,7 +21,7 @@ class Api::V1::EstimatesController < ApplicationController
 
   def update
   	if @estimate.update(estimate_params)
-      render json: @estimate
+      @estimate
     else
       render json: {errors: @estimate.errors}, status: 401
     end
@@ -43,6 +43,6 @@ class Api::V1::EstimatesController < ApplicationController
 
     def estimate_params
     	params.require(:estimate).permit(:location, :distance, 
-    												:final_price, :fence_material, :fence_height, :gate_count)
+    												:final_price, :fence_material, :fence_height, :gate_count, :status)
     end
 end

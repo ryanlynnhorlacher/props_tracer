@@ -35,21 +35,22 @@ class Dashboard extends React.Component {
 
 	render() {
 		return(
-
 			<div>
-				<hr />
-				<h4>Sales info</h4>
-				<div className='row'>
-					<input className='col s8'ref='timeFrame' defaultValue='30' />
-					<button className='btn col s4' onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Dashboard</button>
+				<h3 className="center">Customer Reports</h3>
+				<label>Reporting days</label>
+				<input className='col s8'ref='timeFrame' defaultValue='30' />
+				<button className='btn col s4' 
+					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Dashboard</button>
+				<div>
+					Sales closed: {this.state.dealsClosed}
+					<br />
+					Customers not contaced: {this.state.notContacted}
+					<br />
+					Sales declined by customer: {this.state.custDeclined}
+					<br />
+					Customers making decision: {this.state.makingDecision}
 				</div>
-				Sales closed: {this.state.dealsClosed}
-				<br />
-				Customers not contaced: {this.state.notContacted}
-				<br />
-				Sales declined by customer: {this.state.custDeclined}
-				<br />
-				Customers making decision: {this.state.makingDecision}
+				<hr />
 			</div>
 		)
 	}

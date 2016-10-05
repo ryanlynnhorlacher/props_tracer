@@ -8,9 +8,7 @@ class Customers extends Component {
 		super(props);
 		this.displayCustomers = this.displayCustomers.bind(this);
 		this.newSearch = this.newSearch.bind(this);
-		this.showCustomersButton = this.showCustomersButton.bind(this);
-		this.showCustomers = this.showCustomers.bind(this)
-		this.state = { customers: [], showCustomers: false };
+		this.state = { customers: [] };
 	}
 
 	componentWillMount() { 
@@ -43,7 +41,6 @@ class Customers extends Component {
 	}
 
 	displayCustomers() {
-		if (this.state.showCustomers === true) {
 			let x = 0
 			let customers = this.state.customers.map( customer => {
 				return(
@@ -53,35 +50,15 @@ class Customers extends Component {
 				)
 			})
 			return customers
-		}
 	}
-
-	showCustomers() {
-		this.setState({
-			showCustomers: !this.state.showCustomers
-		})
-	}
-
-	showCustomersButton() {
-		if (this.state.showCustomers === false) {
-			return(
-				<button className='btn' onClick={ this.showCustomers }>Show Search Results</button>
-			)
-		} else {
-			return(
-				<button className='btn' onClick={ this.showCustomers }>Hide Search Results</button>
-			)
-		}
-	}
-
-
 
 	render() {
 		return(
 			<div className=''>
+				<h3 className="center">Customer Reports</h3>
 				<SearchForm newSearch={this.newSearch} />
-				{ this.showCustomersButton() }
 				{ this.displayCustomers() }
+				<hr />
 			</div>
 		)
 	}

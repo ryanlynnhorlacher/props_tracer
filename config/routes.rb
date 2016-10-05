@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get '/customers/dashboard', to: 'customers#dashboard'
       resources :users
       resources :customers do 
-      resources :estimates, shallow: true
+        resources :estimates, shallow: true
     end
       resources :materials do 
         resources :heights, shallow: true
