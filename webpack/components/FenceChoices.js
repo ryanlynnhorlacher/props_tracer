@@ -37,12 +37,14 @@ class FenceChoices extends React.Component {
 
   replaceMaterialChoice(material){
     this.refs.materialChoice.text = material;
+    this.setState.material = material
     // this.heightList()
     // materialCase();
   }
 
 
   materialChoices() {
+    
     let mats = this.state.materials.map( mat => {
       return(
         <li key={mat.material}><a ref={mat.material} onClick={() => {this.replaceMaterialChoice(mat.material)}}>{mat.material}</a></li>
@@ -61,35 +63,12 @@ class FenceChoices extends React.Component {
               { this.state.materials ? this.materialChoices() : null }
             </ul>
           </div>
-
-          <div className="col s4">
-            <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>Choose A Height</a>
-            <ul id='dropdown2' ref="heightList" className='dropdown-content' >
-              { this.state.materials ? this.heightChoices() : null }
-            </ul>
-          </div>
+          <Heights material={this.state.materials}/>
         </div>
       )
   }
 
 
-
-
-  replaceHeightChoice(height){
-    this.refs.heightChoice.text = height;
-  }
-
-  heightChoices() {
-    if (this.state.materials) {
-      debugger
-      let heights = this.state.materials.map( map => {
-        return(
-          <li key={map.material}><a onClick={() => {this.replaceHeightChoice(map.height)}}>something!</a></li>
-        )
-      })
-      return heights
-    }
-  }
 
 
   // heightList(){
