@@ -1,7 +1,6 @@
 import React from 'react'
 import Heights from './heights/Heights'
 import Gates from './heights/Gates'
-import Results from './heights/Results'
 
 let stuff
 class FenceChoices extends React.Component {
@@ -9,8 +8,9 @@ class FenceChoices extends React.Component {
     super(props);
     this.materialChoices = this.materialChoices.bind(this);
     this.replaceMaterialChoice = this.replaceMaterialChoice.bind(this);
+    this.heightsForRender = this.heightsForRender.bind(this);
     // this.heightList = this.heightList.bind(this);
-    this.state = { materials: null}
+    this.state = { materials: null, choice: {} }
   }
 
   componentWillMount(){
@@ -39,20 +39,30 @@ class FenceChoices extends React.Component {
 
   replaceMaterialChoice(material){
     this.refs.materialChoice.text = material;
-    this.setState.material = material
-    // this.heightList()
-    // materialCase();
+    let materialChoice = this.state.materials.find(m => m.material === material)
+
+    this.setState({choice: materialChoice})
   }
 
 
   materialChoices() {
-
+    let x = -1
     let mats = this.state.materials.map( mat => {
+      x += 1
       return(
-        <li key={mat.material}><a ref={mat.material} onClick={() => {this.replaceMaterialChoice(mat.material)}}>{mat.material}</a></li>
+        <li key={x}><a ref={mat.material} onClick={() => {this.replaceMaterialChoice(mat.material)}}>{mat.material}</a></li>
       )
     })
     return mats
+  }
+
+  heightsForRender() {
+    if(this.state.choice)
+      return(
+        <Heights heights={this.state.choice.heights}/>
+      )
+    else
+      return null
   }
 
 
@@ -65,52 +75,11 @@ class FenceChoices extends React.Component {
               { this.state.materials ? this.materialChoices() : null }
             </ul>
           </div>
-          <Heights material={this.state.materials}/>
-          <Gates gate={this.state.materials} />
-        {/*  <Results /> */}
+          <Heights heights={this.state.choice.heights}/>
+          <Gates gates={this.state.choice.gateTypes} />
         </div>
       )
   }
-
-
-
-
-  // heightList(){
-  //   debugger
-  //   return(
-  //     <div>
-  //       <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>{ this.state.materials.material.height ? "Choose a Height" : null }</a>
-  //       <ul id='dropdown2' ref="heightList" className='dropdown-content' >
-  //         { this.state.materials.heights ? this.heightChoices() : null }
-  //       </ul>
-  //     </div>
-  //   )
-  // }
-
-
 }
 
 export default FenceChoices;
-
-
-
-
-// materialCase(){
-//   this.state.dropdownDisplay = this.state.material;
-//
-//   switch (this.state.material) {
-//     case "Vinyl":
-//       // <Heights />
-//       console.log("vinyl");
-//
-//       break;
-//     case "Wood":
-//       console.log("Wood");
-//       break;
-//     case "Iron":
-//       console.log("Iron");
-//       break;
-//     default:
-//       console.log("Its broken....");
-//   }
-// };
