@@ -1,5 +1,7 @@
 import React from 'react'
 import Heights from './heights/Heights'
+import Gates from './heights/Gates'
+import Results from './heights/Results'
 
 let stuff
 class FenceChoices extends React.Component {
@@ -44,7 +46,7 @@ class FenceChoices extends React.Component {
 
 
   materialChoices() {
-    
+
     let mats = this.state.materials.map( mat => {
       return(
         <li key={mat.material}><a ref={mat.material} onClick={() => {this.replaceMaterialChoice(mat.material)}}>{mat.material}</a></li>
@@ -64,6 +66,7 @@ class FenceChoices extends React.Component {
             </ul>
           </div>
           <Heights material={this.state.materials}/>
+          <Gates gate={this.state.materials} />
         </div>
       )
   }
