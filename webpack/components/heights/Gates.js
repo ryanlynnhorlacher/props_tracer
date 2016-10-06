@@ -14,7 +14,6 @@ class Gates extends Component {
   }
 
   gateChoices() {
-    debugger
     if (this.state.material) {
       let gates = this.state.material.map( map => {
         return(

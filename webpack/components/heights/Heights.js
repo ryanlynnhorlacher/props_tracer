@@ -9,12 +9,12 @@ class Heights extends Component {
   }
 
 
+
   replaceHeightChoice(height){
     this.refs.heightChoice.text = height;
   }
 
   heightChoices() {
-    debugger
     if (this.state.material) {
       let heights = this.state.material.map( map => {
         return(

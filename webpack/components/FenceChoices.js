@@ -67,6 +67,7 @@ class FenceChoices extends React.Component {
           </div>
           <Heights material={this.state.materials}/>
           <Gates gate={this.state.materials} />
+        {/*  <Results /> */}
         </div>
       )
   }
