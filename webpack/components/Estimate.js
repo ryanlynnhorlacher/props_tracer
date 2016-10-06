@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import FenceChoices from './FenceChoices'
+import React, { Component } from 'react';
+import FenceChoices from './FenceChoices';
+import Map from './Map';
+import CustomerInupt from './CustomerInput';
+import FinalEstimate from './FinalEstimate';
 
 class Estimate extends Component {
 	constructor(props) {
@@ -12,8 +15,10 @@ class Estimate extends Component {
 	render() {
 		return(
 			<div>
-				<h1>This is the Estimate</h1>
+				<Map />
 				<FenceChoices />
+				<CustomerInput />
+				<FinalEstimate />
 			</div>
 		)
 	}
