@@ -14,13 +14,17 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import UpdateUser from './components/auth/UpdateUser';
 import Customer from './components/Customer';
+// DO WE NEED THESE?
 import FenceEditor from './components/FenceEditor';
-import AddHeight from './components/AddHeight';
-import EditHeight from './components/EditHeight';
-import AddGate from './components/AddGate';
-import EditGate from './components/EditGate';
 import AddMaterial from './components/AddMaterial';
+import AddHeight from './components/AddHeight';
+import AddGate from './components/AddGate';
 import EditMaterial from './components/EditMaterial';
+import EditHeight from './components/EditHeight';
+import EditGate from './components/EditGate';
+import FinalEstimate from './components/FinalEstimate';
+import CustomerInput from './components/CustomerInput';
+import LandingPage from './components/LandingPage';
 
 const UserIsAuthenticated = UserAuthWrapper({
 	authSelector: state => state.auth,
@@ -28,12 +32,16 @@ const UserIsAuthenticated = UserAuthWrapper({
 	redirectAction: history.push,
 	wrapperDisplayName: 'UserIsAuthenticated'
 });
-
+ 
 
 export default (
   <Route>
     <Route path="/" component={App} >
 	   <IndexRoute component={Map} />
+	   // REMOVE THESE 
+	   <Route path='landingpage' component={LandingPage} />
+	   <Route path='customerinput' component={CustomerInput} />
+	   <Route path='finalestimate' component={FinalEstimate} />
 	   <Route path='estimate' component={Estimate} />
 	   <Route path='fences' component={Fences} />
 	   <Route path='about' component={About} />

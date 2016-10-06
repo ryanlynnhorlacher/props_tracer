@@ -82,7 +82,7 @@ class Fences extends Component {
 			      </li>
 			      <li>
 			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/53c94b1fe4b017caa105e66e/1405700907032/photo+3.JPG?format=2500w" href='four' /> 
-			        <div className="caption bottom-left">
+			        <div className="caption center-align">
 			        	<h2>ORNAMENTAL IRON</h2>
 			        </div>
 			      </li>
@@ -103,7 +103,7 @@ class Fences extends Component {
 						      	<img  className="right" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w"  style={{border:'0px', marginLeft: '', height:'auto', width:'100%'}} />
 						      </div>
 				      	</div>
-				      	<p>CUSTOM FENCE’S PREMIUM VINYL FENCING IS A SOPHISTICATED COMBINATION OF TRADITION AND TECHNOLOGY.  CONSTRUCTED OF HIGH-TECH POLYVINYL CHLORIDE COMPOUNDS, VINYL FENCING IS VIRTUALLY MAINTENANCE-FREE.  YOU’LL NEVER HAVE TO WORRY ABOUT PAINTING, ROTTING, TERMITES, CORROSION, OR RUST.  VINYL FENCING WILL RETAIN ITS BEAUTIFUL APPEARANCE, ENHANCING THE VALUE OF YOUR PROPERTY FOR YEARS TO COME. VINYL FENCE COMES IN MANY STYLES, SIZES, AND COLOR. BY CHOOSING FROM A VARIETY OF POST CAPS, YOU CAN FURTHER CUSTOMIZE YOUR FENCE.</p>
+				      	<p>PREMIUM VINYL FENCING IS A SOPHISTICATED COMBINATION OF TRADITION AND TECHNOLOGY.  CONSTRUCTED OF HIGH-TECH POLYVINYL CHLORIDE COMPOUNDS, VINYL FENCING IS VIRTUALLY MAINTENANCE-FREE.  YOU’LL NEVER HAVE TO WORRY ABOUT PAINTING, ROTTING, TERMITES, CORROSION, OR RUST.  VINYL FENCING WILL RETAIN ITS BEAUTIFUL APPEARANCE, ENHANCING THE VALUE OF YOUR PROPERTY FOR YEARS TO COME. VINYL FENCE COMES IN MANY STYLES, SIZES, AND COLOR. BY CHOOSING FROM A VARIETY OF POST CAPS, YOU CAN FURTHER CUSTOMIZE YOUR FENCE.</p>
 				      		<div className='row' >
 				      			<a className="colasible-btn modal-trigger-chain-single-gate left" style={{ marginLeft: "30px"}} href="#vinyl-gate">Single Gate</a>
 						  			<a className="colasible-btn modal-trigger-chain-single-gate right" style={{ marginRight: "30px"}} href="#vinyl-double-gate">Double Gate</a>
@@ -191,7 +191,6 @@ class Fences extends Component {
 						      <h4>Gate 2</h4>
 						      <img src={ chainLink } style={{border:'0px', margin:'15px', float:'leff', height:'300px', width:'200px'}} />  
 			      			<img src={ chainLink2 } style={{border:'0px', margin:'15px', float:'right', height:'300px', width:'200px'}}  /> 
-						   		<p>this is a the double gate they are nice</p>
 						    </div>
 						  </div>
 			    	</div>

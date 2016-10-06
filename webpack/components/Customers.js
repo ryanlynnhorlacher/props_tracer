@@ -10,7 +10,7 @@ class Customers extends Component {
 		this.newSearch = this.newSearch.bind(this);
 		this.state = { customers: [] };
 	}
-
+ 
 	componentWillMount() { 
 		$.ajax({
 			url: '/api/v1/customers',

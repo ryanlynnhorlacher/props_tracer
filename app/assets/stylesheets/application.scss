@@ -122,6 +122,15 @@ body {
 
 }
 
+.center {
+	list-style-position: inside;
+}
+
+.special-align {
+	display: inline-block; 
+	text-align: left;
+}
+
 /*
 Button Color: (needs to be added)
 #B2B0AA lighter
