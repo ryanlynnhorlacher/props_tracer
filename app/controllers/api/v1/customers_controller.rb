@@ -13,9 +13,14 @@ class Api::V1::CustomersController < ApplicationController
   end
 
   def create
-  	customer = current_user.customers.new(customer_params)
-  	if customer.save
-  		render json: customer 
+  	@customer = Customer.new(customer_params)
+  	if @customer.save
+  		 @estimate = Estimate.new(estimate_params, customer_id: @customer.id)
+       if @estimate.save
+        render :create
+      else
+        render json: errors: @estimate.errors}, status: 401
+      end
   	else
   		render json: {errors: customer.errors}, status: 401
   	end
@@ -37,6 +42,11 @@ class Api::V1::CustomersController < ApplicationController
   private
     def set_customer
       @customer = Customer.find(params[:id])
+    end
+
+    def estimate_params
+      params.require(:estimate).permit(:location, :distance, 
+        :final_price, :fence_material, :fence_height, :gate_count)
     end
 
     def customer_params

@@ -37,11 +37,12 @@ const UserIsAuthenticated = UserAuthWrapper({
 export default (
   <Route>
     <Route path="/" component={App} >
-	   <IndexRoute component={Map} />
+	   <IndexRoute component={LandingPage} />
+	   <Route path='map' component={Map} />
 	   // REMOVE THESE 
-	   <Route path='landingpage' component={LandingPage} />
 	   <Route path='customerinput' component={CustomerInput} />
 	   <Route path='finalestimate' component={FinalEstimate} />
+	   
 	   <Route path='estimate' component={Estimate} />
 	   <Route path='fences' component={Fences} />
 	   <Route path='about' component={About} />

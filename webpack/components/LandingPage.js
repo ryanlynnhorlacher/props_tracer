@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import logoLarge from '../images/logoLarge.png';
+import { Link, IndexLink } from 'react-router'
+
+let linkClass = 'red'
 
 class LandingPage extends Component {
   render() {
@@ -25,7 +28,7 @@ class LandingPage extends Component {
             </ol>
           </div>
           <br />
-          <button>Get Started!</button>
+          <Link to='map' activeClassName={linkClass}>Get Started!</Link>
         </div>
       </div>
     )
