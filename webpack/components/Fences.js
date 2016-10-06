@@ -145,8 +145,8 @@ class Fences extends Component {
 			      	 	<div id="wood-single-gate" className="modal">
 							    <div className="modal-content">
 							      <h4>Gate 1</h4>
-							      <img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b346c7e4b0ab039835b050/1422710379755/CIMG0176.JPG?format=2500w"  style={{border:'20px', margin:'30px', float:'leff', height:'400px', width:'autopx'}}  /> 
-				      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b34693e4b0ab039835afd5/1422710368651/CIMG0188.JPG?format=2500w"  style={{border:'0px', marginLeft: '', height:'400px', width:'autopx'}}  /> 
+							      <img className="responsive-img" src="http://adamsfence.com/wp-content/uploads/2010/02/woodfence1.jpg"  style={{border:'20px', margin:'30px', float:'leff', height:'400px', width:'autopx'}}  /> 
+				      			<img className="responsive-img" src="http://www.drawhome.com/wp-content/uploads/2016/03/Innovative-Back-Yard-with-Green-Grass-Space-and-Natural-Wooden-Fence-and-Gates-Designs-beside-Cozy-House-and-Big-Tree.jpg"  style={{border:'0px', marginLeft: '', height:'400px', width:'autopx'}}  /> 
 							   		<p></p>
 						    	</div>
 						    </div>
@@ -154,8 +154,8 @@ class Fences extends Component {
 			      	<div id="wood-double-gate" className="modal">
 						    <div className="modal-content">
 						      <h4>Gate 2</h4>
-						      <img className="responsive-img" href="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w"  height='400px' width='400px' /> 
-			      			<img className="responsive-img" href="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w" height='400px' width='400px' /> 
+						      <img className="responsive-img" src="http://st.hzcdn.com/simgs/773142750234195e_4-6080/traditional-exterior.jpg"  height='400px' width='400px' /> 
+			      			<img className="responsive-img" src="http://img.endmassincarceration.org/2016/07/25/how-to-build-wood-fence-gate-s-ffbb8afb52f44e73.jpg" height='400px' width='400px' /> 
 						   		<p></p>
 						    </div>
 						  </div>

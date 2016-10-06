@@ -23,3 +23,4 @@
 .DS_Store
 .log
 webpack/.DS_Store
+npm-debug.log

@@ -4,8 +4,15 @@ html {
 	background-color: #A8C0DD;
 }
 
-body {
+.page-flexbox-wrapper {
+	 display: flex;
+   min-height: 100vh;
+   flex-direction: column;
 	color: #525252;
+}
+
+main {
+  flex: 1 1 auto;
 }
 
 .signup a {
@@ -58,6 +65,11 @@ body {
 .nav-color {
 	background-color: #848484;
 }
+
+.footer-color {
+	background-color: #848484 !important;
+}
+
 
 .side-nav {
 	background-color: #B2B0AA;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import {loggedIn, logout } from '../components/auth/actions';
 
@@ -17,11 +18,14 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className='page-flexbox-wrapper'>
 				<Nav auth={this.props.auth} history={this.props.history} />
-				<div className="container">
+				<main className="container">
 					{this.props.children}
-				</div>
+				</main>
+				<Footer auth={this.props.auth} history={this.props.history} />
+
+
 			</div>
 		)
 	}

@@ -26,6 +26,7 @@ import FinalEstimate from './components/FinalEstimate';
 import CustomerInput from './components/CustomerInput';
 import LandingPage from './components/LandingPage';
 
+
 const UserIsAuthenticated = UserAuthWrapper({
 	authSelector: state => state.auth,
 	predicate: auth => auth.isAuthenticated,
