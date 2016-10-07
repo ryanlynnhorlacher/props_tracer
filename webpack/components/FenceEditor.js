@@ -193,7 +193,7 @@ class FenceEditor extends Component {
 		let mats = this.state.materials.map( mat => {
 			x += 1
 			return (
-				<div key={mat.material} className='col s12 m5 card block text-bg material-editor'>
+				<div key={mat.id} className='col s12 m5 card block text-bg material-editor'>
 					<h4>{mat.material}</h4>
 					<EditMaterial mat={mat} index={x} matId={mat.id} updateMaterialList={this.updateMaterialList} />
 					<ul>
@@ -257,7 +257,7 @@ class FenceEditor extends Component {
 			<div className="center">
 				<h3>Materials</h3>
 				<AddMaterial addMaterial={this.addMaterial} />
-				<div className="col s12">
+				<div className="row">
 					{ this.state.materials ? this.displayMaterials() : null}
 				</div>
 			</div>

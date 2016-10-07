@@ -38,7 +38,7 @@ class SideMenu extends Component {
 				<a href="#" data-activates="slide-out" className="hide-on-large-only button-collapse"><i className="material-icons">menu</i></a>
 				<ul id="slide-out" className="side-nav">
 					<img src={logoImage} />
-					<li><IndexLink to='/' className='col m5' activeClassName={linkClass}>Map</IndexLink></li>
+					<li><IndexLink to='/' className='col m5' activeClassName={linkClass}>Home</IndexLink></li>
 					<li><Link to='estimate' className='col m1' activeClassName={linkClass}>Estimate</Link></li>
 					<li><Link to='fences' className='col m1' activeClassName={linkClass}>Fences</Link></li>
 					<li><Link to='about' className='col m1' activeClassName={linkClass}>About</Link></li>

@@ -45,11 +45,11 @@ class Nav extends Component {
 							<img className='hide-on-small-only' src={logoImage} />
 							<ul id='nav-mobile' className='right'>
 								<SideMenu logout={this.logout} auth={this.props.auth} />
-								<li><IndexLink to='/' className='hide-on-med-and-down' activeClassName={linkClass}>Map</IndexLink></li>
+								<li><IndexLink to='/' className='hide-on-med-and-down' activeClassName={linkClass}>Home</IndexLink></li>
 								<li><Link to='estimate' className='hide-on-med-and-down' activeClassName={linkClass}>Estimate</Link></li>
 								<li><Link to='fences' className='hide-on-med-and-down' activeClassName={linkClass}>Fences</Link></li>
 								<li><Link to='about' className='hide-on-med-and-down' activeClassName={linkClass}>About</Link></li>
-								<li><Link to='/contact' className='hide-on-med-and-down' activeClassName={linkClass}>Contact Us</Link></li>
+								<li><Link to='contact' className='hide-on-med-and-down' activeClassName={linkClass}>Contact Us</Link></li>
 								
 							</ul>
 						</div>

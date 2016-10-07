@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 	skip_before_action :verify_authenticity_token
 
 	def get_user_info
-		render json: User.find(current_user.id)
+		render json: current_user
 	end
 
 	private
