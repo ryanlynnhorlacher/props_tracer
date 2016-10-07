@@ -35,7 +35,7 @@ class Fences extends Component {
 		    	<ul className="slides pagination">
 			      <li>
 			        <img 
-			        src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348fee4b01dead0d320e0/1422710375986/6ft+White+Privacy.jpg?format=2500w " 
+			        src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860115/DSCN0335_vvkehj.jpg " 
 			        href='one' />
 			        <div className="caption center-align">
 			        	<h2>VINYL</h2>
@@ -43,45 +43,45 @@ class Fences extends Component {
 			      </li>
 
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348d9e4b01dead0d320b5/1422710376111/DSCN0335.JPG?format=2500w" href='two' />
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860112/DSCN0339_ptegx8.jpg" href='two' />
 			        <div className="caption center-align">
 			        	<h2>VINYL</h2>
 			        </div>
 			      </li>
 			    
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b34693e4b0ab039835afd5/1422710368651/CIMG0188.JPG?format=2500w" href='three' />
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860305/CIMG0188-1_xleivx.jpg" href='three' />
 			        <div className="caption center-align">
 			        	<h2>WOOD</h2>
 			        </div>   
 			      </li>
 			     
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b346c7e4b0ab039835b050/1422710379755/CIMG0176.JPG?format=2500w" href='four' /> 
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860323/CIMG0176_otofj5.jpg" href='four' /> 
 			        <div className="caption center-align">
 			        	<h2>WOOD</h2>
 			        </div>
 			      </li>
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b349bfe4b0d40f9d02a7c2/52b349cfe4b0be429b3051df/1422710404760/DSCN0376.JPG?format=2500w" href='four' />
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860937/DSCN0376-1_xgnmvp.jpg" href='four' />
 			        <div className="caption center-align">
 			        	<h2>CHAIN LINK</h2>
 			        </div> 
 			      </li>
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b349bfe4b0d40f9d02a7c2/52b349ebe4b0be429b3051fe/1422710404744/DSCN0408.JPG?format=2500w" href='four' /> 
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475860934/DSCN0408-1_d4jsfk.jpg" href='four' /> 
 			        <div className="caption center-align">
 			        	<h2>CHAIN LINK</h2>
 			        </div>
 			      </li>
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/52b34b4ee4b0c1e8721bb999/1422710392819/DSCN0403.JPG?format=2500w" href='four' /> 
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475861086/DSCN0403_hhsrqy.jpg" href='four' /> 
 			        <div className="caption center-align">
 			        	<h2>ORNAMENTAL IRON</h2>
 			        </div>
 			      </li>
 			      <li>
-			        <img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/53c94b1fe4b017caa105e66e/1405700907032/photo+3.JPG?format=2500w" href='four' /> 
+			        <img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475861161/photo_3_ezw6lu.jpg" href='four' /> 
 			        <div className="caption center-align">
 			        	<h2>ORNAMENTAL IRON</h2>
 			        </div>
@@ -97,10 +97,10 @@ class Fences extends Component {
 			      	<div className="collapsible-body">
 			      		<div className='row'>
 			      			<div className='col s12 m6'>
-						      	<img src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348cbe4b01dead0d3209f/1422710371898/DSCN0339.JPG?format=2500w"  style={{border:'0px', margin:'0px', height:'auto', width:'100%'}}  /> 
+						      	<img src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475862865/DSCN0339-1_ggsssz.jpg"  style={{border:'0px', margin:'0px', height:'auto', width:'100%'}}  /> 
 					      	</div>
 					      	<div className='col s12 m6'>
-						      	<img  className="right" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w"  style={{border:'0px', marginLeft: '', height:'auto', width:'100%'}} />
+						      	<img  className="right" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475862899/DSCN0252-5_y5gbug.jpg"  style={{border:'0px', marginLeft: '', height:'auto', width:'100%'}} />
 						      </div>
 				      	</div>
 				      	<p>PREMIUM VINYL FENCING IS A SOPHISTICATED COMBINATION OF TRADITION AND TECHNOLOGY.  CONSTRUCTED OF HIGH-TECH POLYVINYL CHLORIDE COMPOUNDS, VINYL FENCING IS VIRTUALLY MAINTENANCE-FREE.  YOU’LL NEVER HAVE TO WORRY ABOUT PAINTING, ROTTING, TERMITES, CORROSION, OR RUST.  VINYL FENCING WILL RETAIN ITS BEAUTIFUL APPEARANCE, ENHANCING THE VALUE OF YOUR PROPERTY FOR YEARS TO COME. VINYL FENCE COMES IN MANY STYLES, SIZES, AND COLOR. BY CHOOSING FROM A VARIETY OF POST CAPS, YOU CAN FURTHER CUSTOMIZE YOUR FENCE.</p>
@@ -131,10 +131,10 @@ class Fences extends Component {
 			      	<div className="collapsible-body">
 			      		<div className='row'>
 			      			<div className='col s12 m6'>
-						      	<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b346c7e4b0ab039835b050/1422710379755/CIMG0176.JPG?format=2500w"  style={{border:'0px', margin:'0px', height:'auto', width:'350px'}} /> 
+						      	<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863281/CIMG0176_zd011n.jpg"  style={{border:'0px', margin:'0px', height:'auto', width:'350px'}} /> 
 						      </div>
 						      <div className='col s12 m6'>
-						      	<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34684e4b0ddced61356c3/52b34693e4b0ab039835afd5/1422710368651/CIMG0188.JPG?format=2500w"  style={{border:'0px', marginLeft:'0px', height:'auto', width:'350px'}}  /> 
+						      	<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863278/CIMG0188_ekmbz2.jpg"  style={{border:'0px', marginLeft:'0px', height:'auto', width:'350px'}}  /> 
 						      </div>
 						     </div>
 				      	<p>CONSISTENT PERFORMANCE AND AVAILABILITY OF OUR WOOD FENCING SYSTEMS OFFERS A VAST ARRAY OF DESIGN OPTIONS. THE LOW-DENSITY CEDAR, REDWOOD, PINE, AND CYPRESS HARDWOODS USED IN OUR FENCES ARE LESS LIKELY TO WARP, CHECK, OR CHANGE DIMENSION.</p>
@@ -167,10 +167,10 @@ class Fences extends Component {
 			      	<div className="collapsible-body">
 			      		<div className='row'>
 			      			<div className='col s12 m6'>
-				      			<img className="responsive-img" src={ fence } style={{border:'0px', margin:'0px', height:'310px', width:'auto'}}  /> 
+				      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863479/84bfe49d8841b157a7e2cd5742bd25dd_hxivoy.png" style={{border:'0px', margin:'0px', height:'310px', width:'auto'}}  /> 
 				      		</div>
 				      		<div className='col s12 m6'>
-				      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b349bfe4b0d40f9d02a7c2/52b349cfe4b0be429b3051df/1422710404760/DSCN0376.JPG?format=2500w" style={{border:'0px', margin:'0px', height:'310px', width:'auto'}}  /> 
+				      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863476/DSCN0376_aehpmn.jpg" style={{border:'0px', margin:'0px', height:'310px', width:'auto'}}  /> 
 				      		</div>
 				      	</div>
 				      	<p>KNOWN FOR ITS STRENGTH AND DURABILITY, CHAIN-LINK IS PERHAPS THE MOST ECONOMICAL TYPE OF FENCING AVAILABLE. WE LET YOU CHOOSE FROM A WIDE RANGE OF WEIGHTS (OR GAUGES) AND COATINGS. SO IT’S EASY TO ENHANCE YOUR LANDSCAPING WITH A FENCE THAT BLENDS NATURALLY WITH TREES, SHRUBS, AND BUSHES.</p>
@@ -202,10 +202,10 @@ class Fences extends Component {
 			      	<div className="collapsible-body">
 			      		<div className='row'>
 			      			<div className='col s12 m6'>
-				      			<img className="responsive-img" src={ ofence }  style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
+				      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863730/fcfd5d3dfead45081d740eff01043ffb_ng7ykp.png"  style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
 				      		</div>
 				      		<div className='col s12 m6'>
-				      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/52b34b44e4b0c1e8721bb97d/1422710388982/DSCN0416.JPG?format=2500w" style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
+				      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475863728/DSCN0416_k4ens9.jpg" style={{border:'0px', margin:'0px', height:'275px', width:'450px'}}  /> 
 				      		</div>
 					      		<p>MONUMENTAL IRON WORKS®, CLASSIC PREMIER™ IRON SERIES, MONTAGE®, ECHELON™, COLONIAL ALUMINUM®, REMINGTON RESIDENTIAL FENCE™, JERITH ALUMINUM, AND FORTRESS VERSAI CONSTITUTE THE FINEST SELECTION OF ORNAMENTAL FENCE SYSTEMS.</p>
 						      <div className='row'>
@@ -216,15 +216,15 @@ class Fences extends Component {
 								    <div className="modal-content">
 								      <h4>Gate 1</h4>
 								      <img className="responsive-img" src={ ogate }  style={{border:'20px', margin:'17px', float:'leff', height:'autopx', width:'400px'}}  /> 
-					      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b34b33e4b01176ccb30b88/52b34b44e4b0c1e8721bb97d/1422710388982/DSCN0416.JPG?format=2500w"  style={{border:'20px', margin:'17px', float:'leff', height:'autopx', width:'400px'}}  /> 
+					      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475869286/DSCN0405_kqjg6z.jpg"  style={{border:'20px', margin:'17px', float:'leff', height:'autopx', width:'400px'}}  /> 
 								   		<p></p>
 								    </div>
 							  	</div>
 					      	<div id="ornamental_iron-double-gate" className="modal">
 								    <div className="modal-content">
 								      <h4>Gate 2</h4>
-								      <img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w"  style={{border:'20px', margin:'17px', height:'autopx', width:'400px'}}  /> 
-					      			<img className="responsive-img" src="https://static1.squarespace.com/static/52b1dad7e4b0a1c813fceb66/52b348b6e4b01abea06d496a/52b348e6e4b01dead0d320c1/1422710392910/DSCN0252.JPG?format=2500w"  style={{border:'20px', margin:'17px', height:'autopx', width:'400px'}}  /> 
+								      <img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475869824/9613-img-f_npktg5.jpg"  style={{border:'20px', margin:'17px', height:'autopx', width:'400px'}}  /> 
+					      			<img className="responsive-img" src="http://res.cloudinary.com/db6gkdw8k/image/upload/v1475869827/Ornamental-double-gate1_vvbrpb.jpg"  style={{border:'20px', margin:'17px', height:'autopx', width:'400px'}}  /> 
 								   		<p></p>
 								    </div>
 								  </div>
