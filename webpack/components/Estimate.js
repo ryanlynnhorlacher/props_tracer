@@ -3,7 +3,7 @@ import FenceChoices from './FenceChoices';
 import Map from './Map';
 import CustomerInput from './CustomerInput';
 import FinalEstimate from './FinalEstimate';
-import ReactDOM from 'react'
+import ReactDOM from 'react-dom'
 
 class Estimate extends Component {
 	constructor(props) {
@@ -16,16 +16,16 @@ class Estimate extends Component {
 		this.renderFinalEstimate = this.renderFinalEstimate.bind(this);
 		this.dontRenderFinalEstimate = this.dontRenderFinalEstimate.bind(this);
 
-		this.state = { showingFinalEstimate: false, 
+		this.state = { showingFinalEstimate: false,
 										customer: {email: null, phone: null, name: null},
-										estimate: {location: null, distance: null, finalPrice: null, 
+										estimate: {location: null, distance: null, finalPrice: null,
 										fenceMaterial: null, fenceHeight: null, gateCount: null },
 										finalEstimateInfo: null
 		}
 	}
 
 	componentDidMount() {
-	 	console.log(ReactDOM)     
+    window.scrollTo(0, 0)
 	}
 
 	showFinalEstimate() {
@@ -45,8 +45,8 @@ class Estimate extends Component {
 	setEstimateInfo( pricePerFoot, fenceMaterial, fenceHeight, gateCount, gatePrice) {
 		console.log(fenceMaterial)
 		let finalPrice = this.state.estimate.distance * pricePerFoot + gatePrice
-		this.setState({estimate: {finalPrice: finalPrice, 
-											fenceMaterial: fenceMaterial, fenceHeight: fenceHeight, gateCount: gateCount, 
+		this.setState({estimate: {finalPrice: finalPrice,
+											fenceMaterial: fenceMaterial, fenceHeight: fenceHeight, gateCount: gateCount,
 											distance: this.state.estimate.distance}})
 	}
 
@@ -59,8 +59,8 @@ class Estimate extends Component {
 	    url: '/api/v1/customers',
 	    type: 'POST',
 	    dataType: 'JSON',
-	    data: { customer: { name: cust.name, email: cust.email, phone_number: cust.phone }, estimate: {location: est.location, distance: est.distance, 
-	      final_price: est.finalPrice, fence_material: est.fenceMaterial, fence_height: est.fenceHeight, 
+	    data: { customer: { name: cust.name, email: cust.email, phone_number: cust.phone }, estimate: {location: est.location, distance: est.distance,
+	      final_price: est.finalPrice, fence_material: est.fenceMaterial, fence_height: est.fenceHeight,
 	      gate_count: est.gateCount }}
 	  }).done(estimateInfo => {
 	  	console.log(estimateInfo)
@@ -77,7 +77,7 @@ class Estimate extends Component {
 					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} />
 			)
 		else
-			return null 
+			return null
 	}
 
 	dontRenderFinalEstimate() {
