@@ -4,6 +4,7 @@ import UpdateUser from './auth/UpdateUser';
 import Dashboard from './Dashboard';
 import Signup from './auth/Signup';
 import FenceEditor from './FenceEditor';
+import ReactDOM from 'react-dom'
 
 class Admin extends Component {
 	constructor(props) {
@@ -22,8 +23,12 @@ class Admin extends Component {
 		this.state = { showCustomers: false, showUpdate: false, showDash: false, showEditMaterial: false}
 	}
 
+	componentDidMount() {
+    window.scrollTo(0, 0)
+	}
+
 	showSignup() {
-		if (this.state.showSignup === true) 
+		if (this.state.showSignup === true)
 			return <Signup />
 		else
 			return null
@@ -75,13 +80,13 @@ class Admin extends Component {
 	showSignupButton() {
 		if (this.state.showSignup === true)
 			return(
-				<button className='btn col s12 m4 red' 
+				<button className='btn col s12 m4 red'
 					onClick={ () => this.setState({showSignup: !this.state.showSignup })}>
 					Hide New User</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4' 
+				<button className='btn col s12 m4'
 					onClick={ () => this.setState({ showSignup: !this.state.showSignup })}>
 					Show New User</button>
 			)
@@ -90,13 +95,13 @@ class Admin extends Component {
 	showCustomersButton() {
 		if (this.state.showCustomers === true)
 			return(
-				<button className='btn col s12 m4 red' 
+				<button className='btn col s12 m4 red'
 					onClick={ () => this.setState({showCustomers: !this.state.showCustomers })}>
 					Hide Reporting</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4' 
+				<button className='btn col s12 m4'
 					onClick={ () => this.setState({ showCustomers: !this.state.showCustomers })}>
 					Show Reporting</button>
 			)
@@ -105,13 +110,13 @@ class Admin extends Component {
 	showUpdateButton() {
 		if (this.state.showUpdate === true)
 			return(
-				<button className='btn col s12 m4 red' 
+				<button className='btn col s12 m4 red'
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
 					Hide User Info</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4' 
+				<button className='btn col s12 m4'
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
 					Show User Info</button>
 			)
@@ -120,13 +125,13 @@ class Admin extends Component {
 	showDashButton() {
 		if (this.state.showDash === true)
 			return(
-				<button className='btn col s12 m4 red' 
+				<button className='btn col s12 m4 red'
 					onClick={ () => this.setState({ showDash: !this.state.showDash })}>
 					Hide Dasbhoard</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4' 
+				<button className='btn col s12 m4'
 					onClick={ () => this.setState({ showDash: !this.state.showDash })}>
 					Show Dasbhoard</button>
 			)

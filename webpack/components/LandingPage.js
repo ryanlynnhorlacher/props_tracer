@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import logoLarge from '../images/logoLarge.png';
 import { Link, IndexLink } from 'react-router'
+import ReactDOM from 'react-dom'
+
 
 let linkClass = 'red'
 
 class LandingPage extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+	}
+
   render() {
     return(
       <div>
@@ -17,9 +23,9 @@ class LandingPage extends Component {
             <ol>
               <h5><li>Search for your property on the map</li></h5>
               <h5><li>Plot out where you want the fence</li></h5>
-              
+
                 <h5 className="red-text">⚠⚠⚠You must click TWICE before the line will show up.⚠⚠⚠</h5>
-             
+
               <h5><li>Determine what material you want</li></h5>
               <h5><li>Determine how many gates you want</li></h5>
               <h5><li>Determine the types of gates you want</li></h5>
