@@ -8,6 +8,8 @@ class Heights extends Component {
 
   replaceHeightChoice(height){
     this.refs.heightChoice.text = height;
+    let newHeight = this.props.heights.find(h => h.name === height)
+    this.props.addHeight(newHeight)
   }
 
   heightChoices() {
@@ -22,13 +24,12 @@ class Heights extends Component {
   }
 
 	render() {
-    console.log(this.props.heights)
 		return(
 			<div>
         <div className="col s4">
           <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>Choose A Height</a>
           <ul id='dropdown2' ref="heightList" className='dropdown-content' >
-              {this.props.heights ? this.heightChoices() : <li><a>Choose a material first</a></li> }
+              {this.props.heights ? this.heightChoices() : <li><a>No heights for chosen material</a></li> }
           </ul>
         </div>
 			</div>

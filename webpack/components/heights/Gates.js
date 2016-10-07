@@ -8,6 +8,8 @@ class Gates extends Component {
 
   replaceGateChoice(gate){
     this.refs.gateChoice.text = gate;
+    let newGate = this.props.gates.find(g => g.style === gate)
+    this.props.addGate(newGate)
   }
 
   gateChoices() {
@@ -22,7 +24,6 @@ class Gates extends Component {
   }
 
 	render() {
-    console.log(this.props.gates)
 		return(
 			<div>
         <div className="col s4">

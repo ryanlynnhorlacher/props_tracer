@@ -13,16 +13,16 @@ class Api::V1::CustomersController < ApplicationController
   end
 
   def create
-  	@customer = Customer.new(customer_params)
+  	@customer = User.find(50).customers.new(customer_params)
   	if @customer.save
-  		 @estimate = Estimate.new(estimate_params, customer_id: @customer.id)
+  		 @estimate = @customer.estimates.new(estimate_params)
        if @estimate.save
         render :create
       else
-        render json: errors: @estimate.errors}, status: 401
+        render json: {errors: @estimate.errors}, status: 401
       end
   	else
-  		render json: {errors: customer.errors}, status: 401
+  		render json: {errors: @customer.errors}, status: 401
   	end
   end
  
@@ -50,6 +50,6 @@ class Api::V1::CustomersController < ApplicationController
     end
 
     def customer_params
-    	params.require(:customer).permit(:name, :email, :phone)
+    	params.require(:customer).permit(:name, :email, :phone_number)
     end
 end

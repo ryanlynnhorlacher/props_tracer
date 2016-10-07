@@ -1,7 +1,7 @@
 json.customer 
 	json.name @customer.name
 	json.email @customer.email
-	json.phoneNumber @customer.phone
+	json.phoneNumber @customer.phone_number
 		json.estimate
 			json.location @estimate.location
 			json.distance @estimate.distance

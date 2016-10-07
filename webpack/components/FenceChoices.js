@@ -9,9 +9,16 @@ class FenceChoices extends React.Component {
     this.materialChoices = this.materialChoices.bind(this);
     this.replaceMaterialChoice = this.replaceMaterialChoice.bind(this);
     this.heightsForRender = this.heightsForRender.bind(this);
+    this.addHeight = this.addHeight.bind(this);
+    this.addGate = this.addGate.bind(this);
+    this.setStateAbove = this.setStateAbove.bind(this);
     // this.heightList = this.heightList.bind(this);
-    this.state = { materials: null, choice: {} }
+    this.state = { materials: null, materialChoice: {}, heightChoice: {}, gateChoice: {} }
   }
+
+  
+
+
 
   componentWillMount(){
     $.ajax({
@@ -41,7 +48,7 @@ class FenceChoices extends React.Component {
     this.refs.materialChoice.text = material;
     let materialChoice = this.state.materials.find(m => m.material === material)
 
-    this.setState({choice: materialChoice})
+    this.setState({materialChoice: materialChoice})
   }
 
 
@@ -65,6 +72,21 @@ class FenceChoices extends React.Component {
       return null
   }
 
+  addHeight(height){
+    this.setState({heightChoice: height})
+  }
+
+  addGate(gate) {
+    this.setStateAbove(gate)
+  }
+
+  setStateAbove(gate) {
+    let location = 'Salt Lake City'
+    let height = this.state.heightChoice
+    console.log([gate].length)
+    this.props.setEstimateInfo(location, height.pricePerFoot, this.state.materialChoice.material, height.name, [gate].length, gate.price)
+  }
+
 
   render(){
       return(
@@ -75,8 +97,8 @@ class FenceChoices extends React.Component {
               { this.state.materials ? this.materialChoices() : null }
             </ul>
           </div>
-          <Heights heights={this.state.choice.heights}/>
-          <Gates gates={this.state.choice.gateTypes} />
+          <Heights addHeight={ this.addHeight } heights={this.state.materialChoice.heights}/>
+          <Gates addGate={ this.addGate } gates={this.state.materialChoice.gateTypes} />
         </div>
       )
   }

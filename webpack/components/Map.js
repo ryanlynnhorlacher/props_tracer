@@ -16,13 +16,17 @@ class Map extends Component {
 	constructor(props) {
 		super(props);
 		this.calcLength = this.calcLength.bind(this);
-		this.state = { length: 0 }
+		this.calcLengthButton = this.calcLengthButton.bind(this);
+		this.enableDrawing = this.enableDrawing.bind(this);
+		this.state = { length: 0, drawing: true }
 		let fences = []
 	}
 
 	drawLines(e) {
-      	coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
 		if (polyline)
+			handler.removeMarker(polyline[0])
+    coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
+		if (coords.count > 0)
 			polyline[0].setMap(null)
 		if (startPoint) {
 			polyline = handler.addPolylines(
@@ -37,10 +41,10 @@ class Map extends Component {
 	}
 
 	undoLine() {
-		polyline[0].setMap(null)
+		handler.removeMarker(polyline[0])
 		coords.pop()
 		if (coords.length === 0 ) {
-			startPoint[0].setMap(null)
+			handler.removeMarker(startPoint[0])
 			startPoint = null
 		} else {
 			polyline = handler.addPolylines(
@@ -48,13 +52,14 @@ class Map extends Component {
 		}
 	}
 
+
 	componentDidMount() {
 		handler = Gmaps.build('Google');
 		let map = handler.buildMap({
 		    provider: {
 		      disableDefaultUI: true,
-		      center: {lat: 40.610805, lng: -111.930653},
-    			zoom: 20
+		      center: {lat: 40.7704502, lng: -111.8941115},
+    			zoom: 12
 		      // pass in other Google Maps API options here
 		    },
 		    internal: {
@@ -80,42 +85,74 @@ class Map extends Component {
 		return dist
 	}
 
+	calcLengthButton() {
+		if(this.state.length === 0) {
+			return(
+				<div>
+					<button onClick={this.calcLength}>Calc</button>
+					<button onClick={() => this.undoLine()}>Undo</button>
+					<div ref='displayLength'>{this.state.length}</div>
+				</div>
+			)
+		} else {
+			return(
+				<div>
+					<button onClick={this.enableDrawing}>New Line</button>
+					<div ref='displayLength'>{this.state.length}</div>
+				</div>
+			)
+		}
+	}
+
+	enableDrawing() {
+		if(handler) {
+			handler.removeMarker(polyline[0])
+			polyline = null
+			handler.removeMarker(startPoint[0])
+			startPoint = null
+			coords = []
+			console.log(handler.getMap())
+			handler.getMap().addListener('click', (e) => {
+	      this.drawLines(e)})
+		}
+		this.setState({length: 0})
+	}
+
 	calcLength() {
 		let length = 0
 		for(let i = 0; i < coords.length - 1; i++) {
 			length += this.distance(coords[i].lat, coords[i].lng, coords[i + 1].lat, coords[i + 1].lng, 'K')
 		}
 		length = length * 3280.84
-		this.setState( {length} )
+		google.maps.event.clearListeners(handler.getMap(), 'click');
+		this.props.setDistance(length)
+		this.setState({length})
 	}
 
 	render() {
 		return(
 			<div>
 
-			<div>
-				<h2 className='center'>HOW TO USE:</h2>
-			</div>
+				<div>
+					<h2 className='center'>HOW TO USE:</h2>
+				</div>
 
-			<div className='card col s12 center text-bg round'>
-				Spicy jalapeno bacon ipsum dolor amet kevin biltong picanha shankle. 
-				Brisket ham hock shank chuck. Prosciutto salami drumstick, bresaola 
-				pork chop doner turkey pork loin pork belly brisket porchetta sausage
-				 kevin. Andouille ham hock rump boudin biltong sirloin short loin chicken
-				  turducken. Turkey ribeye beef, pork t-bone venison burgdoggen kielbasa 
-				  pastrami jerky filet mignon. Shank porchetta jowl landjaeger cow sirloin 
-				  alcatra doner bresaola ground round picanha pancetta.
-			</div>
+				<div className='card col s12 center text-bg round'>
+					Spicy jalapeno bacon ipsum dolor amet kevin biltong picanha shankle. 
+					Brisket ham hock shank chuck. Prosciutto salami drumstick, bresaola 
+					pork chop doner turkey pork loin pork belly brisket porchetta sausage
+					 kevin. Andouille ham hock rump boudin biltong sirloin short loin chicken
+					  turducken. Turkey ribeye beef, pork t-bone venison burgdoggen kielbasa 
+					  pastrami jerky filet mignon. Shank porchetta jowl landjaeger cow sirloin 
+					  alcatra doner bresaola ground round picanha pancetta.
+				</div>
 
 				<div className="center light-gray round map-pad">
 					<div className="map-div" style={styles.map}>
 	  					<div id="map" style={styles.map}></div>
 					</div>
-	  					<button onClick={this.calcLength}>Calc</button>
-	  					<button onClick={() => this.undoLine()}>Undo</button>
-	  					<div ref='displayLength'>{this.state.length}</div>
+	  					{ this.calcLengthButton() }
 				</div>
-			
 			</div>
 		)
 	}
