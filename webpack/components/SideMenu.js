@@ -18,20 +18,6 @@ class SideMenu extends Component {
 		});     
 	}
 
-	authLink() {
-		if(this.props.auth) {
-			return (
-				[
-					<li key='auth-link-0'><Link to='admin' className='col m1' activeClassName={linkClass}>Admin</Link></li>,
-					<li key='auth-link-2'><a href='#' className='col m1' onClick={this.props.logout}>Logout</a></li>
-
-				]
-			)
-		} else {
-			return( <li><Link to='/login' className='col m1' activeClassName={linkClass}>Login</Link></li> );
-		}
-	}
-
 	render() {
 		return (
 			<div>
@@ -43,7 +29,6 @@ class SideMenu extends Component {
 					<li><Link to='fences' className='col m1' activeClassName={linkClass}>Fences</Link></li>
 					<li><Link to='about' className='col m1' activeClassName={linkClass}>About</Link></li>
 					<li><Link to='/contact' className='col m1' activeClassName={linkClass}>Contact Us</Link></li>
-					{ this.authLink() }
 				</ul>
 			</div>
 		)

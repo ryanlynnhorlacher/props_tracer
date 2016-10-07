@@ -19,11 +19,11 @@ class AddGate extends Component {
     let price = this.refs.price.value
     let style = this.refs.style.value
     let width = this.refs.width.value
-    this.props.addGate(price, style, width, this.props.matId)
+    this.props.addGate(price, width, style, this.props.matId)
     this.refs.gateForm.reset()
   }
 
-  contents() {
+  contents() { 
     if(this.state.displayForm === true) {
       return (
         <div className="block">

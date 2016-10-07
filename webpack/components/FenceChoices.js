@@ -81,10 +81,9 @@ class FenceChoices extends React.Component {
   }
 
   setStateAbove(gate) {
-    let location = 'Salt Lake City'
     let height = this.state.heightChoice
     console.log([gate].length)
-    this.props.setEstimateInfo(location, height.pricePerFoot, this.state.materialChoice.material, height.name, [gate].length, gate.price)
+    this.props.setEstimateInfo(height.pricePerFoot, this.state.materialChoice.material, height.name, [gate].length, gate.price)
   }
 
 
