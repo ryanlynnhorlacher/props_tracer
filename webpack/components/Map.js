@@ -91,14 +91,12 @@ class Map extends Component {
 				<div>
 					<button onClick={this.calcLength}>Calc</button>
 					<button onClick={() => this.undoLine()}>Undo</button>
-					<div ref='displayLength'>{this.state.length}</div>
 				</div>
 			)
 		} else {
 			return(
 				<div>
 					<button onClick={this.enableDrawing}>New Line</button>
-					<div ref='displayLength'>{this.state.length}</div>
 				</div>
 			)
 		}
@@ -106,16 +104,19 @@ class Map extends Component {
 
 	enableDrawing() {
 		if(handler) {
-			handler.removeMarker(polyline[0])
-			polyline = null
-			handler.removeMarker(startPoint[0])
-			startPoint = null
+			if(polyline) {
+				handler.removeMarker(polyline[0])
+				polyline = null
+			}
+			if(startPoint) {
+				handler.removeMarker(startPoint[0])
+				startPoint = null
+			}
 			coords = []
-			console.log(handler.getMap())
 			handler.getMap().addListener('click', (e) => {
 	      this.drawLines(e)})
+			this.setState({length: 0})
 		}
-		this.setState({length: 0})
 	}
 
 	calcLength() {
@@ -124,8 +125,10 @@ class Map extends Component {
 			length += this.distance(coords[i].lat, coords[i].lng, coords[i + 1].lat, coords[i + 1].lng, 'K')
 		}
 		length = length * 3280.84
-		google.maps.event.clearListeners(handler.getMap(), 'click');
-		this.props.setDistance(length)
+		if(length > 0)
+			google.maps.event.clearListeners(handler.getMap(), 'click');
+		this.props.setDistance(length.toFixed(0))
+		console.log(length)
 		this.setState({length})
 	}
 

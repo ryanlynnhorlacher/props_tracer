@@ -21,9 +21,9 @@ class FinalEstimate extends Component {
             <h3>Location: </h3>
             <h4>{this.state.estimate.location}</h4>
             <h3>Total Fence Distance: </h3>
-            <h4>{this.state.estimate.distance} Feet</h4>
+            <h4>{this.state.estimate.distance.toFixed(0)} Feet</h4>
             <h3>Estimated Fence Price: </h3>
-            <h4>${this.state.estimate.finalPrice}</h4>
+            <h4>${this.state.estimate.finalPrice.toFixed(2)}</h4>
             <h3>Fence Type: </h3>
             <h4>{this.state.estimate.fenceMaterial}</h4>
             <h3>Fence Height: </h3>
