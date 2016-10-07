@@ -61,7 +61,7 @@ class FenceEditor extends Component {
 		})
 	}	
 
-	addHeight(name, pricePerFoot, matId) {
+	addHeight(name, pricePerFoot, matId) { 
 		$.ajax({
 			url: `/api/v1/materials/${matId}/heights/`,
 			type: 'POST',

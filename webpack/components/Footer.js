@@ -24,26 +24,21 @@ class footer extends Component {
 		if(this.props.auth) {
 			return (
 				[
-					<li key='auth-link-0'><Link to='admin' className='footer-color hide-on-med-and-down colasible-btn' 
-						activeClassName={linkClass}>Admin</Link></li>,
-					<li key='auth-link-2'><a href='#' className='footer-color hide-on-med-and-down colasible-btn' 
-						onClick={this.logout}>Logout</a></li>
-
+					<button className='btn-flat' key='auth-link-0'><Link to='admin' activeClassName={linkClass}>Admin</Link></button>,
+					<button className='btn-flat' key='auth-link-2'><a href='#' onClick={this.logout}>Logout</a></button>
 				]
 			)
 		} else {
-			return(<Link to='/login' className='footer-color hide-on-med-and-down colasible-btn' activeClassName={linkClass}>Login</Link>);
+			return(<button className='btn-flat'><Link to='/login' className='btn-flat' activeClassName={linkClass}>Login</Link></button>);
 		}
 	}
 
 	render() {
 		return (
 			<footer className="footer-color page-footer"> 
-				<div className='footer-copyright'>
-					<div className='container'>
+					<div className='container center'>
 						{ this.authLink() }
 					</div>
-				</div>
 			</footer>
 		)
 	}
@@ -52,8 +47,3 @@ class footer extends Component {
 export default connect(null, null, null, {
   pure: false
 })(footer);
-
-
-
-
-

@@ -19,7 +19,8 @@ class CustomerInput extends Component {
     let name = this.refs.name.value
     let email = this.refs.email.value
     let phone = this.refs.phoneNumber.value
-    this.props.setCustomerInfo(name, email, phone)
+    let address = this.refs.address.value
+    this.props.setCustomerInfo(name, address, email, phone)
   }
 
   callPropsFunction(event) {
@@ -39,8 +40,10 @@ class CustomerInput extends Component {
               onSubmit={ (event) => this.callPropsFunction(event) }>
             <h6>Full Name</h6>
             <input ref="name" required placeholder="Full Name"/>
-            <h6>Email Address</h6>
-            <input type="email" required ref="email" placeholder="Email Address"/>
+            <h6>Address</h6>
+            <input required ref="address" placeholder="Address"/>
+            <h6>Email</h6>
+            <input type="email" required ref="email" placeholder="Email"/>
             <h6>Phone Number</h6>
             <input type="tel" ref="phoneNumber" required maxLength="10" placeholder="Phone Number"/>
             <div className="center">            

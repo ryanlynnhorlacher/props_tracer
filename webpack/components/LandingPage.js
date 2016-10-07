@@ -28,7 +28,7 @@ class LandingPage extends Component {
             </ol>
           </div>
           <br />
-          <Link to='map' activeClassName={linkClass}>Get Started!</Link>
+          <Link to='estimate' activeClassName={linkClass}>Get Started!</Link>
         </div>
       </div>
     )

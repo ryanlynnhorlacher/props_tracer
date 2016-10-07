@@ -33,15 +33,15 @@ class Estimate extends Component {
 		this.setState({ estimate:{ distance: distance}})
 	}
 
-	setCustomerInfo(name, email, phone){
-		this.setState({ customer: {email, phone, name}})
+	setCustomerInfo(name, location, email, phone){
+		this.setState({ customer: {email, phone, name}, estimate: {...this.state.estimate, location}})
 		console.log('set Cust Info')
 	}
 
-	setEstimateInfo(location, pricePerFoot, fenceMaterial, fenceHeight, gateCount, gatePrice) {
+	setEstimateInfo( pricePerFoot, fenceMaterial, fenceHeight, gateCount, gatePrice) {
 		console.log(fenceMaterial)
 		let finalPrice = this.state.estimate.distance * pricePerFoot + gatePrice
-		this.setState({estimate: {location: location, finalPrice: finalPrice, 
+		this.setState({estimate: {finalPrice: finalPrice, 
 											fenceMaterial: fenceMaterial, fenceHeight: fenceHeight, gateCount: gateCount, 
 											distance: this.state.estimate.distance}})
 	}
@@ -50,6 +50,7 @@ class Estimate extends Component {
 	addCustomer() {
 		let cust = this.state.customer
 		let est = this.state.estimate
+		debugger
 	  $.ajax({
 	    url: '/api/v1/customers',
 	    type: 'POST',

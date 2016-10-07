@@ -20,22 +20,6 @@ class Nav extends Component {
 		this.props.dispatch(handleLogout(this.props.history));
 	}
 
-	authLink() {
-		if(this.props.auth) {
-			return (
-				[
-					<li key='auth-link-0'><Link to='admin' className='hide-on-med-and-down' 
-						activeClassName={linkClass}>Admin</Link></li>,
-					<li key='auth-link-2'><a href='#' className='hide-on-med-and-down' 
-						onClick={this.logout}>Logout</a></li>
-
-				]
-			)
-		} else {
-			null
-		}
-	}
-
 	render() {
 		return (
 			<header>
@@ -50,7 +34,6 @@ class Nav extends Component {
 								<li><Link to='fences' className='hide-on-med-and-down' activeClassName={linkClass}>Fences</Link></li>
 								<li><Link to='about' className='hide-on-med-and-down' activeClassName={linkClass}>About</Link></li>
 								<li><Link to='contact' className='hide-on-med-and-down' activeClassName={linkClass}>Contact Us</Link></li>
-								{this.authLink() }
 							</ul>
 						</div>
 					</nav>
