@@ -13,7 +13,7 @@ class Api::V1::CustomersController < ApplicationController
   end
 
   def create
-  	@customer = User.find(50).customers.new(customer_params)
+  	@customer = User.first.customers.new(customer_params)
   	if @customer.save
   		 @estimate = @customer.estimates.new(estimate_params)
        if @estimate.save
