@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import ProfileLink from './Profilelink'
+import ProfileLink from './ProfileLink'
 
 class ProfileLinks extends Component {
 	constructor(props){
