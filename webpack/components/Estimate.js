@@ -3,7 +3,7 @@ import FenceChoices from './FenceChoices';
 import Map from './Map';
 import CustomerInput from './CustomerInput';
 import FinalEstimate from './FinalEstimate';
- 
+import ReactDOM from 'react'
 
 class Estimate extends Component {
 	constructor(props) {
@@ -22,6 +22,10 @@ class Estimate extends Component {
 										fenceMaterial: null, fenceHeight: null, gateCount: null },
 										finalEstimateInfo: null
 		}
+	}
+
+	componentDidMount() {
+	 	console.log(ReactDOM)     
 	}
 
 	showFinalEstimate() {

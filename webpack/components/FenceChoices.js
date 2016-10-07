@@ -16,10 +16,6 @@ class FenceChoices extends React.Component {
     this.state = { materials: null, materialChoice: {}, heightChoice: {}, gateChoice: {} }
   }
 
-  
-
-
-
   componentWillMount(){
     $.ajax({
       url: '/api/v1/materials',
@@ -91,7 +87,7 @@ class FenceChoices extends React.Component {
       return(
         <div className="row">
           <div className="col s4">
-            <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Choose Material</a>
+            <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Material</a>
             <ul id='dropdown1' ref="materialList" className='dropdown-content' >
               { this.state.materials ? this.materialChoices() : null }
             </ul>
