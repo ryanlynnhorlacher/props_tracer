@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 
 const styles = {
-	map: {height: '400px', width: '800px'}
+	map: {height: '400px', width: '70vw'}
 }
 let coords = []
 let x = 0
