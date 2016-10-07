@@ -32,7 +32,7 @@ class Nav extends Component {
 				]
 			)
 		} else {
-			return(<li><Link to='/login' className='hide-on-med-and-down' activeClassName={linkClass}>Login</Link></li>);
+			null
 		}
 	}
 
@@ -50,7 +50,7 @@ class Nav extends Component {
 								<li><Link to='fences' className='hide-on-med-and-down' activeClassName={linkClass}>Fences</Link></li>
 								<li><Link to='about' className='hide-on-med-and-down' activeClassName={linkClass}>About</Link></li>
 								<li><Link to='contact' className='hide-on-med-and-down' activeClassName={linkClass}>Contact Us</Link></li>
-								
+								{this.authLink() }
 							</ul>
 						</div>
 					</nav>

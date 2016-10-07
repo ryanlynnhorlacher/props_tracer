@@ -14,6 +14,7 @@ class Estimate extends Component {
 		this.showFinalEstimate = this.showFinalEstimate.bind(this);
 		this.addCustomer = this.addCustomer.bind(this);
 		this.renderFinalEstimate = this.renderFinalEstimate.bind(this);
+		this.dontRenderFinalEstimate = this.dontRenderFinalEstimate.bind(this);
 
 		this.state = { showingFinalEstimate: false, 
 										customer: {email: null, phone: null, name: null},
@@ -66,13 +67,16 @@ class Estimate extends Component {
 	}
 
 	renderFinalEstimate() {
-		if(this.state.showingFinalEstimate === true ) {
-				return(
+		if(this.state.showingFinalEstimate === true )
+			return(
+					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} />
+			)
+		else
+			return null 
+	}
 
-						<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} />
-
-				)
-		} else if(this.state.showingFinalEstimate === false) {
+	dontRenderFinalEstimate() {
+		if(this.state.showingFinalEstimate === false)
 			return(
 				<div id='beforeEstimate'>
 					<Map setDistance={this.setDistance} />
@@ -81,7 +85,8 @@ class Estimate extends Component {
 						addCustomer={this.addCustomer} />
 				</div>
 			)
-		}
+		else
+			return null
 	}
 
 
@@ -90,6 +95,7 @@ class Estimate extends Component {
 		return(
 			<div id='estimateDiv'>
 				{this.renderFinalEstimate() }
+				{this.dontRenderFinalEstimate() }
 			</div>
 		)
 	}
