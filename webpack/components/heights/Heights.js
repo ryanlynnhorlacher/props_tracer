@@ -27,7 +27,8 @@ class Heights extends Component {
 		return(
 			<div>
         <div className="col s4">
-          <a className='dropdown-button btn' ref="heightChoice" data-activates='dropdown2'>Height</a>
+        <h5>Select Your Height:</h5>
+          <a className='dropdown-button btn-flat center-align' ref="heightChoice" data-activates='dropdown2'>Height</a>
           <ul id='dropdown2' ref="heightList" className='dropdown-content' >
               {this.props.heights ? this.heightChoices() : <li><a>No heights for chosen material</a></li> }
           </ul>

@@ -145,17 +145,15 @@ class UpdateUser extends React.Component {
     let state = this.state
     if(this.state.id) {
       return (
-        <div>
+        <div className="center">
           <h3 className="center">Update Profile</h3>
           <div className="container text-bg round center">
-
-          <label>First name</label>
-          <div className='row'>
-            <input className='col s9' ref="firstName" required 
-              autoFocus={true} disabled={!state.editFirstName} defaultValue={state.firstName} />
-              { this.firstNameButton() }
-          </div>
-
+            <label>First name</label>
+            <div className='row'>
+              <input className='col s9' ref="firstName" required 
+                autoFocus={true} disabled={!state.editFirstName} defaultValue={state.firstName} />
+                { this.firstNameButton() }
+            </div>
             <label>Last name</label>
             <div className='row'>
               <input className='col s9' ref="lastName" required

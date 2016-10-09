@@ -18,13 +18,13 @@ class EditMaterial extends Component {
     let name = this.refs.material.value;
     this.props.updateMaterialList(this.props.matId, name, this.state.index)
   }
-
+ 
   contents() {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
-            Edit Material
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Edit {this.props.mat.material}
           </button>
         </div>
       )
@@ -32,13 +32,13 @@ class EditMaterial extends Component {
     else {
       return (
         <div className="center">
-            <label>Edit material </label>
+            <label>Edit material</label>
             <form onSubmit={(e) => this.handleChange(e)}>
               <input ref="material" defaultValue={this.props.mat.material} placeholder="Material Name"/>
-              <input type="submit"/>
+              <button className="btn-flat" type="submit">Submit</button>
             </form>
           <button type="button" onClick={ this.changeDisplay }>
-            Close
+            Close Edit {this.props.mat.material}
           </button>
         </div>
       )

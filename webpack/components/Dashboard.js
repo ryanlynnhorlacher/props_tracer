@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
 				<h3 className="center">Customer Reports</h3>
 				<label>Reporting days</label>
 				<input className='col s8'ref='timeFrame' defaultValue='30' />
-				<button className='btn col s4' 
+				<button className='btn-flat col s4' 
 					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Dashboard</button>
 				<div>
 					Sales closed: {this.state.dealsClosed}

@@ -25,7 +25,7 @@ class AddHeight extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
             Add Height
           </button>
         </div>
@@ -38,10 +38,10 @@ class AddHeight extends Component {
             <label>Add Height </label>
             <input ref="height" placeholder="Height"/>
             <input ref="pricePerFoot" placeholder="Price Per Foot"/>
-            <input type="submit" />
+            <button className="btn-flat" type="submit">Submit</button>
           </form>
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Add Height
           </button>
         </div>
       )

@@ -26,8 +26,9 @@ class Gates extends Component {
 	render() {
 		return(
 			<div>
-        <div className="col s4">
-          <a className='dropdown-button btn' ref="gateChoice" data-activates='dropdown3'>Gate</a>
+        <div className="col s4 center-align">
+        <h5>Select Your Gate:</h5>
+          <a className='dropdown-button btn-flat' ref="gateChoice" data-activates='dropdown3'>Gate</a>
           <ul id='dropdown3' ref="gateList" className='dropdown-content' >
               {this.props.gates ? this.gateChoices() : <li><a>Choose a material first</a></li> }
           </ul>

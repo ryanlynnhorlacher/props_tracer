@@ -24,12 +24,12 @@ class footer extends Component {
 		if(this.props.auth) {
 			return (
 				[
-					<button className='btn-flat' key='auth-link-0'><Link to='admin' activeClassName={linkClass}>Admin</Link></button>,
-					<button className='btn-flat' key='auth-link-2'><a href='#' onClick={this.logout}>Logout</a></button>
+					<Link className='btn-flat no-ol' key='auth-link-0' to='admin' activeClassName={linkClass}>Admin</Link>,
+					<a className='btn-flat no-ol' key='auth-link-2' href='#' onClick={this.logout}>Logout</a>
 				]
 			)
 		} else {
-			return(<button className='btn-flat'><Link to='/login' className='btn-flat' activeClassName={linkClass}>Login</Link></button>);
+			return(<Link className='btn-flat no-ol' to='/login' activeClassName={linkClass}>Employee Login</Link>); 
 		}
 	}
 

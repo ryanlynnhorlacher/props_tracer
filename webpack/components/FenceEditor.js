@@ -193,8 +193,8 @@ class FenceEditor extends Component {
 		let mats = this.state.materials.map( mat => {
 			x += 1
 			return (
-				<div key={mat.id} className='col s12 m5 card block text-bg material-editor'>
-					<h4>{mat.material}</h4>
+				<div key={mat.id} className='col s12 card block round text-bg material-editor'>
+					<h2>{mat.material}</h2>
 					<EditMaterial mat={mat} index={x} matId={mat.id} updateMaterialList={this.updateMaterialList} />
 					<ul>
 						{this.displayHeights(mat)}
@@ -203,7 +203,7 @@ class FenceEditor extends Component {
 					<div>
 						<AddHeight matId={mat.id} addHeight={this.addHeight} />
 						<AddGate matId={mat.id} addGate={this.addGate} />
-						<DeleteMaterial index={x} matId={mat.id} deleteMaterial={this.deleteMaterial} />
+						<DeleteMaterial mat={mat} index={x} matId={mat.id} deleteMaterial={this.deleteMaterial} />
 					</div>
 				</div>
 			)
@@ -218,9 +218,10 @@ class FenceEditor extends Component {
 				x += 1
 				return(
 					<li key={height.id}>
-						{height.name}ft - ${height.pricePerFoot}
+						<hr />
+						<h5>{height.name}ft - ${height.pricePerFoot}</h5>
 						<EditHeight height={height} index={x} matId={material.id} updateHeightList={this.updateHeightList} /> 
-						<DeleteHeight heightId={height.id} matId={material.id} deleteHeight={this.deleteHeight} />
+						<DeleteHeight height={height} heightId={height.id} matId={material.id} deleteHeight={this.deleteHeight} />
 					</li>
 				)
 			})
@@ -238,9 +239,9 @@ class FenceEditor extends Component {
 				return(
 					<ul key={gate.id}>
 						<hr />
-						<li>Gate Price: {gate.price}</li>
-						<li>Gate Width: {gate.width}</li>
-						<li>Gate Style: {gate.style}</li>
+						<li><h5>Gate Price: ${gate.price}</h5></li>
+						<li><h5>Gate Width: {gate.width}ft</h5></li>
+						<li><h5>Gate Style: {gate.style} Drive</h5></li>
 						<EditGate gate={gate} index={x} matId={material.id} updateGateList={this.updateGateList} />
 						<DeleteGate gateId={gate.id} matId={material.id} deleteGate={this.deleteGate} />
 					</ul>
@@ -255,7 +256,7 @@ class FenceEditor extends Component {
 	render() {
 		return(
 			<div className="center">
-				<h3>Materials</h3>
+				<h1>Materials</h1>
 				<AddMaterial addMaterial={this.addMaterial} />
 				<div className="row">
 					{ this.state.materials ? this.displayMaterials() : null}

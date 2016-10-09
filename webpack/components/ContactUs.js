@@ -45,7 +45,7 @@ class ContactUs extends Component {
 // }
   render() {
     return (
-    	<div>
+    	<div className="center">
 	    	<h1 className="center"> Contact Us</h1>
 
 	    	<div className="container text-bg round">
@@ -63,7 +63,7 @@ class ContactUs extends Component {
 		        <label>Comment</label>
 		        <input type='text' ref='comment' />
 
-		        <button type='submit' className='btn btn-center'>Submit</button> 
+		        <button type='submit' className='btn-flat'>Submit</button> 
 		      </form>
 	    	</div>
 				<div className="row">

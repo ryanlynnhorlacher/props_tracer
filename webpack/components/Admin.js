@@ -65,13 +65,13 @@ class Admin extends Component {
 	showEditMaterialButton() {
 		if(this.state.showEditMaterial === true)
 			return(
-				<button className='btn col s12 m4 red'
+				<button className='btn btn-flat col s12 m3 red center-align'
 					onClick={ () => this.setState({showEditMaterial: !this.state.showEditMaterial })}>
 					Hide Materials</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4'
+				<button className='btn-flat col s12 m3 center-align'
 					onClick={ () => this.setState({showEditMaterial: !this.state.showEditMaterial }) }>
 					Show Materials</button>
 			)
@@ -80,13 +80,13 @@ class Admin extends Component {
 	showSignupButton() {
 		if (this.state.showSignup === true)
 			return(
-				<button className='btn col s12 m4 red'
+				<button className='btn btn-flat col s12 m3 red center-align'
 					onClick={ () => this.setState({showSignup: !this.state.showSignup })}>
 					Hide New User</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4'
+				<button className='btn-flat col s12 m3 center-align'
 					onClick={ () => this.setState({ showSignup: !this.state.showSignup })}>
 					Show New User</button>
 			)
@@ -95,13 +95,13 @@ class Admin extends Component {
 	showCustomersButton() {
 		if (this.state.showCustomers === true)
 			return(
-				<button className='btn col s12 m4 red'
+				<button className='btn btn-flat col s12 m3 red center-align'
 					onClick={ () => this.setState({showCustomers: !this.state.showCustomers })}>
 					Hide Reporting</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4'
+				<button className='btn-flat col s12 m3 center-align'
 					onClick={ () => this.setState({ showCustomers: !this.state.showCustomers })}>
 					Show Reporting</button>
 			)
@@ -110,13 +110,13 @@ class Admin extends Component {
 	showUpdateButton() {
 		if (this.state.showUpdate === true)
 			return(
-				<button className='btn col s12 m4 red'
+				<button className='btn btn-flat col s12 m3 red center-align'
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
 					Hide User Info</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4'
+				<button className='btn-flat col s12 m3 center-align'
 					onClick={ () => this.setState({ showUpdate: !this.state.showUpdate })}>
 					Show User Info</button>
 			)
@@ -125,13 +125,13 @@ class Admin extends Component {
 	showDashButton() {
 		if (this.state.showDash === true)
 			return(
-				<button className='btn col s12 m4 red'
+				<button className='btn btn-flat col s12 m3 red center-align'
 					onClick={ () => this.setState({ showDash: !this.state.showDash })}>
 					Hide Dasbhoard</button>
 			)
 		else
 			return(
-				<button className='btn col s12 m4'
+				<button className='btn-flat col s12 m3 center-align'
 					onClick={ () => this.setState({ showDash: !this.state.showDash })}>
 					Show Dasbhoard</button>
 			)
@@ -139,7 +139,7 @@ class Admin extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className="center">
 				<h3>Admin Options</h3>
 				<div className='row'>
 					{ this.showCustomersButton() }

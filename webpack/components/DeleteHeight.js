@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
- 
+  
 class DeleteHeight extends Component {
   constructor(props) {
     super(props)
@@ -22,8 +22,8 @@ class DeleteHeight extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
-            Delete Height
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Delete {this.props.height.name}ft
           </button>
         </div>
       )
@@ -31,11 +31,11 @@ class DeleteHeight extends Component {
     else {
       return (
         <div className="center">
-          <button type="button" className="btn red" onClick={ (event) => this.heightDelete(event) }>
-            DELETE
+          <button type="button" className="btn red btn-flat" onClick={ (event) => this.heightDelete(event) }>
+            DELETE {this.props.height.name}ft
           </button>  
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Delete {this.props.height.name}ft
           </button>
         </div>
       )

@@ -19,13 +19,13 @@ class EditHeight extends Component {
     let pricePerFoot = this.refs.pricePerFoot.value;
     this.props.updateHeightList(this.props.matId, this.state.height.id, name, pricePerFoot, this.state.index)
   }
-
+ 
   contents() {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
-            Edit
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Edit {this.props.height.name}ft
           </button>
         </div>
       )
@@ -37,10 +37,10 @@ class EditHeight extends Component {
             <form onSubmit={(e) => this.handleChange(e)}>
               <input ref="height" defaultValue={this.props.height.name} placeholder="Height"/>
               <input ref="pricePerFoot" defaultValue={this.props.height.pricePerFoot} placeholder="Price Per Foot"/>
-              <input type="submit"/>
+              <button className="btn-flat" type="submit">Submit</button>
             </form>
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Edit {this.props.height.name}ft
           </button>
         </div>
       )

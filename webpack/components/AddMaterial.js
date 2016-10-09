@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
- 
+
 class AddMaterial extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +25,7 @@ class AddMaterial extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
             Add Material
           </button>
         </div>
@@ -37,12 +37,12 @@ class AddMaterial extends Component {
           <form ref={(input) => this.materialForm = input} onSubmit={(e) => this.createMaterial(e)}>
             <label>Add Material </label>
             <input ref={(input) => this.name = input} name="name" placeholder="Material Name"/>
-            <input type="submit" />
+            <button className="btn-flat" type="submit">Submit</button>
           </form>
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Add Material
           </button>
-        </div>
+        </div> 
       )
     }
   }
