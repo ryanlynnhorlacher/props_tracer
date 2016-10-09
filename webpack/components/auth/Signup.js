@@ -32,7 +32,7 @@ class Signup extends React.Component {
             <input ref="phoneNumber"  placeholder="Phone Number" />
             <input ref="role" placeholder="Role!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
             <input ref="password" type="password" required placeholder="Password" />
-            <button type="submit" className="btn">Sign Up</button>
+            <button type="submit" className="btn-flat">Sign Up</button>
           </form>
         </div>
       </div>

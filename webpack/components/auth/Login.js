@@ -30,7 +30,7 @@ class Login extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<input ref='email' required placeholder='Email' />
 						<input ref='password' required placeholder='Password' type='password' />
-						<button className='btn' type='submit'>Login</button>
+						<button className='btn-flat' type='submit'>Login</button>
 					</form>
 				</div>
 			</div>

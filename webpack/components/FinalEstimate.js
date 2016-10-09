@@ -6,14 +6,13 @@ class FinalEstimate extends Component {
     this.state = { estimate: this.props.finalEstimateInfo }
   }
 
-
   render() {
     console.log(this.state.estimate)
     return (
       <div className="center">
         <h1>Thank You for using PropTracer!</h1>
         <div className="card text-bg round">
-          <h5>You will be recieving an Email shortly and you can expect a call from one of our representatives within a week.</h5>
+          <h5>You will be recieving a call from one of our representatives within a week.</h5>
         </div>
         <div className="card text-bg round">
             <h2>Your Estimate</h2>

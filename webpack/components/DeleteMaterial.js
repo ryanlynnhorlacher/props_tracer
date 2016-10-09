@@ -12,7 +12,7 @@ class DeleteMaterial extends Component {
     e.preventDefault();
     this.setState({...this.props, displayForm: !this.state.displayForm});
   }
-
+ 
   matDelete(e){
     e.preventDefault()
     this.props.deleteMaterial(this.props.matId, this.props.index)
@@ -22,8 +22,8 @@ class DeleteMaterial extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
-            Delete Material
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Delete {this.props.mat.material}
           </button>
         </div>
       )
@@ -31,11 +31,11 @@ class DeleteMaterial extends Component {
     else {
       return (
         <div className="center">
-          <button type="button" className="btn red" onClick={ (event) => this.matDelete(event) }>
-            DELETE
+          <button type="button" className="btn red btn-flat" onClick={ (event) => this.matDelete(event) }>
+            DELETE {this.props.mat.material}
           </button>  
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Delete {this.props.mat.material}
           </button>
         </div>
       )

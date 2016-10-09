@@ -89,14 +89,14 @@ class Map extends Component {
 		if(this.state.length === 0) {
 			return(
 				<div>
-					<button onClick={this.calcLength}>Calc</button>
-					<button onClick={() => this.undoLine()}>Undo</button>
+					<button className="btn-flat btn green" onClick={this.calcLength}>Finshed Setting Fence!</button>
+					<button className="btn-flat btn yellow" onClick={() => this.undoLine()}>Undo Last Point</button>
 				</div>
 			)
 		} else {
 			return(
 				<div>
-					<button onClick={this.enableDrawing}>New Line</button>
+					<button className="btn-flat btn red" onClick={this.enableDrawing}>Start Over</button>
 				</div>
 			)
 		}

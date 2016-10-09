@@ -20,13 +20,13 @@ class EditGate extends Component {
     let style = this.refs.style.value;
     this.props.updateGateList(this.props.matId, this.state.gate.id, price, width, style, this.state.index)
   }
-
+ 
   contents() {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
-            Edit
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Edit Gate
           </button>
         </div>
       )
@@ -39,10 +39,10 @@ class EditGate extends Component {
               <input ref="price" defaultValue={this.props.gate.price} placeholder="Price"/>
               <input ref="width" defaultValue={this.props.gate.width} placeholder="Width"/>
               <input ref="style" defaultValue={this.props.gate.style} placeholder="Style"/>
-              <input type="submit"/>
+              <button className="btn-flat" type="submit">Submit</button>
             </form>
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Edit
           </button>
         </div>
       )

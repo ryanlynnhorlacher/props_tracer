@@ -27,7 +27,7 @@ class AddGate extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
             Add Gate
           </button>
         </div>
@@ -41,10 +41,10 @@ class AddGate extends Component {
             <input ref="price" placeholder="Gate Price"/>
             <input ref="style" placeholder="Gate Style"/>
             <input ref="width" placeholder="Gate Width"/>
-            <input type="submit" />
+            <button className="btn-flat" type="submit">Submit</button>
           </form>
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
+            Close Add Gate
           </button>
         </div>
       )

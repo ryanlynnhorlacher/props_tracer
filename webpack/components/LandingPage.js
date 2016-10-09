@@ -34,7 +34,9 @@ class LandingPage extends Component {
             </ol>
           </div>
           <br />
-          <Link to='estimate' activeClassName={linkClass}>Get Started!</Link>
+          <button className="btn-flat">
+            <Link to='estimate' activeClassName={linkClass}>Get Started!</Link>
+          </button>
         </div>
       </div>
     )

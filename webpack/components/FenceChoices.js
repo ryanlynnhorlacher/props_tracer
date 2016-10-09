@@ -85,9 +85,11 @@ class FenceChoices extends React.Component {
 
   render(){
       return(
-        <div className="row">
+        <div className="row center">
+        <h3>Select Your Fence's Options:</h3>
           <div className="col s4">
-            <a className='dropdown-button btn' ref="materialChoice" data-activates='dropdown1'>Material</a>
+          <h5>Select Your Material:</h5>
+            <a className='dropdown-button center-align btn-flat' ref="materialChoice" data-activates='dropdown1'>Material</a>
             <ul id='dropdown1' ref="materialList" className='dropdown-content' >
               { this.state.materials ? this.materialChoices() : null }
             </ul>

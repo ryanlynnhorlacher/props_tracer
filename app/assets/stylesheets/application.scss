@@ -79,7 +79,6 @@ main {
 	background-color: #848484 !important;
 }
 
-
 .side-nav {
 	background-color: #B2B0AA;
 }
@@ -107,6 +106,17 @@ main {
 	margin-right: 0;
 	padding-top: 19px;
 	padding-bottom: 19px;
+}
+
+.btn-flat {
+	border: black solid thin;
+	margin: 2px;
+	border-radius: 8px;
+	float: none !important;
+}
+
+.no-ol {
+	border: none !important;
 }
 
 .material-editor {
@@ -140,7 +150,6 @@ main {
 .colasible-btn:hover {
 	background-color:#555555;
 	color:white;
-
 }
 
 .center {
@@ -151,6 +160,8 @@ main {
 	display: inline-block; 
 	text-align: left;
 }
+
+
 
 /*
 Button Color: (needs to be added)

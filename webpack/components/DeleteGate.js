@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
- 
+  
 class DeleteGate extends Component {
   constructor(props) {
     super(props)
@@ -22,7 +22,7 @@ class DeleteGate extends Component {
     if(this.state.displayForm === true) {
       return (
         <div className="block">
-          <button type="button" onClick={ this.changeDisplay }>
+          <button className="btn-flat" type="button" onClick={ this.changeDisplay }>
             Delete Gate
           </button>
         </div>
@@ -31,11 +31,11 @@ class DeleteGate extends Component {
     else {
       return (
         <div className="center">
-          <button type="button" className="btn red" onClick={ (event) => this.gateDelete(event) }>
-            DELETE
+          <button type="button" className="btn red btn-flat" onClick={ (event) => this.gateDelete(event) }>
+            DELETE GATE
           </button>  
-          <button type="button" onClick={ this.changeDisplay }>
-            Close
+          <button type="button" className="btn-flat" onClick={ this.changeDisplay }>
+            Close Delete
           </button>
         </div>
       )

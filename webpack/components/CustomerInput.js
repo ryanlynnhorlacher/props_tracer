@@ -47,7 +47,7 @@ class CustomerInput extends Component {
             <h6>Phone Number</h6>
             <input type="tel" ref="phoneNumber" required maxLength="10" placeholder="Phone Number"/>
             <div className="center">            
-              <input type="submit" />
+              <button className="btn-flat" type="submit">Submit</button>
             </div>
           </form>
         </div>
