@@ -141,8 +141,21 @@ class Map extends Component {
 					<h2 className='center'>HOW TO USE:</h2>
 				</div>
 
-				<div className='card col s12 center text-bg round'>
-					It is a easy 4 step process. 1 type in your address. 2 draw a line where you want your fence. 3 pick the materials you want to use to create a beautiful fence you want for your yard. 4 submit for a bid. 
+				<div className='card col s12 left-align text-bg flow-text round'>
+					<ul className='browser-default'>
+						<li>Zoom Out/In to find the place you want your fence.</li>
+						<li>Click once on the map to drop the red marker.</li>
+						<li>Click again to draw the first line from the marker to the second click point.</li>
+						<li>Keep clicking until you have drawn all the lines of your fence.</li>
+						<li>If you mess up hit the Undo line button.</li>
+						<li>Once your lines are all in the right spot hit <br />the green "Finished Setting Fence!" button.</li>
+						<li>You can start over by hitting the red "Start Over" button.</li>
+
+						<li>Next, select the Material, Fence Height, and Gate that you want on your fence.</li>
+						<li>Last fill out your Personal Information and hit Submit.</li>
+
+						<li>The Estimate Details will show up once its complete.</li>
+					</ul>
 				</div>
 
 				<div className="center light-gray round map-pad">

@@ -27,8 +27,20 @@ class About extends Component {
 				<div className="row">
         	<div className="card s12 text-bg round">
 						<span className="flow-text center">
-							<h5>Prop Tracer</h5>
-							<p> We strive to give the person the best and most effective exeperience. Prop Tracer allows the user to design and measure for the perfect fence. </p>
+							<h5>What is Prop Tracer?</h5>
+							<p className="left-align"> 
+								PropTracer is a tool for finding quick answers for residential customers looking to buy a fence.
+								It allows someone to find answers for themselves by utilizing technology from Google Maps. 
+								Just select the streches of your property where you want a fence, pick the options and Voila!
+								You have a quick and easy fence quote.
+							</p>
+							<p className="left-align"> 
+								PropTracer is a white label product for fence companies to implement into their websites. 
+								It allows the company to customize the fence prices, sizes and materials to their company's needs. 
+								Thanks for coming to our site, We're happy you could check us out!
+
+								Special Thanks to DevPoint Labs!
+							</p>
 						</span>
 					</div>
 				</div>
@@ -40,7 +52,6 @@ class About extends Component {
 
 		  	<div className="card-small center">
 					<a href="http://www.devpointlabs.com"><img src={devPointLabsImage} /></a>
-					<h3>Devpoint Labs is a place of learning</h3>
 		  	</div>
 		 </div>
 		)

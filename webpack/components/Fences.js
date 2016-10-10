@@ -91,7 +91,7 @@ class Fences extends Component {
 		    	</ul>
 	    	</div>
 
-				<h1 className="center-align truncate grey-text text-darken-4" style={{textDecoration:'underline'}}>FENCES</h1>
+				<h1 className="center">FENCES</h1>
 
 				<ul className="collapsible" data-collapsible="accordion">
 			    <li>
