@@ -86,25 +86,12 @@ class Map extends Component {
 		return dist
 	}
 
-	zoomIn() {
-		zoom += 1
-		handler.getMap().setZoom(zoom)
-	}
-
-	zoomOut() {
-		zoom -= 1
-		handler.getMap().setZoom(zoom)
-	}
-
 	calcLengthButton() {
 		if(this.state.length === 0) {
 			return(
 				<div>
 					<button className="btn-flat btn green" onClick={this.calcLength}>Finshed Setting Fence!</button>
 					<button className="btn-flat btn yellow" onClick={() => this.undoLine()}>Undo Last Point</button>
-					<button className="btn-flat btn yellow" onClick={() => this.zoomIn()}>Zoom In</button>
-					<button className="btn-flat btn yellow" onClick={() => this.zoomOut()}>Zoom Out</button>
-
 				</div>
 			)
 		} else {
