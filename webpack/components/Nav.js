@@ -26,7 +26,7 @@ class Nav extends Component {
 				<div className='navbar-fixed'>
 					<nav>
 						<div className='nav-color nav-wrapper'>
-							<img className='hide-on-small-only' src={logoImage} />
+							<IndexLink to='/'><img className='hide-on-small-only' src={logoImage} /></IndexLink>
 							<ul id='nav-mobile' className='right'>
 								<SideMenu logout={this.logout} auth={this.props.auth} />
 								<li><IndexLink to='/' className='hide-on-med-and-down' activeClassName={linkClass}>Home</IndexLink></li>
