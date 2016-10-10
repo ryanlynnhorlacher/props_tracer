@@ -1,4 +1,4 @@
-Aimport React from 'react'
+import React from 'react'
 
 const InfoPage = () => (
   <div className="container">

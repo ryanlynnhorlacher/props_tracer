@@ -152,6 +152,7 @@ class Map extends Component {
 						<li>You can start over by hitting the red "Start Over" button.</li>
 
 						<li>Next, select the Material, Fence Height, and Gate that you want on your fence.</li>
+						<li>View examples of our fences {<a target="blank" href='/fences'>HERE</a>}</li>
 						<li>Last fill out your Personal Information and hit Submit.</li>
 
 						<li>The Estimate Details will show up once its complete.</li>

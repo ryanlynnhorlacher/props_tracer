@@ -87,6 +87,7 @@ class FenceChoices extends React.Component {
       return(
         <div className="row center">
         <h3>Select Your Fence's Options:</h3>
+          <h6>View examples of our fence materials {<a className="" target="blank" href='/fences'>HERE</a>}</h6>
           <div className="col s4">
           <h5>Select Your Material:</h5>
             <a className='dropdown-button center-align btn-flat' ref="materialChoice" data-activates='dropdown1'>Material</a>
