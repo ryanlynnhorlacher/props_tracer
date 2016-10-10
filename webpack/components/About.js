@@ -28,9 +28,7 @@ class About extends Component {
         	<div className="card s12 text-bg round">
 						<span className="flow-text center">
 							<h5>Prop Tracer</h5>
-							<p> Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-							 Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-							 Blah Blah Blah Blah Blah Blah Blah Blah </p>
+							<p> We strive to give the person the best and most effective exeperience. Prop Tracer allows the user to design and measure for the perfect fence. </p>
 						</span>
 					</div>
 				</div>
