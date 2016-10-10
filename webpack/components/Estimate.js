@@ -54,7 +54,6 @@ class Estimate extends Component {
 	addCustomer() {
 		let cust = this.state.customer
 		let est = this.state.estimate
-		debugger
 	  $.ajax({
 	    url: '/api/v1/customers',
 	    type: 'POST',
