@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom'
 // import com.sendgrid.*;
 
 
@@ -7,6 +8,10 @@ class ContactUs extends Component {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.state = { error: false, redirectRoute: '/' }
+	}
+
+	componentDidMount() {
+    window.scrollTo(0, 0)
 	}
 
 	handleSubmit(e) {
@@ -32,14 +37,14 @@ class ContactUs extends Component {
 // public class SendGridExample {
 //   public static void main(String[] args) {
 //     SendGrid sendgrid = new SendGrid(SENDGRID_APIKEY);
- 
+
 //     SendGrid.Email email = new SendGrid.Email();
- 
+
 //     email.addTo("test@sendgrid.com");
 //     email.setFrom("christian.lisonbee@gmail.com");
 //     email.setSubject("Sending with SendGrid is Fun");
 //     email.setHtml("and easy to do anywhere, even with Java");
- 
+
 //     SendGrid.Response response = sendgrid.send(email);
 //   }
 // }
@@ -50,7 +55,7 @@ class ContactUs extends Component {
 
 	    	<div className="container text-bg round">
 		      <form ref='contactForm' onSubmit={this.handleSubmit}>
-		        
+
 		        <label>Name</label>
 		        <input type="text" ref='name' />
 
@@ -63,13 +68,13 @@ class ContactUs extends Component {
 		        <label>Comment</label>
 		        <input type='text' ref='comment' />
 
-		        <button type='submit' className='btn-flat'>Submit</button> 
+		        <button type='submit' className='btn-flat'>Submit</button>
 		      </form>
 	    	</div>
 				<div className="row">
         	<div className="card contactbox s12 text-bg round">
 						<span className="flow-text center">
-							
+
 							<h5>PropTracer@gmail.com</h5>
 							<h5>801-810-9673</h5>
 							PO BOX #555<br />
@@ -82,4 +87,4 @@ class ContactUs extends Component {
   }
 }
 
-export default ContactUs; 
+export default ContactUs;
