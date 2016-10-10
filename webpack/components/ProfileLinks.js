@@ -5,10 +5,10 @@ class ProfileLinks extends Component {
 	constructor(props){
 		super(props);
 		this.displayComponents = this.displayComponents.bind(this);
-		this.state = {team: [ { name: "Jordan Peterson", github: "http://github.com/krustles", email: "jordanrpeterson@gmail.com", linkedin: "https://www.linkedin.com/in/jordan-peterson-71b281124"},
-									 { name: "Ryan Horlacher", github: "https://www.linkedin.com/in/ryan-horlacher-4aa0a695", email: "ryan@ryan.com", linkedin: "https://www.linkedin.com/in/ryan-horlacher-4aa0a695"},
-									 { name: "Dean Joseph", github: "http://github.com/dean-joseph", email: "Dean@dean.com", linkedin: "https://www.linkedin.com/in/dean-joseph-746281124" },
-									 { name: "Christian Lisonbee", github: "http://github.com//kollthrale", email: "christian@christian.com", linkedin: "https://www.linkedin.com/in/christian-lisonbee-363280124"}
+		this.state = {team: [ { name: "Jordan Peterson", github: "http://github.com/jordanpeterson", email: "jordanrpeterson@gmail.com", linkedin: "https://www.linkedin.com/in/jordan-peterson-71b281124"},
+									 { name: "Ryan Horlacher", github: "https://www.linkedin.com/in/ryan-horlacher-4aa0a695", email: "horlacherr@gmail.com", linkedin: "https://www.linkedin.com/in/ryan-horlacher-4aa0a695"},
+									 { name: "Dean Joseph", github: "http://github.com/dean-joseph", email: "dean.joseph98@gmail.com", linkedin: "https://www.linkedin.com/in/dean-joseph-746281124" },
+									 { name: "Christian Lisonbee", github: "http://github.com//kollthrale", email: "christian.lisonbee@gmail.com", linkedin: "https://www.linkedin.com/in/christian-lisonbee-363280124"}
 								 ]} 
 	}
 

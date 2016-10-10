@@ -33,7 +33,7 @@ class ProfileLink extends Component {
 					<br />
 					<a className="" target="_blank" href={ this.state.person.github }><img src={githubImage} /></a>
 					<br />
-					<a className="" href={ this.state.person.email } target="_top"><strong className="white-text">{ this.state.person.email }</strong></a>			
+					<a className="" href={"mailto:" + this.state.person.email } target="_top"><strong className="white-text">{ this.state.person.email }</strong></a>			
 				</div>
 			</div>
 			)
