@@ -24,4 +24,4 @@
 .log
 webpack/.DS_Store
 npm-debug.log
-/coverage
+coverage/
