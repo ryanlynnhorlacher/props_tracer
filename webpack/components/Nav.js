@@ -46,4 +46,3 @@ class Nav extends Component {
 export default connect(null, null, null, {
   pure: false
 })(Nav);
-
