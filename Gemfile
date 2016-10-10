@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.2.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -28,25 +28,25 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
-gem 'materialize-sass'
-gem 'webpack-rails-react'
-gem 'paperclip'
+gem 'devise', '~> 4.2.0'
+gem 'materialize-sass', '~> 0.97.7'
+gem 'webpack-rails-react', '~> 1.0.13'
+gem 'paperclip', '~> 5.1.0'
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
-gem 'gmaps4rails'
-gem 'underscore-rails' 
+gem 'gmaps4rails', '~> 2.1.2'
+gem 'underscore-rails', '~> 1.8.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'simplecov'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
-  gem 'faker'
-  gem 'rails-controller-testing'
-  gem 'dotenv-rails'
+  gem 'pry', '~> 0.10.4'
+  gem 'rspec-rails', '~> 3.5.2'
+  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'simplecov', '~> 0.12.0'
+  gem 'database_cleaner', '~> 1.5.3'
+  gem 'shoulda-matchers', '~> 3.1.1'
+  gem 'faker', '~> 1.6.6'
+  gem 'rails-controller-testing', '~> 1.0.1'
+  gem 'dotenv-rails', '~> 2.1.1'
 end
 
 group :development do

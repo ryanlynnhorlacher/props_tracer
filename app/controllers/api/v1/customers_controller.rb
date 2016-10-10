@@ -4,12 +4,14 @@ class Api::V1::CustomersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-  	render json: Customer.return_customers(params[:order], params[:searchTerm], params[:category], params[:status])
+    @customers = Customer.return_customers(params[:order], params[:searchTerm], params[:category], params[:status])
+    render json: @customers
   end
   # Parameters {"order"=>"order", "searchTerm"=>"term", 
   #   "category"=>"cat", "controller"=>"api/v1/customers", "action"=>"index"}
   def dashboard
-    render json: Customer.dashboard_stats(params[:time])
+    @stats = Customer.dashboard_stats(params[:time])
+    render json: @stats
   end
 
   def create
