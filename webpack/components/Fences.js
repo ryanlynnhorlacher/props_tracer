@@ -17,10 +17,7 @@ class Fences extends Component {
 	}
 
 	componentDidMount() {
-    window.scrollTo(0, 0)
-	}
-
-	componentDidMount() {
+		window.scrollTo(0, 0)
 		$('.slider').slider({full_width: true});
 		$('.materialboxed').materialbox();
 		$('.collapsible').collapsible({
