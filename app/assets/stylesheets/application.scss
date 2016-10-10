@@ -15,6 +15,15 @@ main {
   flex: 1 1 auto;
 }
 
+ul.browser-default {
+  padding-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+ul.browser-default li {
+  list-style-type: initial;
+}
+
 .signup a {
 	color: #B2B0AA;
 	text-shadow: 0 0 3px black;
