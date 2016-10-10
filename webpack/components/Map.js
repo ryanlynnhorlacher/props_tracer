@@ -11,6 +11,7 @@ let x = 0
 let handler
 let polyline
 let startPoint
+let zoom = 12
 
 class Map extends Component {
 	constructor(props) {
@@ -19,13 +20,12 @@ class Map extends Component {
 		this.calcLengthButton = this.calcLengthButton.bind(this);
 		this.enableDrawing = this.enableDrawing.bind(this);
 		this.state = { length: 0, drawing: true }
-		let fences = []
 	}
 
 	drawLines(e) {
 		if (polyline)
 			handler.removeMarker(polyline[0])
-    coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
+    		coords.push( { lat: e.latLng.lat(), lng: e.latLng.lng() } )
 		if (coords.count > 0)
 			polyline[0].setMap(null)
 		if (startPoint) {
@@ -59,7 +59,7 @@ class Map extends Component {
 		    provider: {
 		      disableDefaultUI: true,
 		      center: {lat: 40.7704502, lng: -111.8941115},
-    			zoom: 12
+    			zoom: zoom
 		      // pass in other Google Maps API options here
 		    },
 		    internal: {
@@ -85,12 +85,25 @@ class Map extends Component {
 		return dist
 	}
 
+	zoomIn() {
+		zoom += 1
+		handler.getMap().setZoom(zoom)
+	}
+
+	zoomOut() {
+		zoom -= 1
+		handler.getMap().setZoom(zoom)
+	}
+
 	calcLengthButton() {
 		if(this.state.length === 0) {
 			return(
 				<div>
 					<button className="btn-flat btn green" onClick={this.calcLength}>Finshed Setting Fence!</button>
 					<button className="btn-flat btn yellow" onClick={() => this.undoLine()}>Undo Last Point</button>
+					<button className="btn-flat btn yellow" onClick={() => this.zoomIn()}>Zoom In</button>
+					<button className="btn-flat btn yellow" onClick={() => this.zoomOut()}>Zoom Out</button>
+
 				</div>
 			)
 		} else {
