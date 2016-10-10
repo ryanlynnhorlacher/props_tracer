@@ -31,7 +31,7 @@ class Map extends Component {
 		if (startPoint) {
 			polyline = handler.addPolylines(
 		    [coords], { strokeColor: '#FF0000'}
-		  	) 
+		  	)
 		}
 	  	else {
 	  		startPoint = handler.addMarkers([
@@ -59,7 +59,8 @@ class Map extends Component {
 		    provider: {
 		      disableDefaultUI: true,
 		      center: {lat: 40.7704502, lng: -111.8941115},
-    			zoom: zoom
+    			zoom: zoom,
+					zoomControl: true,
 		      // pass in other Google Maps API options here
 		    },
 		    internal: {
@@ -154,12 +155,12 @@ class Map extends Component {
 				</div>
 
 				<div className='card col s12 center text-bg round'>
-					Spicy jalapeno bacon ipsum dolor amet kevin biltong picanha shankle. 
-					Brisket ham hock shank chuck. Prosciutto salami drumstick, bresaola 
+					Spicy jalapeno bacon ipsum dolor amet kevin biltong picanha shankle.
+					Brisket ham hock shank chuck. Prosciutto salami drumstick, bresaola
 					pork chop doner turkey pork loin pork belly brisket porchetta sausage
 					 kevin. Andouille ham hock rump boudin biltong sirloin short loin chicken
-					  turducken. Turkey ribeye beef, pork t-bone venison burgdoggen kielbasa 
-					  pastrami jerky filet mignon. Shank porchetta jowl landjaeger cow sirloin 
+					  turducken. Turkey ribeye beef, pork t-bone venison burgdoggen kielbasa
+					  pastrami jerky filet mignon. Shank porchetta jowl landjaeger cow sirloin
 					  alcatra doner bresaola ground round picanha pancetta.
 				</div>
 
@@ -175,6 +176,3 @@ class Map extends Component {
 
 }
 export default Map;
-
-
-
