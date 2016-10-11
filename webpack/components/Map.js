@@ -5,7 +5,7 @@ import MapAddressForm from './MapAddressForm'
 
 
 const styles = {
-	map: {height: '400px', width: '70vw'}
+	map: {height: '400px'}
 }
 let coords = []
 let x = 0
@@ -177,19 +177,10 @@ class Map extends Component {
 
 				<div className='card col s12 left-align text-bg flow-text round'>
 					<ul className='browser-default'>
-						<li>Zoom Out/In to find the place you want your fence.</li>
-						<li>Click once on the map to drop the red marker.</li>
-						<li>Click again to draw the first line from the marker to the second click point.</li>
-						<li>Keep clicking until you have drawn all the lines of your fence.</li>
-						<li>If you mess up hit the Undo line button.</li>
-						<li>Once your lines are all in the right spot hit <br />the green "Finished Setting Fence!" button.</li>
-						<li>You can start over by hitting the red "Start Over" button.</li>
-
-						<li>Next, select the Material, Fence Height, and Gate that you want on your fence.</li>
-						<li>View examples of our fences {<a target="blank" href='/fences'>HERE</a>}</li>
-						<li>Last fill out your Personal Information and hit Submit.</li>
-
-						<li>The Estimate Details will show up once its complete.</li>
+						<li>Find your property</li>
+						<li>Draw your fence by clicking on the map</li>
+						<li>Select fence options and input customer information</li>
+						<li>The Estimate Details will appear after submission</li>
 					</ul>
 				</div>
 
