@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import MapAddressForm from './MapAddressForm'
 
 
 
@@ -19,7 +20,42 @@ class Map extends Component {
 		this.calcLength = this.calcLength.bind(this);
 		this.calcLengthButton = this.calcLengthButton.bind(this);
 		this.enableDrawing = this.enableDrawing.bind(this);
-		this.state = { length: 0, drawing: true }
+		this.handleFindAddressSubmit = this.handleFindAddressSubmit.bind(this);
+		this.findAddress = this.findAddress.bind(this);
+
+		this.state = { length: 0, drawing: true, lat: 40.7704502, lng: -111.8941115 }
+	}
+
+// https://maps.googleapis.com/maps/api/geocode/json?
+// 	address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+
+	handleFindAddressSubmit(e, street, city, state) {
+		e.preventDefault();
+		street = street.trim().replace(/ /gi, '+');
+		city = `+${city.trim().replace(/ /gi, '+')}`;
+		state = `+${state.trim()}`;
+		console.log(state);
+
+		this.findAddress(street, city, state)
+
+	}
+
+	findAddress(street, city, state) {
+		console.log(state)
+		$.ajax({
+			url: `https://maps.googleapis.com/maps/api/geocode/
+				json?address=${street},${city},${state}&key=AIzaSyAVlzBl60lGH8EvfEPtdI-7xKxgXO61t68`,
+			type: 'GET',
+			dataType: 'JSON'
+		}).done(address => {
+			console.log(address)
+			let lat = address.results[0].geometry.location.lat;
+			let lng = address.results[0].geometry.location.lng;
+			handler.getMap().setCenter({ lat, lng})
+			handler.getMap().setZoom(19)
+		}).fail(data => {
+			console.log(data);
+		})
 	}
 
 	drawLines(e) {
@@ -61,7 +97,7 @@ class Map extends Component {
 		      center: {lat: 40.7704502, lng: -111.8941115},
     			zoom: zoom,
 					zoomControl: true,
-		      // pass in other Google Maps API options here
+					mapTypeControl: true
 		    },
 		    internal: {
 		      id: 'map'
@@ -160,6 +196,7 @@ class Map extends Component {
 				</div>
 
 				<div className="center light-gray round map-pad">
+					<MapAddressForm handleFindAddressSubmit={this.handleFindAddressSubmit} />
 					<div className="map-div" style={styles.map}>
 	  					<div id="map" style={styles.map}></div>
 					</div>
