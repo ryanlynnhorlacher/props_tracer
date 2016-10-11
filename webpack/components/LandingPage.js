@@ -18,21 +18,18 @@ class LandingPage extends Component {
           <img src={logoLarge} />
         </div>
         <div className="card col s12 text-bg flow-text round">
-          <h2 className="center red-text">DISCLAIMER</h2>
+          <h2 className="center">Welcome to PropTracer!</h2>
           <hr />
-          <h4 className="center red-text">
-            This tool provides ESTIMATES not QUOTES. <br />
-            Therefore these ESTIMATES are not legally binding.
+          <h4 className="center">
+            PropTracer allows you to see an estimate instantly! <br />
           </h4>
           <hr />
-          <h5 className="center underline">THIS IS FOR RESIDENTIAL CUSTOMERS WITH FLAT PROPERTIES.</h5>
-          <p>
-            If you have an elevation change on your property the price will be more than the estimated price.
+          <h6 className="center underline">THIS TOOL IS OPTIMIZED FOR RESIDENTIAL CUSTOMERS WITH FLAT PROPERTIES.</h6>
             <br />
-            <br />
-            If your fence line has obstructions, i.e. shrubberies, large rocks, trees, ETC. the price will be more than the estimated price.
+          <ul>
+          <li className='center'>Elevation changes, obstructions, or landscaping may increase the price of your PropTracer estimate.</li>
+          </ul>
             <hr />
-          </p>
           <h5 className="center">By using this website you are agreeing to these terms.</h5>
           <div className="center">
             <button className="btn-flat">
