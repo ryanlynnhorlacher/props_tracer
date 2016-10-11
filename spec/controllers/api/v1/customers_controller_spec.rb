@@ -21,6 +21,10 @@ RSpec.describe Api::V1::CustomersController, type: :controller do
           phone_number: 2345677, user_id: @user.id)
       end
       get :index
+      binding.pry
+      # parse the json that comes back JSON.parse()
+      # loop it
+      # expectations
       expect(assigns(:customers).count).to eq(5)
     end
 
@@ -38,8 +42,7 @@ RSpec.describe Api::V1::CustomersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "returns an arrray" do 
-      
+    it "the stats variable returns an arrray" do 
         expect(assigns(:stats).count).to eq(4)
     end
 
@@ -55,6 +58,17 @@ RSpec.describe Api::V1::CustomersController, type: :controller do
     #     end
     #     expect(assigns(:stats)).to eq(10)
     # end
+
+  describe "POST #create" do 
+    before do 
+      @user = User.create(first_name: 'ryan', last_name: 'ryan', 
+        email: 'ryan@ryan.com', password: 'password', role: 'admin')
+      post :create
+    end
+
+    it "creates a customer"
+
+    end
 
 
   end
