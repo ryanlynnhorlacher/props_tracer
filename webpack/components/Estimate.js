@@ -91,7 +91,7 @@ class Estimate extends Component {
 	}
 
 	showFenceChoices() {
-		if(this.state.showFenceChoices ===  true)
+		if(this.state.showFenceChoices ===  true )
 			return(
 					<FenceChoices setEstimateInfo={this.setEstimateInfo} />
 			)

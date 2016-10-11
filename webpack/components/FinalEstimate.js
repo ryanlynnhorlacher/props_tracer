@@ -6,6 +6,10 @@ class FinalEstimate extends Component {
     this.state = { estimate: {...this.props.finalEstimateInfo, gateType: this.props.gateType } }
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     return (
       <div className="center">
