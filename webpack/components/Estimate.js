@@ -15,12 +15,17 @@ class Estimate extends Component {
 		this.addCustomer = this.addCustomer.bind(this);
 		this.renderFinalEstimate = this.renderFinalEstimate.bind(this);
 		this.dontRenderFinalEstimate = this.dontRenderFinalEstimate.bind(this);
+		this.showCustomerInput = this.showCustomerInput.bind(this);
+		this.showFenceChoices = this.showFenceChoices.bind(this);
 
-		this.state = { showingFinalEstimate: false,
-										customer: {email: null, phone: null, name: null},
-										estimate: {location: null, distance: null, finalPrice: null,
-										fenceMaterial: null, fenceHeight: null, gateCount: null },
-										finalEstimateInfo: null
+		this.state = { 
+			showCustomerInput: false,
+			showFenceChoices: false,
+			showingFinalEstimate: false,
+			customer: {email: null, phone: null, name: null},
+			estimate: {location: null, distance: null, finalPrice: null,
+			fenceMaterial: null, fenceHeight: null, gateCount: null, gateType: null },
+			finalEstimateInfo: null
 		}
 	}
 
@@ -29,25 +34,32 @@ class Estimate extends Component {
 	}
 
 	showFinalEstimate() {
-		this.setState({showingFinalEstimate: true})
+		this.setState({
+			showingFinalEstimate: true,
+			showFenceChoices: false,
+			showCustomerInput: false
+		})
 	}
 
 	setDistance(distance) {
-		console.log(distance)
-		this.setState({ estimate:{ distance: distance}})
+		this.setState({ estimate:{ distance: distance},
+										showFenceChoices: true })
 	}
 
-	setCustomerInfo(name, location, email, phone){
-		this.setState({ customer: {email, phone, name}, estimate: {...this.state.estimate, location}})
-		console.log('set Cust Info')
+	setCustomerInfo(name, location, email, phone) {
+		this.setState({ customer: {email, phone, name}, 
+			estimate: {...this.state.estimate, location}
+		})
 	}
 
-	setEstimateInfo( pricePerFoot, fenceMaterial, fenceHeight, gateCount, gatePrice) {
-		console.log(fenceMaterial)
+	setEstimateInfo( pricePerFoot, fenceMaterial, fenceHeight, gateCount, gatePrice, gateType) {
 		let finalPrice = this.state.estimate.distance * pricePerFoot + gatePrice
-		this.setState({estimate: {finalPrice: finalPrice,
-											fenceMaterial: fenceMaterial, fenceHeight: fenceHeight, gateCount: gateCount,
-											distance: this.state.estimate.distance}})
+		this.setState({
+			estimate: { finalPrice: finalPrice,
+			fenceMaterial: fenceMaterial, fenceHeight: fenceHeight, gateCount: gateCount,
+			distance: this.state.estimate.distance, gateType},
+			showCustomerInput: true
+		})
 	}
 
 
@@ -65,7 +77,6 @@ class Estimate extends Component {
 	  	console.log(estimateInfo)
 	    this.setState({ finalEstimateInfo: estimateInfo })
 	  }).fail(data =>{
-	    console.log('FAIL')
 	    console.log(data)
 	  })
 	}
@@ -73,10 +84,25 @@ class Estimate extends Component {
 	renderFinalEstimate() {
 		if(this.state.showingFinalEstimate === true )
 			return(
-					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} />
+					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} gateType={this.state.estimate.gateType} />
 			)
 		else
 			return null
+	}
+
+	showFenceChoices() {
+		if(this.state.showFenceChoices ===  true)
+			return(
+					<FenceChoices setEstimateInfo={this.setEstimateInfo} />
+			)
+	}
+
+	showCustomerInput() {
+		if(this.state.showCustomerInput === true)
+			return(
+					<CustomerInput setCustomerInfo={this.setCustomerInfo} showFinalEstimate={this.showFinalEstimate}
+						addCustomer={this.addCustomer} />
+			)
 	}
 
 	dontRenderFinalEstimate() {
@@ -84,9 +110,6 @@ class Estimate extends Component {
 			return(
 				<div id='beforeEstimate'>
 					<Map setDistance={this.setDistance} />
-					<FenceChoices setEstimateInfo={this.setEstimateInfo} />
-					<CustomerInput setCustomerInfo={this.setCustomerInfo} showFinalEstimate={this.showFinalEstimate}
-						addCustomer={this.addCustomer} />
 				</div>
 			)
 		else
@@ -100,6 +123,8 @@ class Estimate extends Component {
 			<div id='estimateDiv'>
 				{this.renderFinalEstimate() }
 				{this.dontRenderFinalEstimate() }
+				{this.showFenceChoices() }
+				{this.showCustomerInput() }
 			</div>
 		)
 	}

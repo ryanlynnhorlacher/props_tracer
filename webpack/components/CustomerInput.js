@@ -9,6 +9,10 @@ class CustomerInput extends Component {
     this.callPropsFunction = this.callPropsFunction.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 10000)
+  }
+
   changeDisplay(event) {
     event.preventDefault();
     this.setState({...this.props, displayForm: !this.state.displayForm});
