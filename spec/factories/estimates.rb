@@ -6,6 +6,6 @@ FactoryGirl.define do
     fence_material "MyString"
     fence_height 1.5
     gate_count 1
-    belongs_to ""
+    customer
   end
 end
