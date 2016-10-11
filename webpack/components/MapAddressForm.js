@@ -28,12 +28,8 @@ class MapAddressForm extends React.Component {
 		          <option value="Idaho">Idaho</option>
         		</select>
       		</div>
-					<div className='col s2 m1'>
-					</div>
-					<input type='submit' value='Find location' className='btn col s8 m10' />
-					<div className='col s2 m1'>
-					</div>
 				</div>
+					<input type='submit' value='Find location' className='btn-flat col s3 m6' style={{marginBottom: '5px'}} />
 			</form>
 
 		)

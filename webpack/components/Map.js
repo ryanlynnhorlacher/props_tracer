@@ -41,14 +41,12 @@ class Map extends Component {
 	}
 
 	findAddress(street, city, state) {
-		console.log(state)
 		$.ajax({
 			url: `https://maps.googleapis.com/maps/api/geocode/
 				json?address=${street},${city},${state}&key=AIzaSyAVlzBl60lGH8EvfEPtdI-7xKxgXO61t68`,
 			type: 'GET',
 			dataType: 'JSON'
 		}).done(address => {
-			console.log(address)
 			let lat = address.results[0].geometry.location.lat;
 			let lng = address.results[0].geometry.location.lng;
 			handler.getMap().setCenter({ lat, lng})
