@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GateTypesController, type: :controller do
+RSpec.describe Api::V1::HeightsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

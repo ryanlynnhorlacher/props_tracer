@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
 				<label>Reporting days</label>
 				<input className='col s8'ref='timeFrame' defaultValue='30' />
 				<button className='btn-flat col s4' 
-					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Chart</button>
+					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Dashboard</button>
 				<div>
 					<Chart className='center-align' statuses={this.state.statuses}/>
 				</div>
