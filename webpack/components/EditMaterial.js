@@ -37,7 +37,7 @@ class EditMaterial extends Component {
               <input ref="material" defaultValue={this.props.mat.material} placeholder="Material Name"/>
               <button className="btn-flat" type="submit">Submit</button>
             </form>
-          <button type="button" onClick={ this.changeDisplay }>
+          <button type="button" className="btn-flat" onClick={ this.changeDisplay }>
             Close Edit {this.props.mat.material}
           </button>
         </div>
