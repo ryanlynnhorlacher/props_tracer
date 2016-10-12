@@ -14,7 +14,7 @@ class LandingPage extends Component {
   render() {
     return(
       <div>
-        <div className="center card round light-gray">
+        <div className="center card round light-gray hide-on-med-and-down">
           <img src={logoLarge} />
         </div>
         <div className="card col s12 text-bg flow-text round">
