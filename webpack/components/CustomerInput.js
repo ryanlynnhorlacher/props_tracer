@@ -36,7 +36,7 @@ class CustomerInput extends Component {
   render() {
     return (
       <div className="center">
-        <h2>You're Almost Done!</h2>'
+        <h2>You're Almost Done!</h2>
         <div className="text-bg round">
           <h5 className="center"> Please enter your information to complete this estimate.</h5>
           <hr />
