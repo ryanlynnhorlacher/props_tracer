@@ -6,46 +6,18 @@ let timeoutID
 class SearchForm extends Component {
 	constructor(props) {
 		super(props);
-		this.replaceCategoryChoice = this.replaceCategoryChoice.bind(this);
-		this.replaceOrderChoice = this.replaceOrderChoice.bind(this);
     this.search = this.search.bind(this);
     this.searchTimer = this.searchTimer.bind(this);
 	}
 
-	replaceCategoryChoice(category){
-	   this.refs.categoryChoice.text = category;
-  }
-
-  replaceOrderChoice(order){
-  	this.refs.orderChoice.text = order;
-  }
-
-    componentDidMount(){
-    $('.dropdown-button').dropdown({
-     inDuration: 300,
-     outDuration: 225,
-     constrain_width: false, // Does not change width of dropdown to that of the activator
-     hover: false, // Activate on hover
-     gutter: 0, // Spacing from edge
-     belowOrigin: true, // Displays dropdown below the button
-     alignment: 'left' // Displays dropdown with edge aligned to the left of button
-   });
-  }
-
   searchTimer() {
-    console.log('search timer set')
     clearTimeout(timeoutID);
     timeoutID = setTimeout(this.search, 500);
   }
 
   search() {
-    console.log('search called')
     this.props.newSearch(this.refs.order.value, 
     this.refs.searchTerm.value, this.refs.category.value, this.refs.status.value)
-  }
-
-  componentDidMount() {
-   $('select').material_select();     
   }
 
 	render() {

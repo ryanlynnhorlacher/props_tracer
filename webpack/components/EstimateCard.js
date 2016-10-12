@@ -9,6 +9,7 @@ class EstimateCard extends React.Component {
 		this.state = { editStatus: false, id: this.props.id, estimate: {...this.props.estimate}}
 	}
 
+
 	showStatusUpdate() {
 		if(this.state.editStatus === true) {
 			return(

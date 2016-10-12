@@ -1,10 +1,12 @@
 import React from 'react';
+import Chart from './Chart'
 
 class Dashboard extends React.Component {
 	constructor(props) {
 		super(props)
 		this.getData = this.getData.bind(this);
-		this.state = {notContacted: null, makingDecision: null, custDeclined: null, dealsClosed: null }
+		this.state = { statuses:{ notContacted: null, makingDecision: null, 
+			custDeclined: null, dealsClosed: null } } 
 	}
 
 	componentWillMount() {
@@ -17,13 +19,12 @@ class Dashboard extends React.Component {
 		 	type: 'GET',
 		 	dataType: 'JSON'
 		}).done( array => {
-			console.log('Success!');
-			console.log(array);
-			this.setState({
-				notContacted: array[0],
-				makingDecision: array[1],
-				custDeclined: array[2],
-				dealsClosed: array[3]
+			this.setState({ statuses: {
+					notContacted: array[0],
+					makingDecision: array[1],
+					custDeclined: array[2],
+					dealsClosed: array[3]
+				}
 			})
 			console.log(this.state);
 		}).fail( data => {
@@ -40,15 +41,9 @@ class Dashboard extends React.Component {
 				<label>Reporting days</label>
 				<input className='col s8'ref='timeFrame' defaultValue='30' />
 				<button className='btn-flat col s4' 
-					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Dashboard</button>
+					onClick={() => this.getData(this.refs.timeFrame.value)}>Refresh Chart</button>
 				<div>
-					Sales closed: {this.state.dealsClosed}
-					<br />
-					Customers not contaced: {this.state.notContacted}
-					<br />
-					Sales declined by customer: {this.state.custDeclined}
-					<br />
-					Customers making decision: {this.state.makingDecision}
+					<Chart className='center-align' statuses={this.state.statuses}/>
 				</div>
 				<hr />
 			</div>

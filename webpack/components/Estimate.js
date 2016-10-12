@@ -72,7 +72,7 @@ class Estimate extends Component {
 	    dataType: 'JSON',
 	    data: { customer: { name: cust.name, email: cust.email, phone_number: cust.phone }, estimate: {location: est.location, distance: est.distance,
 	      final_price: est.finalPrice, fence_material: est.fenceMaterial, fence_height: est.fenceHeight,
-	      gate_count: est.gateCount }}
+	      gate_count: est.gateCount, status: 'Not contacted' }}
 	  }).done(estimateInfo => {
 	  	console.log(estimateInfo)
 	    this.setState({ finalEstimateInfo: estimateInfo })

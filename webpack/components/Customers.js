@@ -8,7 +8,9 @@ class Customers extends Component {
 		super(props);
 		this.displayCustomers = this.displayCustomers.bind(this);
 		this.newSearch = this.newSearch.bind(this);
-		this.state = { customers: [] };
+		this.prevPage = this.prevPage.bind(this);
+		this.nextPage = this.nextPage.bind(this);
+		this.state = { customers: [], offset: 0 };
 	}
  
 	componentWillMount() { 
@@ -26,7 +28,8 @@ class Customers extends Component {
 
 	newSearch(order, searchTerm, category, status) {
 		$.ajax({
-			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&category=${category}&status=${status}`,
+			url: `/api/v1/customers?order=${order}&searchTerm=${searchTerm}&
+				category=${category}&status=${status}&offset=${this.state.offset}`,
 			type: 'GET',
 			dataType: 'JSON'
 		}).done(customers => {
@@ -38,6 +41,16 @@ class Customers extends Component {
 			console.log(data);
 		})
 
+	}
+
+	nextPage() {
+		this.setState({ offset: this.state.offset + 20 })
+		this.refs.searchForm.searchTimer()
+	}
+
+	prevPage() {
+		this.setState({ offset: this.state.offset - 20 })
+		this.refs.searchForm.searchTimer()
 	}
 
 	displayCustomers() {
@@ -56,8 +69,10 @@ class Customers extends Component {
 		return(
 			<div className=''>
 				<h3 className="center">Customer Reports</h3>
-				<SearchForm newSearch={this.newSearch} />
+				<SearchForm ref='searchForm' newSearch={this.newSearch} />
 				{ this.displayCustomers() }
+					<button onClick={this.prevPage} className='btn-flat' >Prev page</button>
+					<button onClick={this.nextPage} className='btn-flat' >Next page</button>
 				<hr />
 			</div>
 		)

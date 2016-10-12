@@ -14,29 +14,27 @@ class Customer < ApplicationRecord
 	end
 
 
-	def self.return_customers(order, term, category, status)
+	def self.return_customers(order, term, category, status, offset)
 		if term.blank?
-			all.set_order(order).set_status(status).set_limit
+			all.set_order(order).set_status(status).set_limit.offset(offset)
 		else
-		Customer.inner_join(category, status, term).set_order(order).set_limit
+			Customer.inner_join(category, status, term).set_order(order).set_limit.offset(offset)
 		end
 	end
 
 	def self.set_limit
-		limit(50)
+		limit(20)
 	end
 
 
 	def self.set_order(order)
 		case order
-		when 'Newest to Oldest'
-			order(created_at: :desc)
 		when 'Oldest to Newest'
 			order(created_at: :asc)
 		when 'A-Z'
 			order(:name)
 		else 
-			all
+			order(created_at: :desc)
 		end
 	end
 
