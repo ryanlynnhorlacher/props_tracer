@@ -4,6 +4,7 @@ import Map from './Map';
 import CustomerInput from './CustomerInput';
 import FinalEstimate from './FinalEstimate';
 import ReactDOM from 'react-dom'
+import SelfMeasurement from './SelfMeasurement'
 
 class Estimate extends Component {
 	constructor(props) {
@@ -14,11 +15,13 @@ class Estimate extends Component {
 		this.showFinalEstimate = this.showFinalEstimate.bind(this);
 		this.addCustomer = this.addCustomer.bind(this);
 		this.renderFinalEstimate = this.renderFinalEstimate.bind(this);
-		this.dontRenderFinalEstimate = this.dontRenderFinalEstimate.bind(this);
+		this.showMap = this.showMap.bind(this);
 		this.showCustomerInput = this.showCustomerInput.bind(this);
 		this.showFenceChoices = this.showFenceChoices.bind(this);
 
-		this.state = { 
+		this.state = {
+			showSelfMeasurement: false,
+			showMap: true, 
 			showCustomerInput: false,
 			showFenceChoices: false,
 			showingFinalEstimate: false,
@@ -37,11 +40,13 @@ class Estimate extends Component {
 		this.setState({
 			showingFinalEstimate: true,
 			showFenceChoices: false,
-			showCustomerInput: false
+			showCustomerInput: false,
+			showSelfMeasurement: false
 		})
 	}
 
 	setDistance(distance) {
+		console.log(distance)
 		this.setState({ estimate:{ distance: distance},
 										showFenceChoices: true })
 	}
@@ -105,24 +110,41 @@ class Estimate extends Component {
 			)
 	}
 
-	dontRenderFinalEstimate() {
-		if(this.state.showingFinalEstimate === false)
+	showMap() {
+		if(this.state.showMap === true)
 			return(
-				<div id='beforeEstimate'>
+				<div id='beforeEstimate' className='center'>
+				<h6>To input distance manually:</h6>
+				<button className='btn btn-flat' onClick={ () => this.setState({showMap: false, 
+					showSelfMeasurement: true}) }>Manual Input</button>
 					<Map setDistance={this.setDistance} />
 				</div>
 			)
-		else
-			return null
+		else if(this.state.showMap === false && this.state.showSelfMeasurement ===  true)
+			return(
+				<div className='center'>
+					<SelfMeasurement setDistance={this.setDistance} />
+					<button className='btn red'onClick={() => this.setState({ showMap: true, 
+						showSelfMeasurement: false }) }
+						>Cancel</button>
+				</div>
+			)
 	}
-
-
 
 	render() {
 		return(
 			<div id='estimateDiv'>
+			<h2 className='center'>HOW TO USE:</h2>
+			<div className='card col s12 left-align text-bg flow-text round'>
+				<ul className='browser-default'>
+					<li>Find your property</li>
+					<li>Draw your fence by clicking on the map</li>
+					<li>Select fence options and input customer information</li>
+					<li>The Estimate Details will appear after submission</li>
+				</ul>
+			</div>
 				{this.renderFinalEstimate() }
-				{this.dontRenderFinalEstimate() }
+				{this.showMap() }
 				{this.showFenceChoices() }
 				{this.showCustomerInput() }
 			</div>

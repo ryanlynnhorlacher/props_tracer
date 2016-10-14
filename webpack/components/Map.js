@@ -22,6 +22,7 @@ class Map extends Component {
 		this.enableDrawing = this.enableDrawing.bind(this);
 		this.handleFindAddressSubmit = this.handleFindAddressSubmit.bind(this);
 		this.findAddress = this.findAddress.bind(this);
+		this.clearLines = this.clearLines.bind(this);
 
 		this.state = { length: 0, drawing: true, lat: 40.7704502, lng: -111.8941115 }
 	}
@@ -137,7 +138,7 @@ class Map extends Component {
 		}
 	}
 
-	enableDrawing() {
+	clearLines() {
 		if(handler) {
 			if(polyline) {
 				handler.removeMarker(polyline[0])
@@ -147,11 +148,15 @@ class Map extends Component {
 				handler.removeMarker(startPoint[0])
 				startPoint = null
 			}
-			coords = []
+		coords = []
+		}
+	}
+
+	enableDrawing() {
+		this.clearLines()
 			handler.getMap().addListener('click', (e) => {
 	      this.drawLines(e)})
-			this.setState({length: 0})
-		}
+		this.setState({length: 0})
 	}
 
 	calcLength() {
@@ -170,20 +175,6 @@ class Map extends Component {
 	render() {
 		return(
 			<div>
-
-				<div>
-					<h2 className='center'>HOW TO USE:</h2>
-				</div>
-
-				<div className='card col s12 left-align text-bg flow-text round'>
-					<ul className='browser-default'>
-						<li>Find your property</li>
-						<li>Draw your fence by clicking on the map</li>
-						<li>Select fence options and input customer information</li>
-						<li>The Estimate Details will appear after submission</li>
-					</ul>
-				</div>
-
 				<div className="center light-gray round map-pad">
 					<MapAddressForm handleFindAddressSubmit={this.handleFindAddressSubmit} />
 					<div className="map-div" style={styles.map}>
