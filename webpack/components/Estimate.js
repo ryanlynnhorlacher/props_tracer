@@ -37,16 +37,17 @@ class Estimate extends Component {
 	}
 
 	showFinalEstimate() {
+		this.refs.map ? this.refs.map.clearLines() : null
 		this.setState({
 			showingFinalEstimate: true,
 			showFenceChoices: false,
 			showCustomerInput: false,
-			showSelfMeasurement: false
+			showSelfMeasurement: false,
+			showMap: false
 		})
 	}
 
 	setDistance(distance) {
-		console.log(distance)
 		this.setState({ estimate:{ distance: distance},
 										showFenceChoices: true })
 	}
@@ -87,16 +88,17 @@ class Estimate extends Component {
 	}
 
 	renderFinalEstimate() {
-		if(this.state.showingFinalEstimate === true )
+		if(this.state.showingFinalEstimate === true ) {
 			return(
-					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} gateType={this.state.estimate.gateType} />
-			)
+					<FinalEstimate finalEstimateInfo={this.state.finalEstimateInfo} 
+					gateType={this.state.estimate.gateType} />
+			)}
 		else
 			return null
 	}
 
 	showFenceChoices() {
-		if(this.state.showFenceChoices ===  true )
+		if(this.state.showFenceChoices ===  true)
 			return(
 					<FenceChoices setEstimateInfo={this.setEstimateInfo} />
 			)
@@ -117,7 +119,7 @@ class Estimate extends Component {
 				<h6>To input distance manually:</h6>
 				<button className='btn btn-flat' onClick={ () => this.setState({showMap: false, 
 					showSelfMeasurement: true}) }>Manual Input</button>
-					<Map setDistance={this.setDistance} />
+					<Map ref='map' setDistance={this.setDistance} />
 				</div>
 			)
 		else if(this.state.showMap === false && this.state.showSelfMeasurement ===  true)

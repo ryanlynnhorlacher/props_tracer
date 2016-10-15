@@ -35,7 +35,6 @@ class Map extends Component {
 		street = street.trim().replace(/ /gi, '+');
 		city = `+${city.trim().replace(/ /gi, '+')}`;
 		state = `+${state.trim()}`;
-		console.log(state);
 
 		this.findAddress(street, city, state)
 
@@ -67,20 +66,26 @@ class Map extends Component {
 			polyline = handler.addPolylines(
 		    [coords], { strokeColor: '#FF0000'}
 		  	)
+		  	this.forceUpdate()
 		}
 	  	else {
 	  		startPoint = handler.addMarkers([
 	  			{lat: e.latLng.lat(), lng: e.latLng.lng() }
 	  		])
+	  		this.forceUpdate()
 	  	}
 	}
 
 	undoLine() {
-		handler.removeMarker(polyline[0])
+		polyline ? handler.removeMarker(polyline[0]) : null
+		polyline = null
 		coords.pop()
 		if (coords.length === 0 ) {
 			handler.removeMarker(startPoint[0])
 			startPoint = null
+			this.forceUpdate()
+		} else if (coords.length === 1){
+			this.forceUpdate()
 		} else {
 			polyline = handler.addPolylines(
 	    	[coords], { strokeColor: '#FF0000'})
@@ -123,12 +128,14 @@ class Map extends Component {
 
 	calcLengthButton() {
 		if(this.state.length === 0) {
-			return(
-				<div>
-					<button className="btn-flat btn green" onClick={this.calcLength}>Finshed Setting Fence!</button>
-					<button className="btn-flat btn yellow" onClick={() => this.undoLine()}>Undo Last Point</button>
-				</div>
-			)
+				return(
+					<div>
+						{polyline ? <button className="btn-flat btn green" 
+						onClick={this.calcLength}>Finshed Setting Fence!</button> : null}
+						{startPoint ? <button className="btn-flat btn yellow" 
+						onClick={() => this.undoLine()}>Undo Last Point</button> : null}
+					</div>
+				)
 		} else {
 			return(
 				<div>
@@ -168,7 +175,6 @@ class Map extends Component {
 		if(length > 0)
 			google.maps.event.clearListeners(handler.getMap(), 'click');
 		this.props.setDistance(length.toFixed(0))
-		console.log(length)
 		this.setState({length})
 	}
 
